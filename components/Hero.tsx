@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const Hero: React.FC = () => {
   return (
@@ -51,20 +52,16 @@ export const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* RIGHT SIDE - Heart SVG */}
+          {/* RIGHT SIDE - Logo */}
           <div className="flex justify-center lg:justify-end">
-            <div className="w-64 h-64 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px]">
-              <svg
-                viewBox="0 0 200 200"
-                className="w-full h-full text-tynec-red"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="11"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M 60 165 C 25 125 25 45 80 45 C 105 45 115 70 115 70 C 115 70 130 45 160 45 C 195 45 195 115 130 165 L 45 190" />
-              </svg>
+            <div className="w-64 h-64 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px] relative">
+              <Image
+                src="/images/logo-white.png"
+                alt="Pro Velký Týnec"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
           </div>
         </div>

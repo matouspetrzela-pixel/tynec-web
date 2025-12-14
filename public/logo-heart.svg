@@ -1,0 +1,12 @@
+<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <!-- Bílé pozadí -->
+  <rect width="1024" height="1024" fill="#ffffff"/>
+
+  <!-- Červené srdce - hand-drawn styl z původního loga -->
+  <path d="M 360 565 C 325 525 325 445 380 445 C 405 445 415 470 415 470 C 415 470 430 445 460 445 C 495 445 495 515 430 565 L 345 590 M 480 340 C 440 280 440 160 520 160 C 560 160 580 200 580 200 C 580 200 610 160 660 160 C 720 160 720 270 630 360 L 480 480"
+        fill="none"
+        stroke="#c32b2b"
+        stroke-width="28"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+</svg>
