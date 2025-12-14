@@ -54,7 +54,7 @@ export const Hero: React.FC = () => {
 
           {/* RIGHT SIDE - Logo */}
           <div className="flex justify-center lg:justify-end">
-            <div className="w-64 h-64 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px] relative">
+            <div className="w-[307px] h-[307px] md:w-[461px] md:h-[461px] lg:w-[600px] lg:h-[600px] relative">
               <Image
                 src="/images/logo-white.png"
                 alt="Pro Velký Týnec"
