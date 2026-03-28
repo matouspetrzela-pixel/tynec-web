@@ -34,7 +34,7 @@ export const AboutPreview: React.FC = () => {
             className="font-semibold italic leading-snug tracking-tight text-tynec-black"
             style={{ fontSize: 'clamp(1.3rem, 3vw, 2.1rem)' }}
           >
-            „Nejde o politiku — jde o obec, ve které žijeme."
+            &bdquo;Nejde o politiku &mdash; jde o obec, ve které žijeme.&ldquo;
           </p>
           <cite className="mt-3 block text-sm font-medium not-italic text-tynec-gray">
             Pro Velký Týnec, kandidátka 2026
