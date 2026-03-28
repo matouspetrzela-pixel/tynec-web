@@ -1,16 +1,20 @@
 import React from 'react';
-import { Mail, MapPin } from 'lucide-react';
+import { Mail } from 'lucide-react';
+import { FacebookBrandIcon } from '@/components/FacebookBrandIcon';
+
+const FB_URL =
+  process.env.NEXT_PUBLIC_FACEBOOK_URL ?? 'https://www.facebook.com/';
 
 export default function KontaktPage() {
   return (
-    <div className="pt-24 pb-16">
+    <div className="pb-16 pt-8">
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-h1-mobile md:text-h1-desktop font-bold uppercase mb-6">
-            <span className="text-tynec-red">Kontakt</span>
+          <h1 className="mb-6 text-h1-mobile font-bold uppercase text-tynec-black md:text-h1-desktop">
+            Kontakt
           </h1>
-          <div className="w-24 h-1 bg-tynec-red mx-auto mb-8"></div>
+          <div className="mx-auto mb-8 h-1 w-24 bg-gray-300"></div>
           <p className="text-lg md:text-xl text-tynec-gray max-w-3xl mx-auto">
             Máte dotaz, nápad nebo připomínku? Rádi vás vyslechnem a odpovíme na vaše otázky.
           </p>
@@ -22,8 +26,8 @@ export default function KontaktPage() {
             <div className="space-y-8">
               {/* Email */}
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-tynec-red bg-opacity-10 rounded-full flex items-center justify-center">
-                  <Mail className="w-6 h-6 text-tynec-red" />
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary/10">
+                  <Mail className="h-6 w-6 text-primary" />
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-tynec-black uppercase mb-2">
@@ -31,26 +35,30 @@ export default function KontaktPage() {
                   </h3>
                   <a
                     href="mailto:info@provelkytynec.cz"
-                    className="text-tynec-gray hover:text-tynec-red transition-colors text-lg"
+                    className="text-lg text-tynec-gray transition-colors hover:text-tynec-black"
                   >
                     info@provelkytynec.cz
                   </a>
                 </div>
               </div>
 
-              {/* Address */}
+              {/* Facebook */}
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-tynec-red bg-opacity-10 rounded-full flex items-center justify-center">
-                  <MapPin className="w-6 h-6 text-tynec-red" />
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-[#1877F2]/12">
+                  <FacebookBrandIcon className="h-8 w-8" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-tynec-black uppercase mb-2">
-                    Adresa
+                  <h3 className="mb-2 text-lg font-bold uppercase text-tynec-black">
+                    Facebook
                   </h3>
-                  <p className="text-tynec-gray text-lg">
-                    Velký Týnec<br />
-                    Česká republika
-                  </p>
+                  <a
+                    href={FB_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-lg text-tynec-gray transition-colors hover:text-tynec-black"
+                  >
+                    Skupina Pro Velký Týnec — sledujte dění a diskutujte s námi
+                  </a>
                 </div>
               </div>
             </div>
@@ -65,7 +73,7 @@ export default function KontaktPage() {
               Pokud souhlasíte s naším programem a chcete nás podpořit, budeme rádi za vaši důvěru
               v komunálních volbách 2026.
             </p>
-            <div className="inline-block px-8 py-4 bg-tynec-red text-white text-sm md:text-base font-bold uppercase tracking-wide">
+            <div className="inline-block rounded-xl bg-primary px-8 py-4 text-sm font-bold uppercase tracking-wide text-white md:text-base">
               Děkujeme za vaši podporu
             </div>
           </div>

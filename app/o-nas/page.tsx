@@ -2,15 +2,14 @@ import React from 'react';
 
 export default function ONasPage() {
   return (
-    <div className="pt-24 pb-16">
+    <div className="pb-16 pt-8">
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-h1-mobile md:text-h1-desktop font-bold uppercase mb-6">
-            <span className="text-tynec-black">O </span>
-            <span className="text-tynec-red">nás</span>
+          <h1 className="mb-6 text-h1-mobile font-bold uppercase text-tynec-black md:text-h1-desktop">
+            O nás
           </h1>
-          <div className="w-24 h-1 bg-tynec-red mx-auto"></div>
+          <div className="mx-auto h-1 w-24 bg-gray-300"></div>
         </div>
 
         {/* Content */}

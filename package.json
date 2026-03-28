@@ -3,7 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "clean": "node -e \"const fs=require('fs');['.next','node_modules/.cache'].forEach(p=>{try{fs.rmSync(p,{recursive:true,force:true})}catch(e){}})\"",
+    "dev": "next dev -p 3000",
+    "dev:turbo": "next dev -p 3000 --turbo",
+    "dev:clean": "npm run clean && next dev -p 3000",
+    "dev:clean:turbo": "npm run clean && next dev -p 3000 --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -18,6 +22,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "autoprefixer": "^10.4.27",
     "eslint": "^8",
     "eslint-config-next": "14.2.35",
     "postcss": "^8",

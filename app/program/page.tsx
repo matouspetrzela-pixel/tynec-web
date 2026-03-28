@@ -16,50 +16,46 @@ export default function ProgramPage() {
   ];
 
   return (
-    <div className="pt-24 pb-16">
+    <div className="pb-16 pt-8">
       <div className="container mx-auto px-6">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-h1-mobile md:text-h1-desktop font-bold uppercase mb-6">
-            <span className="text-tynec-black">Náš </span>
-            <span className="text-tynec-red">program</span>
+        <div className="mb-16 text-center">
+          <h1 className="mb-6 text-h1-mobile font-bold uppercase text-tynec-black md:text-h1-desktop">
+            Náš program
           </h1>
-          <div className="w-24 h-1 bg-tynec-red mx-auto mb-8"></div>
-          <p className="text-lg md:text-xl text-tynec-gray max-w-3xl mx-auto">
+          <div className="mx-auto mb-8 h-1 w-24 bg-gray-300" />
+          <p className="mx-auto max-w-3xl text-lg text-tynec-gray md:text-xl">
             Náš program vychází z potřeb občanů a dlouhodobé koncepce rozvoje obce.
             Prioritami jsou kvalita života, tradice a moderní infrastruktura.
           </p>
         </div>
 
-        {/* Program Points */}
-        <div className="max-w-4xl mx-auto space-y-6">
+        <div className="mx-auto max-w-4xl space-y-6">
           {programPoints.map((point, index) => (
             <div
               key={index}
-              className="flex items-start gap-4 p-6 bg-white border border-gray-200 hover:border-tynec-red transition-all duration-300"
+              className="flex items-start gap-4 border border-gray-200 bg-white p-6 transition-all duration-300 hover:border-gray-400"
             >
-              <div className="flex-shrink-0 w-8 h-8 rounded-full border-2 border-tynec-red flex items-center justify-center">
-                <Check className="w-4 h-4 text-tynec-red" />
+              <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border-2 border-tynec-black/25">
+                <Check className="h-4 w-4 text-tynec-black" />
               </div>
-              <p className="text-base md:text-lg text-tynec-black font-normal pt-1">
+              <p className="pt-1 text-base font-normal text-tynec-black md:text-lg">
                 {point}
               </p>
             </div>
           ))}
         </div>
 
-        {/* Call to Action */}
         <div className="mt-16 text-center">
-          <div className="max-w-2xl mx-auto p-8 bg-gray-50 border border-gray-200">
-            <h2 className="text-h3-mobile md:text-h3-desktop font-bold text-tynec-black uppercase mb-4">
+          <div className="mx-auto max-w-2xl border border-gray-200 bg-gray-50 p-8">
+            <h2 className="mb-4 text-h3-mobile font-bold uppercase text-tynec-black md:text-h3-desktop">
               Máte nápad nebo připomínku?
             </h2>
-            <p className="text-tynec-gray mb-6">
+            <p className="mb-6 text-tynec-gray">
               Program tvoříme společně s vámi. Napište nám, co vás v obci trápí nebo co byste chtěli změnit.
             </p>
             <a
               href="/kontakt"
-              className="inline-block px-8 py-4 bg-tynec-red text-white text-sm md:text-base font-bold uppercase tracking-wide hover:bg-red-700 transition-colors"
+              className="inline-block rounded-xl bg-primary px-8 py-4 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-primary-hover md:text-base"
             >
               Napište nám
             </a>

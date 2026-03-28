@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import { HeartIcon } from '@/components/HeartIcon';
 
 export const Footer: React.FC = () => {
   const navItems = [
@@ -11,31 +11,33 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-tynec-black text-white py-12">
-      <div className="container mx-auto px-6">
-        {/* Top Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
-          {/* Logo + Text */}
-          <div className="flex items-center gap-3">
-            <Image
-              src="/images/logo-white.png"
-              alt="Pro Velký Týnec"
-              width={40}
-              height={40}
-              className="w-10 h-10"
-            />
-            <span className="text-xl font-bold tracking-wide uppercase">
-              Pro Velký Týnec
-            </span>
+    <footer className="border-t border-white/10 bg-tynec-black text-white">
+      <div className="container mx-auto max-w-6xl px-4 py-14 sm:px-6">
+        <div className="flex flex-col items-center justify-between gap-10 md:flex-row md:items-start">
+          <div className="flex flex-col items-center gap-3 md:items-start">
+            <div className="flex items-center gap-3">
+              <span className="text-white">
+                <HeartIcon className="h-9 w-9" />
+              </span>
+              <span className="text-base font-bold uppercase tracking-[0.1em]">
+                Pro Velký Týnec
+              </span>
+            </div>
+            <p className="max-w-sm text-center text-sm leading-relaxed text-white/60 md:text-left">
+              Komunální volby 2026. Profesionální přístup k rozvoji obce — s respektem k tradici i
+              moderním standardům.
+            </p>
           </div>
 
-          {/* Navigation */}
-          <nav className="flex flex-wrap justify-center gap-6">
+          <nav
+            className="flex flex-wrap justify-center gap-x-8 gap-y-3 md:justify-end"
+            aria-label="Patička"
+          >
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-sm font-normal hover:text-tynec-red transition-colors uppercase"
+                className="text-xs uppercase tracking-[0.12em] text-white/75 transition-colors hover:text-white"
               >
                 {item.label}
               </Link>
@@ -43,10 +45,9 @@ export const Footer: React.FC = () => {
           </nav>
         </div>
 
-        {/* Bottom Section */}
-        <div className="border-t border-gray-700 pt-8 text-center">
-          <p className="text-sm text-gray-400">
-            &copy; 2026 Pro Velký Týnec. Všechna práva vyhrazena.
+        <div className="mt-12 border-t border-white/10 pt-8 text-center md:text-left">
+          <p className="text-xs text-white/45">
+            © 2026 Pro Velký Týnec. Všechna práva vyhrazena.
           </p>
         </div>
       </div>
