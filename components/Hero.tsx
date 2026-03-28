@@ -1,89 +1,86 @@
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { FacebookBrandIcon } from '@/components/FacebookBrandIcon';
-
-const FB_URL =
-  process.env.NEXT_PUBLIC_FACEBOOK_URL ?? 'https://www.facebook.com/';
-
-/** Bez panelu — čitelnost vs. prosvětlená fotka (další krok zesvětlení). */
-const HERO_OVERLAY =
-  'linear-gradient(90deg, rgba(0,0,0,0.58) 0%, rgba(0,0,0,0.30) 52%, rgba(0,0,0,0.08) 100%)';
-
-/** Vinetace + spodní ztmavení — ještě lehčí, aby fotka více prosvítala. */
-const HERO_ATMOSPHERE =
-  'linear-gradient(to top, rgba(0,0,0,0.08) 0%, transparent 38%), radial-gradient(ellipse 95% 85% at 50% 42%, transparent 0%, rgba(0,0,0,0.06) 100%)';
+import { FACEBOOK_URL } from '@/lib/social';
 
 export const Hero: React.FC = () => {
   return (
-    <section className="relative w-full overflow-hidden bg-neutral-900">
-      <div className="relative min-h-[min(100dvh,920px)] w-full md:min-h-[calc(100dvh-6rem)]">
-        <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-          {/*
-            next/image: vyšší quality (JPEG), sizes=100vw = ostré na velkých displejích.
-            Bez zvětšení přes 100 % — škálování nad 100 % rozmazává detaily.
-          */}
-          <Image
-            src="/images/9000.jpg"
-            alt="Velký Týnec"
-            fill
-            priority
-            quality={95}
-            sizes="100vw"
-            className="object-cover object-[center_45%] brightness-[1.09] contrast-[1.03] sm:object-[center_42%_40%] md:object-[62%_38%]"
-          />
-        </div>
-
-        <div
-          className="pointer-events-none absolute inset-0 z-[1] min-h-full"
-          style={{ background: HERO_ATMOSPHERE }}
-          aria-hidden
+    <section className="relative w-full overflow-hidden" aria-label="Úvod">
+      {/* Fotka obce — plná viditelnost bez tmavého překrytí */}
+      <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/9000.jpg"
+          alt="Velký Týnec"
+          width={1920}
+          height={1080}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover object-[center_45%] brightness-[1.1] contrast-[1.04] sm:object-[center_42%_40%] md:object-[62%_38%]"
         />
+      </div>
 
+      {/* Layout */}
+      <div className="relative z-10 mx-auto flex min-h-[min(100dvh,920px)] max-w-6xl flex-col justify-end px-4 pb-14 pt-28 sm:px-6 md:min-h-[calc(100dvh-5rem)] md:justify-center md:pb-20 md:pt-12 lg:pb-24">
+
+        {/* Glass panel — text čitelný, foto prosvítá skrz */}
         <div
-          className="pointer-events-none absolute inset-0 z-[2] min-h-full"
-          style={{ background: HERO_OVERLAY }}
-          aria-hidden
-        />
+          className="w-full max-w-[460px] rounded-3xl px-7 py-8 sm:px-9 sm:py-10"
+          style={{
+            background: 'rgba(10, 10, 10, 0.48)',
+            backdropFilter: 'blur(18px)',
+            WebkitBackdropFilter: 'blur(18px)',
+            border: '1px solid rgba(255, 255, 255, 0.10)',
+            boxShadow: '0 8px 40px 0 rgba(0,0,0,0.25)',
+          }}
+        >
+          {/* Červená dekorativní linka */}
+          <div className="mb-6 h-[3px] w-10 bg-primary" aria-hidden />
 
-        <div className="relative z-[10] mx-auto flex min-h-[min(100dvh,920px)] max-w-6xl flex-col justify-end px-4 pb-14 pt-28 sm:px-6 md:min-h-[calc(100dvh-6rem)] md:justify-center md:pb-20 md:pt-12 lg:pb-24">
-          <div className="mx-auto w-full max-w-2xl text-center md:mx-0 md:text-left">
-            <h1 className="font-sans text-[2.7rem] font-black leading-[1.08] tracking-[-0.03em] text-white drop-shadow-[0_2px_28px_rgba(0,0,0,0.55)] sm:text-[3.6rem] lg:text-[4.5rem] xl:text-[5.4rem]">
-              <span className="block">Srdcem</span>
-              <span className="mt-2 block whitespace-nowrap sm:mt-3">Pro Velký Týnec</span>
-            </h1>
+          <h1
+            className="font-sans leading-[1.07] tracking-[-0.03em] text-white"
+            style={{ fontWeight: 900, fontSize: 'clamp(2rem, 4.5vw, 3.8rem)' }}
+          >
+            <span className="block">Srdcem</span>
+            <span className="mt-1 block sm:mt-2">Pro Velký Týnec</span>
+          </h1>
 
-            <p className="mt-8 text-[1.5rem] font-medium leading-snug text-white/95 drop-shadow-[0_1px_16px_rgba(0,0,0,0.45)] sm:text-[1.8rem]">
-              Rozum do rozvoje, srdce do komunity.
-            </p>
+          <p
+            className="mt-5 font-medium leading-snug text-white/85"
+            style={{ fontSize: 'clamp(1rem, 2vw, 1.25rem)' }}
+          >
+            Rozum do rozvoje, srdce do komunity.
+          </p>
 
-            <div className="mt-10 flex min-h-[58px] flex-col items-stretch gap-5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-10 sm:gap-y-4">
-              <Link
-                href="/program"
-                className="inline-flex min-h-[58px] items-center justify-center text-[1.05rem] font-bold uppercase tracking-[0.12em] text-white underline decoration-primary decoration-2 underline-offset-[12px] transition-colors hover:text-white/90 sm:justify-start"
-              >
-                Náš program 2026
-              </Link>
-              <Link
-                href="/o-nas"
-                className="inline-flex min-h-[58px] items-center justify-center text-[1.05rem] font-bold uppercase tracking-[0.12em] text-white/90 underline decoration-white/50 decoration-2 underline-offset-[12px] transition-colors hover:text-white sm:justify-start"
-              >
-                Poznejte nás
-              </Link>
-            </div>
-
-            <a
-              href={FB_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-flex min-h-[58px] max-w-full items-center justify-center gap-3 text-left text-[1.2rem] font-medium leading-snug text-white/95 drop-shadow-[0_1px_12px_rgba(0,0,0,0.4)] transition-colors hover:text-white md:justify-start"
+          {/* CTA */}
+          <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:flex-wrap sm:gap-x-8">
+            <Link
+              href="/program"
+              className="inline-flex min-h-[50px] items-center text-[0.9rem] font-bold uppercase tracking-[0.12em] text-white underline decoration-primary decoration-2 underline-offset-[10px] transition-opacity hover:opacity-75"
             >
-              <FacebookBrandIcon className="h-[2.4rem] w-[2.4rem] shrink-0" />
-              <span className="min-w-0 underline decoration-white/35 underline-offset-4">
-                Diskutujte s námi ve skupině Pro Velký Týnec
-              </span>
-            </a>
+              Náš program 2026
+            </Link>
+            <Link
+              href="/o-nas"
+              className="inline-flex min-h-[50px] items-center text-[0.9rem] font-bold uppercase tracking-[0.12em] text-white/70 underline decoration-white/30 decoration-2 underline-offset-[10px] transition-colors hover:text-white"
+            >
+              Poznejte nás
+            </Link>
           </div>
+
+          {/* Facebook */}
+          <a
+            href={FACEBOOK_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-7 inline-flex items-center gap-3 text-[0.9rem] font-medium leading-snug text-white/70 transition-colors hover:text-white"
+          >
+            <FacebookBrandIcon className="h-8 w-8 shrink-0" />
+            <span className="min-w-0 underline decoration-white/20 underline-offset-4">
+              Diskutujte s námi ve skupině
+            </span>
+          </a>
         </div>
       </div>
     </section>

@@ -1,9 +1,7 @@
 import React from 'react';
 import { Mail } from 'lucide-react';
 import { FacebookBrandIcon } from '@/components/FacebookBrandIcon';
-
-const FB_URL =
-  process.env.NEXT_PUBLIC_FACEBOOK_URL ?? 'https://www.facebook.com/';
+import { FACEBOOK_URL } from '@/lib/social';
 
 export default function KontaktPage() {
   return (
@@ -52,7 +50,7 @@ export default function KontaktPage() {
                     Facebook
                   </h3>
                   <a
-                    href={FB_URL}
+                    href={FACEBOOK_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-lg text-tynec-gray transition-colors hover:text-tynec-black"

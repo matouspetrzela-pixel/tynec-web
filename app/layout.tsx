@@ -27,7 +27,7 @@ export default function RootLayout({
     <html lang="cs" className={inter.variable}>
       <body className={inter.className}>
         <Header />
-        <main className="min-h-screen pt-[88px] md:pt-24">{children}</main>
+        <main className="min-h-screen pt-[70px] md:pt-[77px]">{children}</main>
         <Footer />
       </body>
     </html>

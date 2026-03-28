@@ -10,11 +10,10 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 96px;
+  scroll-padding-top: 77px;
 }
 
 body {
-  /* 18px základ pro čitelnost (odpovídá text-lg) */
   @apply font-sans text-lg leading-relaxed text-tynec-black bg-white antialiased;
 }
 
@@ -59,13 +58,32 @@ h6 {
       0 12px 24px -10px rgba(26, 26, 26, 0.08);
   }
 
+  /* ── Scroll reveal — CSS-only, zadny JS ───────────────────────────────── */
+
+  @keyframes reveal-up {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    animation: reveal-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 28%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      animation: none !important;
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* ── CandidatesGrid entrance animace ─────────────────────────────────── */
+
   @keyframes fade-up {
-    0% {
-      transform: translateY(18px);
-    }
-    100% {
-      transform: translateY(0);
-    }
+    0%   { transform: translateY(18px); }
+    100% { transform: translateY(0); }
   }
 
   .animate-fade-up {
@@ -101,5 +119,33 @@ h6 {
     .animate-float {
       animation: none !important;
     }
+  }
+}
+
+/* ── View Transition API — plynule prechody mezi strankami ───────────────
+   @supports zarucuje, ze starsi prohlizece bez podpory zustaji bez zmeny. */
+@supports (view-transition-name: none) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.28s;
+    animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  ::view-transition-old(root) {
+    animation-name: vt-fade-out;
+  }
+
+  ::view-transition-new(root) {
+    animation-name: vt-fade-in;
+  }
+
+  @keyframes vt-fade-out {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+  }
+
+  @keyframes vt-fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
   }
 }
