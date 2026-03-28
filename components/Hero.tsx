@@ -78,7 +78,7 @@ export const Hero: React.FC = () => {
           >
             <FacebookBrandIcon className="h-8 w-8 shrink-0" />
             <span className="min-w-0 underline decoration-white/20 underline-offset-4">
-              Diskutujte s námi ve skupině
+              Pojďme do toho společně.
             </span>
           </a>
         </div>
