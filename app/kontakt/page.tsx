@@ -58,7 +58,7 @@ export default function KontaktPage() {
                 className="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-7 py-3.5 text-sm font-bold uppercase tracking-[0.1em] text-tynec-black transition-colors hover:border-gray-300"
               >
                 <FacebookBrandIcon className="h-4 w-4 shrink-0" />
-                Sdílejte na Facebooku
+                Sdílejte nás na Facebooku
               </a>
               <a
                 href={`mailto:${EMAIL}`}
