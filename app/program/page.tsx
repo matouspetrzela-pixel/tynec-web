@@ -30,7 +30,7 @@ const PROGRAM: ProgramItem[] = [
 
 export default function ProgramPage() {
   return (
-    <div className="pb-20 pt-12">
+    <div className="pb-20 pt-16">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
 
         {/* Záhlaví */}
