@@ -42,8 +42,8 @@ export const Hero: React.FC = () => {
             className="font-sans leading-[1.07] tracking-[-0.03em] text-white"
             style={{ fontWeight: 900, fontSize: 'clamp(2rem, 4.5vw, 3.8rem)' }}
           >
-            <span className="block">Srdcem</span>
-            <span className="mt-1 block sm:mt-2">Pro Týnec Srdcem</span>
+            <span className="block">Pro Týnec</span>
+            <span className="mt-1 block sm:mt-2">Srdcem</span>
           </h1>
 
           <p
