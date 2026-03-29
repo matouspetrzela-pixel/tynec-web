@@ -37,7 +37,7 @@ export const AboutPreview: React.FC = () => {
             &bdquo;Nejde o politiku &mdash; jde o obec, ve které žijeme.&ldquo;
           </p>
           <cite className="mt-3 block text-sm font-medium not-italic text-tynec-gray">
-            Pro Velký Týnec, kandidátka 2026
+            Pro Týnec Srdcem, kandidátka 2026
           </cite>
         </blockquote>
 

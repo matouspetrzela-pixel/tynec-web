@@ -19,7 +19,7 @@ export function generateMetadata({ params }: Props): Metadata {
   const candidate = getCandidateBySlug(params.slug);
   if (!candidate) return {};
   return {
-    title: `${candidate.name} – Pro Velký Týnec`,
+    title: `${candidate.name} – Pro Týnec Srdcem`,
     description: candidate.heartPriority,
   };
 }

@@ -47,7 +47,7 @@ export const Header: React.FC = () => {
               />
             </span>
             <span className="text-base font-bold uppercase leading-tight tracking-[0.08em] text-tynec-black md:text-lg lg:text-xl">
-              Pro Velký Týnec
+              Pro Týnec Srdcem
             </span>
           </Link>
 

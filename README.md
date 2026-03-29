@@ -1,6 +1,6 @@
-# Pro Velký Týnec — technická dokumentace
+# Pro Týnec Srdcem — technická dokumentace
 
-Webová prezentace kandidátky **Pro Velký Týnec** pro komunální volby 2026.
+Webová prezentace kandidátky **Pro Týnec Srdcem** pro komunální volby 2026.
 
 **Live URL:** [tynec-web.vercel.app](https://tynec-web.vercel.app)
 **Repozitář:** [github.com/matouspetrzela-pixel/tynec-web](https://github.com/matouspetrzela-pixel/tynec-web)

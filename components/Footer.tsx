@@ -29,7 +29,7 @@ export const Footer: React.FC = () => {
                 className="h-14 w-14 shrink-0"
               />
               <span className="text-base font-bold uppercase tracking-[0.1em]">
-                Pro Velký Týnec
+                Pro Týnec Srdcem
               </span>
             </div>
 
@@ -88,7 +88,7 @@ export const Footer: React.FC = () => {
 
         <div className="mt-12 border-t border-white/10 pt-8 text-center md:text-left">
           <p className="text-xs text-white/45">
-            © 2026 Pro Velký Týnec. Všechna práva vyhrazena.
+            © 2026 Pro Týnec Srdcem. Všechna práva vyhrazena.
           </p>
         </div>
       </div>

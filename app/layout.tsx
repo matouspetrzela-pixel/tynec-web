@@ -15,19 +15,19 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://tynec-web.vercel.app'),
   title: {
-    default: 'Pro Velký Týnec — Komunální volby 2026',
-    template: '%s | Pro Velký Týnec',
+    default: 'Pro Týnec Srdcem — Komunální volby 2026',
+    template: '%s | Pro Týnec Srdcem',
   },
   description:
-    'Politické hnutí Pro Velký Týnec. Rozum do rozvoje, srdce do komunity. Komunální volby 9.–10. října 2026.',
-  keywords: ['Pro Velký Týnec', 'komunální volby 2026', 'Velký Týnec', 'zastupitelé', 'obecní volby'],
+    'Politické hnutí Pro Týnec Srdcem. Rozum do rozvoje, srdce do komunity. Komunální volby 9.–10. října 2026.',
+  keywords: ['Pro Týnec Srdcem', 'komunální volby 2026', 'Velký Týnec', 'zastupitelé', 'obecní volby'],
   openGraph: {
-    siteName: 'Pro Velký Týnec',
+    siteName: 'Pro Týnec Srdcem',
     locale: 'cs_CZ',
     type: 'website',
-    title: 'Pro Velký Týnec — Komunální volby 2026',
+    title: 'Pro Týnec Srdcem — Komunální volby 2026',
     description:
-      'Politické hnutí Pro Velký Týnec. Rozum do rozvoje, srdce do komunity. Komunální volby 9.–10. října 2026.',
+      'Politické hnutí Pro Týnec Srdcem. Rozum do rozvoje, srdce do komunity. Komunální volby 9.–10. října 2026.',
     images: [
       {
         url: '/images/9000.jpg',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Pro Velký Týnec — Komunální volby 2026',
+    title: 'Pro Týnec Srdcem — Komunální volby 2026',
     description: 'Rozum do rozvoje, srdce do komunity. Volby 9.–10. října 2026.',
     images: ['/images/9000.jpg'],
   },

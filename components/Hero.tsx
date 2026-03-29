@@ -43,7 +43,7 @@ export const Hero: React.FC = () => {
             style={{ fontWeight: 900, fontSize: 'clamp(2rem, 4.5vw, 3.8rem)' }}
           >
             <span className="block">Srdcem</span>
-            <span className="mt-1 block sm:mt-2">Pro Velký Týnec</span>
+            <span className="mt-1 block sm:mt-2">Pro Týnec Srdcem</span>
           </h1>
 
           <p
