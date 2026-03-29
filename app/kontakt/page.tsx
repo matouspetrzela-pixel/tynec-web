@@ -1,8 +1,8 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import { Mail } from 'lucide-react';
 import { FacebookBrandIcon } from '@/components/FacebookBrandIcon';
 import { FACEBOOK_URL, EMAIL } from '@/lib/social';
+
 
 export const metadata: Metadata = {
   title: 'Kontakt',
@@ -30,59 +30,45 @@ export default function KontaktPage() {
         </header>
 
         <div className="max-w-2xl">
-          {/* Kontaktní karta */}
-          <div className="rounded-2xl border border-gray-100 bg-white p-8 md:p-12">
-            <div className="space-y-8">
-              {/* Email */}
-              <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary/10">
-                  <Mail className="h-6 w-6 text-primary" strokeWidth={1.75} />
-                </div>
-                <div>
-                  <h3 className="mb-2 text-base font-bold uppercase tracking-tight text-tynec-black">
-                    Email
-                  </h3>
-                  <a
-                    href={`mailto:${EMAIL}`}
-                    className="text-lg text-tynec-gray transition-colors hover:text-tynec-black"
-                  >
-                    {EMAIL}
-                  </a>
-                </div>
-              </div>
+          {/* Podpora CTA */}
+          <div className="rounded-2xl border border-gray-100 bg-white p-8 text-center md:p-10">
+            {/* Datum jako vizuální dominanta */}
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-primary">
+              Komunální volby
+            </p>
+            <p className="mt-1 font-black leading-none tracking-tight text-tynec-black" style={{ fontSize: 'clamp(2.4rem, 6vw, 3.6rem)' }}>
+              9.–10. října&nbsp;2026
+            </p>
 
-              {/* Facebook */}
-              <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-[#1877F2]/10">
-                  <FacebookBrandIcon className="h-7 w-7" />
-                </div>
-                <div>
-                  <h3 className="mb-2 text-base font-bold uppercase tracking-tight text-tynec-black">
-                    Facebook
-                  </h3>
-                  <a
-                    href={FACEBOOK_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-lg text-tynec-gray transition-colors hover:text-tynec-black"
-                  >
-                    Skupina Pro Velký Týnec — sledujte dění a diskutujte s námi
-                  </a>
-                </div>
-              </div>
+            {/* Červená dekorativní linka */}
+            <div className="mx-auto mt-5 h-[3px] w-10 bg-primary" />
+
+            <p className="mt-5 text-base text-tynec-black/75 md:text-lg">
+              Váš hlas rozhoduje o tom, jak bude obec vypadat za&nbsp;4&nbsp;roky.
+              <br className="hidden sm:block" />
+              Přijďte volit a řekněte ostatním, proč na tom záleží.
+            </p>
+
+            {/* Akce */}
+            <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+              <a
+                href={FACEBOOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-7 py-3.5 text-sm font-bold uppercase tracking-[0.1em] text-tynec-black transition-colors hover:border-gray-300"
+              >
+                <FacebookBrandIcon className="h-4 w-4 shrink-0" />
+                Sdílejte na Facebooku
+              </a>
+              <a
+                href={`mailto:${EMAIL}`}
+                className="inline-flex items-center rounded-xl border border-gray-200 bg-white px-7 py-3.5 text-sm font-bold uppercase tracking-[0.1em] text-tynec-black transition-colors hover:border-gray-300"
+              >
+                Napište nám
+              </a>
             </div>
           </div>
 
-          {/* Podpora CTA */}
-          <div className="mt-8 rounded-2xl border border-gray-100 bg-white p-8 text-center">
-            <h2 className="mb-4 text-h3-mobile font-bold uppercase text-tynec-black md:text-h3-desktop">
-              Podpořte nás
-            </h2>
-            <p className="mb-0 text-tynec-black/75">
-              Pokud souhlasíte s naším programem a chcete nás podpořit, budeme rádi za vaši důvěru
-              v komunálních volbách 9.–10. října 2026.
-            </p>
-          </div>
         </div>
       </div>
     </div>
