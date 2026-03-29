@@ -13,9 +13,36 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Pro Velký Týnec - Komunální volby 2026",
+  metadataBase: new URL('https://tynec-web.vercel.app'),
+  title: {
+    default: 'Pro Velký Týnec — Komunální volby 2026',
+    template: '%s | Pro Velký Týnec',
+  },
   description:
-    "Politické hnutí Pro Velký Týnec. Spojujeme tradici s moderním rozvojem. Společně pro naši obec, společně pro vás.",
+    'Politické hnutí Pro Velký Týnec. Rozum do rozvoje, srdce do komunity. Komunální volby 9.–10. října 2026.',
+  keywords: ['Pro Velký Týnec', 'komunální volby 2026', 'Velký Týnec', 'zastupitelé', 'obecní volby'],
+  openGraph: {
+    siteName: 'Pro Velký Týnec',
+    locale: 'cs_CZ',
+    type: 'website',
+    title: 'Pro Velký Týnec — Komunální volby 2026',
+    description:
+      'Politické hnutí Pro Velký Týnec. Rozum do rozvoje, srdce do komunity. Komunální volby 9.–10. října 2026.',
+    images: [
+      {
+        url: '/images/9000.jpg',
+        width: 1920,
+        height: 1080,
+        alt: 'Velký Týnec — pohled na obec',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Pro Velký Týnec — Komunální volby 2026',
+    description: 'Rozum do rozvoje, srdce do komunity. Volby 9.–10. října 2026.',
+    images: ['/images/9000.jpg'],
+  },
 };
 
 export default function RootLayout({

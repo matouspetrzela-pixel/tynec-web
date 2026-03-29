@@ -1,24 +1,35 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import { CandidatesGrid } from '@/components/CandidatesGrid';
+
+export const metadata: Metadata = {
+  title: 'Kandidáti',
+  description:
+    'Dvanáct tváří hnutí Pro Velký Týnec. Poznáváme je — lidé z obce, kteří chtějí rozvíjet Velký Týnec, Vsisko a Čechovice.',
+};
 
 export default function KandidatiPage() {
   return (
-    <div className="pb-16 pt-8">
-      <div className="container mx-auto px-6">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="mb-6 text-h1-mobile font-bold uppercase text-tynec-black md:text-h1-desktop">
+    <div className="pb-20 pt-12">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+
+        {/* Záhlaví */}
+        <header className="mb-16 max-w-3xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-tynec-gray">
+            Volby 2026
+          </p>
+          <div className="mt-3 h-[3px] w-10 bg-primary" />
+          <h1 className="mt-4 text-h1-mobile font-bold uppercase text-tynec-black md:text-h1-desktop">
             Kandidátní listina
           </h1>
-          <div className="mx-auto mb-8 h-1 w-24 bg-gray-300"></div>
-          <p className="text-lg md:text-xl text-tynec-gray max-w-3xl mx-auto">
+          <p className="mt-6 max-w-2xl text-lg text-tynec-black/80 md:text-xl">
             Naši kandidáti jsou lidé, kteří mají Velký Týnec v srdci a chtějí se aktivně podílet
             na rozvoji obce a zlepšení života všech občanů.
           </p>
-        </div>
+        </header>
       </div>
 
-      {/* Full Grid of 12 Candidates */}
+      {/* Mřížka kandidátů */}
       <CandidatesGrid showTitle={false} />
     </div>
   );

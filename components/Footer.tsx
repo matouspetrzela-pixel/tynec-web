@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Mail } from 'lucide-react';
 import { FacebookBrandIcon } from '@/components/FacebookBrandIcon';
-import { FACEBOOK_URL } from '@/lib/social';
+import { FACEBOOK_URL, EMAIL } from '@/lib/social';
 
 export const Footer: React.FC = () => {
   const navItems = [
@@ -38,6 +38,11 @@ export const Footer: React.FC = () => {
               Rozum do rozvoje, srdce do komunity.
             </p>
 
+            {/* Datum voleb */}
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-white/45 text-center md:text-left">
+              Komunální volby 9.–10. října 2026
+            </p>
+
             <p className="max-w-sm text-center text-sm leading-relaxed text-white/50 md:text-left">
               Komunální volby 2026. Profesionální přístup k rozvoji obce — s respektem k tradici i
               moderním standardům.
@@ -55,11 +60,11 @@ export const Footer: React.FC = () => {
                 <span>Facebook</span>
               </a>
               <a
-                href="mailto:info@provlkytynec.cz"
+                href={`mailto:${EMAIL}`}
                 className="flex items-center gap-2.5 text-sm text-white/65 transition-colors hover:text-white"
               >
                 <Mail className="h-5 w-5 shrink-0" strokeWidth={1.75} />
-                <span>info@provlkytynec.cz</span>
+                <span>{EMAIL}</span>
               </a>
             </div>
           </div>

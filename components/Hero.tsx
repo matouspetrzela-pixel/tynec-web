@@ -69,6 +69,11 @@ export const Hero: React.FC = () => {
             </Link>
           </div>
 
+          {/* Datum voleb */}
+          <p className="mt-6 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-white/55">
+            Volby 9.–10. října 2026
+          </p>
+
           {/* Facebook */}
           <a
             href={FACEBOOK_URL}
