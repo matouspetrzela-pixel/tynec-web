@@ -2,7 +2,7 @@
 
 Webová prezentace kandidátky **Pro Týnec Srdcem** pro komunální volby 2026.
 
-**Live URL:** [tynec-web.vercel.app](https://tynec-web.vercel.app)
+**Live URL:** [tynec-web.vercel.app](https://tynec-web.vercel.app)  
 **Repozitář:** [github.com/matouspetrzela-pixel/tynec-web](https://github.com/matouspetrzela-pixel/tynec-web)
 
 ---
@@ -46,6 +46,31 @@ npm run start
 
 Web běží na **http://localhost:3000**
 
+> **Windows:** Pokud port 3000 hlásí `EADDRINUSE`, server již běží — stačí otevřít prohlížeč.  
+> **Cache prohlížeče:** Pro zobrazení nejnovějších změn použijte `Ctrl + Shift + R` (tvrdý refresh).
+
+---
+
+## CI/CD — automatické nasazování
+
+Web je napojen na **Vercel** s plně automatickým CI/CD:
+
+- Každý `git push` na větev **`main`** automaticky spustí build a nasadí web na produkci
+- Žádný ruční zásah není potřeba
+- Stav buildů je viditelný na [vercel.com/dashboard](https://vercel.com/dashboard)
+
+```bash
+# Standardní workflow — commit + push = automatické nasazení
+git add -A
+git commit -m "popis změny"
+git push origin main
+```
+
+**Větev:** `main` (výchozí větev GitHub repozitáře)  
+**Vercel projekt:** `tynec-web` (tým `matous-petrzelas-projects`)  
+**Build příkaz:** `npm run build`  
+**Output directory:** `.next` (detekuje automaticky)
+
 ---
 
 ## Struktura projektu
@@ -53,14 +78,14 @@ Web běží na **http://localhost:3000**
 ```
 tynec-web/
 ├── app/                        # Next.js App Router
-│   ├── layout.tsx              # Kořenový layout (Header + Footer)
+│   ├── layout.tsx              # Kořenový layout + globální SEO metadata
 │   ├── page.tsx                # Domovská stránka
-│   ├── globals.css             # Globální styly, Tailwind direktivy
+│   ├── globals.css             # Globální styly, animace, View Transition API
 │   ├── o-nas/page.tsx          # Stránka „O nás"
 │   ├── program/page.tsx        # Stránka „Program"
 │   ├── kandidati/
 │   │   ├── page.tsx            # Seznam kandidátů
-│   │   └── [slug]/page.tsx     # Dynamický profil kandidáta
+│   │   └── [slug]/page.tsx     # Dynamický profil kandidáta (SSG)
 │   ├── kontakt/page.tsx        # Kontaktní stránka
 │   ├── error.tsx               # Error boundary (App Router)
 │   ├── global-error.tsx        # Globální error boundary
@@ -68,22 +93,22 @@ tynec-web/
 │
 ├── components/                 # Sdílené komponenty
 │   ├── Header.tsx              # Fixní navigační lišta
-│   ├── Footer.tsx              # Patička s kontakty
-│   ├── Hero.tsx                # Úvodní sekce s fotografií
+│   ├── Footer.tsx              # Patička s kontakty a logem
+│   ├── Hero.tsx                # Úvodní sekce s fotografií + glass panel
 │   ├── ProgramGrid.tsx         # Sekce „10 bodů rozvoje"
-│   ├── AboutPreview.tsx        # Sekce „O nás" (preview)
+│   ├── AboutPreview.tsx        # Sekce „O nás" (preview na homepage)
 │   ├── CandidatesGrid.tsx      # Mřížka kandidátů
-│   ├── CandidateCard.tsx       # Karta jednoho kandidáta
+│   ├── CandidateCard.tsx       # Karta jednoho kandidáta s odkazem
 │   ├── FacebookBrandIcon.tsx   # Facebook SVG ikona
 │   └── HeartIcon.tsx           # Srdce SVG ikona
 │
 ├── lib/                        # Sdílená data a utility
 │   ├── candidates.ts           # Data kandidátů (CANDIDATES array)
-│   └── social.ts               # Sociální sítě (FACEBOOK_URL)
+│   └── social.ts               # Kontakty (FACEBOOK_URL, EMAIL)
 │
 ├── public/
 │   └── images/
-│       ├── 9000.jpg            # Hlavní fotografie obce (Hero)
+│       ├── 9000.jpg            # Hlavní fotografie obce (Hero, OG image)
 │       ├── logo_srdce_red.svg  # Logo — červené (Header)
 │       └── logo_srdce_white.svg# Logo — bílé (Footer)
 │
@@ -116,7 +141,7 @@ Profily kandidátů jsou staticky generovány (`generateStaticParams`) z dat v `
 
 | Token | Hodnota | Použití |
 |---|---|---|
-| `primary` | `#D71920` | Červená — akcenty, CTA |
+| `primary` | `#D71920` | Červená — akcenty, CTA, dekorativní linky |
 | `primary-hover` | `#B8141A` | Hover stav tlačítek |
 | `tynec-black` | `#1A1A1A` | Hlavní text |
 | `tynec-gray` | `#6B7280` | Sekundární text, tagy |
@@ -129,18 +154,25 @@ Profily kandidátů jsou staticky generovány (`generateStaticParams`) z dat v `
 - **Velikosti:** `text-h2-mobile` (28 px) → `md:text-h2-desktop` (36 px)
 - **Hero nadpis:** `clamp(2rem, 4.5vw, 3.8rem)` — plynulé škálování
 
-### Komponenty
+### Klíčové vizuální prvky
 
-**Glass panel (Hero):**
+**Glass panel (Hero sekce):**
 ```css
 background: rgba(10, 10, 10, 0.48);
 backdrop-filter: blur(18px);
 border: 1px solid rgba(255, 255, 255, 0.10);
+box-shadow: 0 8px 40px 0 rgba(0,0,0,0.25);
 ```
 
-**Karty (ProgramGrid, CandidateCard):**
+**Karty (ProgramGrid, CandidateCard, podstránky):**
 ```
 rounded-2xl border border-gray-100 bg-white hover:border-gray-200
+```
+
+**Header logo — premium badge efekt:**
+```css
+border-radius: 10–12px;
+box-shadow: 0 2px 10px 0 rgba(215,25,32,0.30);
 ```
 
 **Scroll reveal animace:**
@@ -156,6 +188,19 @@ rounded-2xl border border-gray-100 bg-white hover:border-gray-200
 
 ---
 
+## SEO a metadata
+
+Globální metadata jsou definována v `app/layout.tsx`:
+
+- `metadataBase`: `https://tynec-web.vercel.app`
+- `title template`: `%s | Pro Týnec Srdcem`
+- **Open Graph** obrázek: `/images/9000.jpg` (1920×1080)
+- **Twitter card**: `summary_large_image`
+
+Každá podstránka má vlastní `export const metadata` s konkrétním `title` a `description`.
+
+---
+
 ## Kandidáti — správa dat
 
 Všechna data kandidátů jsou centralizována v `lib/candidates.ts`:
@@ -167,45 +212,33 @@ export interface Candidate {
   name: string;
   heartPriority: string; // Krátká priorita na kartě
   photo?: string;        // Cesta k fotce v /public/images/kandidati/
-  position?: string;     // Profese
-  bio?: string;          // Delší bio
+  position?: string;     // Profese / funkce
+  bio?: string;          // Delší bio text
   priorities?: string[]; // Seznam osobních priorit
 }
 ```
 
-**Přidání fotky kandidáta:**
-1. Uložte fotku do `public/images/kandidati/jan-novak.jpg`
-2. V `lib/candidates.ts` nastavte `photo: '/images/kandidati/jan-novak.jpg'`
+**Přidání kandidáta:**
+1. Přidejte záznam do pole `CANDIDATES` v `lib/candidates.ts`
+2. Uložte fotku do `public/images/kandidati/jan-novak.jpg`
+3. Nastavte `photo: '/images/kandidati/jan-novak.jpg'`
+4. `git push` → Vercel automaticky vygeneruje novou statickou stránku
 
 ---
 
-## Sociální sítě
+## Kontakty a sociální sítě
 
-Facebook URL je centralizován v `lib/social.ts` a lze přepsat přes env proměnnou:
+Centralizovány v `lib/social.ts`:
 
 ```typescript
+// Facebook URL — přepište přes env proměnnou NEXT_PUBLIC_FACEBOOK_URL
 export const FACEBOOK_URL =
   process.env.NEXT_PUBLIC_FACEBOOK_URL ??
   'https://www.facebook.com/share/18R7rjcjTu/';
+
+// Kontaktní email hnutí
+export const EMAIL = 'info@provelkytynec.cz';
 ```
-
----
-
-## Deployment
-
-Web je nasazen na **Vercel** s automatickým CI/CD z větve `master`.
-
-Každý `git push` na `master` spustí automatický build a deployment.
-
-**Ruční deployment přes CLI:**
-```bash
-npm install -g vercel
-vercel login
-vercel --prod
-```
-
-**Vercel build příkaz:** `npm run build`
-**Output directory:** `.next` (detekuje automaticky)
 
 ---
 
@@ -213,8 +246,8 @@ vercel --prod
 
 Projekt byl odladěn pro stabilní provoz na Windows:
 
-- **Turbopack** jako výchozí dev server (`npm run dev`) — stabilnější HMR na Windows než Webpack
-- `tsconfig.json` nemá `incremental: true` — předchází korrupci `.tsbuildinfo`
+- **Turbopack** jako výchozí dev server (`npm run dev`) — stabilnější HMR než Webpack
+- `tsconfig.json` bez `incremental: true` — předchází korrupci `.tsbuildinfo`
 - `reactStrictMode: false` — potlačuje dvojité renderování v dev módu
 - Složka `pages/` neexistuje — čistý App Router bez konfliktů
 
