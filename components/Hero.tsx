@@ -2,6 +2,8 @@ import React from 'react';
 import { HeroInfoPanel } from '@/components/hero/HeroInfoPanel';
 import { HeroLead } from '@/components/hero/HeroLead';
 
+const launched = process.env.NEXT_PUBLIC_SITE_LAUNCHED === 'true';
+
 export const Hero: React.FC = () => {
   return (
     <section className="relative w-full overflow-hidden" aria-label="Úvod">
@@ -68,7 +70,21 @@ export const Hero: React.FC = () => {
           </HeroInfoPanel>
         </div>
 
-        <div className="hidden min-h-0 flex-1 lg:block" aria-hidden />
+        {!launched ? (
+          <div className="mt-8 w-full lg:mt-0 lg:pl-8 xl:pl-14">
+            <div className="mx-auto max-w-[560px] rounded-2xl border border-white/30 bg-black/20 px-6 py-5 text-white shadow-[0_16px_48px_rgba(0,0,0,0.32)] backdrop-blur-md lg:mx-0">
+              <p className="text-[0.66rem] font-semibold uppercase tracking-[0.22em] text-white/75">
+                Brzy odhalíme
+              </p>
+              <p className="mt-3 text-2xl font-extrabold leading-tight sm:text-[2rem]">
+                Chystáme změnu pro Velký Týnec.
+              </p>
+              <p className="mt-2 text-base font-medium text-white/90">Brzy vše odhalíme.</p>
+            </div>
+          </div>
+        ) : (
+          <div className="hidden min-h-0 flex-1 lg:block" aria-hidden />
+        )}
       </div>
     </section>
   );

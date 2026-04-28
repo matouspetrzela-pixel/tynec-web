@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
+import { Lock, Menu, X } from 'lucide-react';
 import { CampaignLogo } from '@/components/CampaignLogo';
 
 const launched = process.env.NEXT_PUBLIC_SITE_LAUNCHED === 'true';
@@ -56,8 +56,9 @@ export const Header: React.FC = () => {
                 return (
                   <span
                     key={item.label}
-                    className="border-b-2 border-transparent pb-0.5 text-xs font-semibold uppercase tracking-[0.14em] text-tynec-black/40 select-none"
+                    className="inline-flex select-none items-center gap-1.5 border-b-2 border-transparent pb-0.5 text-xs font-semibold uppercase tracking-[0.14em] text-tynec-black/45"
                   >
+                    <Lock className="h-3 w-3" aria-hidden />
                     {item.label}
                   </span>
                 );
@@ -77,13 +78,18 @@ export const Header: React.FC = () => {
                 </Link>
               );
             })}
-            {launched && (
+            {launched ? (
               <Link
                 href="/podporte-nas"
                 className="btn-primary-sheen rounded-xl px-6 py-2.5 text-[11px] font-bold uppercase tracking-[0.14em] lg:px-8 lg:py-3 lg:text-xs"
               >
                 Podpořte nás
               </Link>
+            ) : (
+              <span className="inline-flex cursor-not-allowed select-none items-center gap-1.5 rounded-xl border border-tynec-black/15 bg-tynec-black/[0.06] px-6 py-2.5 text-[11px] font-bold uppercase tracking-[0.14em] text-tynec-black/50 lg:px-8 lg:py-3 lg:text-xs">
+                <Lock className="h-3 w-3" aria-hidden />
+                Podpořte nás
+              </span>
             )}
           </nav>
 

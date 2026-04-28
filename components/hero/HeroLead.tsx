@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Lock } from 'lucide-react';
 import { CampaignLogo } from '@/components/CampaignLogo';
 import { FacebookBrandIcon } from '@/components/FacebookBrandIcon';
 import { FACEBOOK_URL } from '@/lib/social';
@@ -43,16 +43,21 @@ export const HeroLead: React.FC = () => {
             </Link>
           </div>
         ) : (
-          <div className="border-t border-white/20 pt-2">
-            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-white/50">
-              Brzy odhalíme
-            </p>
-            <p className="mt-3 text-xl font-bold leading-snug text-white sm:text-2xl">
-              Chystáme změnu pro Velký Týnec.
-            </p>
-            <p className="mt-2 text-sm leading-relaxed text-white/75">
-              Brzy vše odhalíme.
-            </p>
+          <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2">
+            <div
+              aria-disabled="true"
+              className="inline-flex min-h-[56px] w-full cursor-not-allowed items-center justify-center gap-2 rounded-xl border border-white/40 bg-white/[0.08] px-6 py-4 text-center text-sm font-bold uppercase tracking-[0.1em] text-white/70 ring-1 ring-inset ring-white/10"
+            >
+              <Lock className="h-4 w-4" aria-hidden />
+              Volební program 2026
+            </div>
+            <div
+              aria-disabled="true"
+              className="inline-flex min-h-[56px] w-full cursor-not-allowed items-center justify-center gap-2 rounded-xl border border-white/40 bg-white/[0.08] px-6 py-4 text-center text-sm font-bold uppercase tracking-[0.08em] text-white/70 ring-1 ring-inset ring-white/10"
+            >
+              <Lock className="h-4 w-4" aria-hidden />
+              Naši kandidáti
+            </div>
           </div>
         )}
 
