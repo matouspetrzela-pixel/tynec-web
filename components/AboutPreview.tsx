@@ -25,28 +25,28 @@ export const AboutPreview: React.FC = () => {
   ];
 
   return (
-    <section className="border-t border-gray-100 bg-white section-padding">
+    <section className="section-padding border-t border-slate-200/60 bg-white">
       <div className="container mx-auto max-w-6xl">
 
         {/* Citát s červenou dekorativní linkou */}
-        <blockquote className="reveal mb-16 border-l-[4px] border-primary py-1 pl-7 md:mb-20 md:pl-8">
+        <blockquote className="reveal mb-16 rounded-2xl border border-slate-200/70 bg-slate-50/40 py-8 pl-8 pr-6 shadow-[0_1px_0_rgba(15,23,42,0.04),0_18px_44px_-22px_rgba(15,23,42,0.08)] md:mb-20 md:pl-10 md:pr-8">
           <p
-            className="font-semibold italic leading-snug tracking-tight text-tynec-black"
+            className="border-l-[3px] border-primary pl-6 font-semibold italic leading-snug tracking-tight text-tynec-black"
             style={{ fontSize: 'clamp(1.3rem, 3vw, 2.1rem)' }}
           >
             &bdquo;Nejde o politiku &mdash; jde o obec, ve které žijeme.&ldquo;
           </p>
           <cite className="mt-3 block text-sm font-medium not-italic text-tynec-gray">
-            Pro Týnec Srdcem, kandidátka 2026
+            Pro Týnec srdcem, kandidátka 2026
           </cite>
         </blockquote>
 
         {/* Popis hnutí */}
         <div className="reveal mb-14 md:mb-20">
-          <p className="max-w-3xl text-tynec-black/80 md:text-xl">
+          <p className="w-full text-pretty text-lg leading-[1.65] text-tynec-black/85 md:text-xl">
             Jsme sdružení nezávislých kandidátů a aktivních občanů. Naším cílem není politikaření,
-            ale koncepční rozvoj Velkého Týnce, Vsiska a Čechovic. Známe historii naší obce,
-            vážíme si jejich dominant a chceme tvořit její budoucnost.
+            ale koncepční rozvoj Velkého Týnce, Vsiska a Čechovic. Známe historii naší obce, vážíme
+            si jejich dominant a chceme tvořit její budoucnost.
           </p>
         </div>
 
@@ -55,7 +55,7 @@ export const AboutPreview: React.FC = () => {
           {pillars.map((pillar, index) => (
             <div
               key={index}
-              className="reveal rounded-2xl border border-gray-100 bg-white p-8 transition-colors duration-300 hover:border-gray-200"
+              className="card-elevated reveal p-8"
             >
               <h3 className="mb-4 text-xl font-bold uppercase text-tynec-black md:text-2xl">
                 {pillar.title}

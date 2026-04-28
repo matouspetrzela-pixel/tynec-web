@@ -4,13 +4,19 @@ import { ProgramGrid } from '@/components/ProgramGrid';
 import { AboutPreview } from '@/components/AboutPreview';
 import { CandidatesGrid } from '@/components/CandidatesGrid';
 
+const launched = process.env.NEXT_PUBLIC_SITE_LAUNCHED === 'true';
+
 export default function Home() {
   return (
     <>
       <Hero />
-      <ProgramGrid />
-      <AboutPreview />
-      <CandidatesGrid limit={12} showTitle={true} />
+      {launched && (
+        <>
+          <ProgramGrid />
+          <AboutPreview />
+          <CandidatesGrid limit={12} showTitle={true} />
+        </>
+      )}
     </>
   );
 }

@@ -2,35 +2,28 @@ import React from 'react';
 import Link from 'next/link';
 import { Mail } from 'lucide-react';
 import { FacebookBrandIcon } from '@/components/FacebookBrandIcon';
-import { FACEBOOK_URL, EMAIL } from '@/lib/social';
+import { CampaignLogo } from '@/components/CampaignLogo';
+import { EMAIL, FACEBOOK_URL } from '@/lib/social';
 
 export const Footer: React.FC = () => {
   const navItems = [
     { label: 'O nás', href: '/o-nas' },
     { label: 'Program', href: '/program' },
     { label: 'Kandidáti', href: '/kandidati' },
-    { label: 'Kontakt', href: '/kontakt' },
+    { label: 'Podpořte nás', href: '/podporte-nas' },
   ];
 
   return (
-    <footer className="border-t border-white/10 bg-tynec-black text-white">
-      <div className="container mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <footer className="border-t border-white/5 bg-gradient-to-b from-tynec-black to-[#0a0b0f] text-white">
+      <div className="container mx-auto max-w-6xl px-4 pt-16 pb-[calc(4rem+env(safe-area-inset-bottom,0px))] sm:px-6">
         <div className="flex flex-col items-center justify-between gap-12 md:flex-row md:items-start">
           {/* Brand + slogan */}
           <div className="flex flex-col items-center gap-4 md:items-start">
-            <div className="flex items-center gap-3">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/logo_srdce_white.svg"
-                alt=""
-                width={56}
-                height={56}
-                aria-hidden
-                className="h-14 w-14 shrink-0"
+            <div className="flex items-center justify-center md:justify-start">
+              <CampaignLogo
+                variant="footer"
+                className="h-9 w-auto max-h-9 object-contain object-left md:h-11 md:max-h-11"
               />
-              <span className="text-base font-bold uppercase tracking-[0.1em]">
-                Pro Týnec Srdcem
-              </span>
             </div>
 
             {/* Slogan */}
@@ -48,7 +41,7 @@ export const Footer: React.FC = () => {
               moderním standardům.
             </p>
 
-            {/* Kontakty */}
+            {/* Podpora — pouze Facebook */}
             <div className="mt-1 flex flex-col items-center gap-3 md:items-start">
               <a
                 href={FACEBOOK_URL}
@@ -63,8 +56,8 @@ export const Footer: React.FC = () => {
                 href={`mailto:${EMAIL}`}
                 className="flex items-center gap-2.5 text-sm text-white/65 transition-colors hover:text-white"
               >
-                <Mail className="h-5 w-5 shrink-0" strokeWidth={1.75} />
-                <span>{EMAIL}</span>
+                <Mail className="h-5 w-5 shrink-0" aria-hidden />
+                {EMAIL}
               </a>
             </div>
           </div>
@@ -88,7 +81,7 @@ export const Footer: React.FC = () => {
 
         <div className="mt-12 border-t border-white/10 pt-8 text-center md:text-left">
           <p className="text-xs text-white/45">
-            © 2026 Pro Týnec Srdcem. Všechna práva vyhrazena.
+            © 2026 Pro Týnec srdcem. Všechna práva vyhrazena.
           </p>
         </div>
       </div>

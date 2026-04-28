@@ -1,31 +1,155 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { CampaignLogo } from '@/components/CampaignLogo';
 import {
-  Route, School, HeartHandshake, MonitorSmartphone, Trees,
-  Landmark, Dumbbell, Briefcase, Eye, Sprout,
+  Eye,
+  Wallet,
+  Route,
+  School,
+  HeartHandshake,
+  Trees,
+  Landmark,
+  ShieldCheck,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Program 2026',
   description:
-    '10 konkrétních bodů rozvoje Velkého Týnce pro komunální volby 2026. Bezpečí, rodiny, senioři, digitalizace, zeleň, kultura, sport, podnikání, transparentnost a udržitelnost.',
+    'Program PRO TÝNEC SRDCEM pro komunální volby 2026: otevřený úřad, rozumné finance, strategický rozvoj, školství, sociální oblast, životní prostředí, kultura a bezpečnost.',
 };
 
-type ProgramItem = { tag: string; title: string; body: string; Icon: LucideIcon };
+type ProgramItem = {
+  tag: string;
+  title: string;
+  intro: string;
+  points: string[];
+  Icon: LucideIcon;
+  variant?: 'default' | 'brand';
+};
 
 const PROGRAM: ProgramItem[] = [
-  { tag: 'Pro bezpečí', title: 'Chodníky a doprava', body: 'Neskládáme se přes nebezpečné přechody. Zajistíme opravy chodníků a zklidníme rizikové úseky, kde děti i senioři cítí strach.', Icon: Route },
-  { tag: 'Pro rodiny', title: 'Školy a volný čas', body: 'Školky a školy musí stačit. Zajistíme kapacity a podporu kroužků, aby rodiče nemuseli jezdit za aktivitami jinam.', Icon: School },
-  { tag: 'Pro seniory', title: 'Důstojnost a péče', body: 'Stárnutí obce řešíme teď. Zajistíme dostupné služby a komunitní projekty, aby nikdo nezůstal osamělý.', Icon: HeartHandshake },
-  { tag: 'Pro digitalizaci', title: 'Služby online', body: 'Úřad má být srozumitelný. Zajistíme vyřizování online, přehledné lhůty a komunikaci, na kterou se dá spolehnout.', Icon: MonitorSmartphone },
-  { tag: 'Pro zeleň', title: 'Veřejná prostranství', body: 'Zanedbaná místa bereme jako prioritu. Zajistíme péči o zeleň a úpravy parků tak, aby obec dýchala.', Icon: Trees },
-  { tag: 'Pro kulturu', title: 'Tradice živě', body: 'Hody a spolky nesmí ztratit podporu. Zajistíme stabilní financování a zázemí pro akce, které Týnec definují.', Icon: Landmark },
-  { tag: 'Pro sport', title: 'Hřiště a pohyb', body: 'Děti potřebují kde sportovat. Zajistíme údržbu hřišť a rozvoj sportovišť bez zbytečných průtahů.', Icon: Dumbbell },
-  { tag: 'Pro podnikatele', title: 'Lokální ekonomika', body: 'Řemeslo a služby drží obec při životě. Zajistíme férová pravidla a podporu podnikatelům, kteří u nás zaměstnávají sousedy.', Icon: Briefcase },
-  { tag: 'Pro transparentnost', title: 'Radnice otevřeně', body: 'Skepse vůči radnici bereme vážně. Zajistíme otevřená data, jasné investiční plány a odpovědi, ne mlžení.', Icon: Eye },
-  { tag: 'Pro budoucnost', title: 'Udržitelný rozvoj', body: 'Krátkodobé kšefty nestačí. Zajistíme energetické úspory a investice, které obstojí i za deset let.', Icon: Sprout },
+  {
+    tag: 'Pro otevřenost, férovost a dialog',
+    title: 'Transparentní a otevřený úřad',
+    intro: 'Úřad má být srozumitelný, dostupný a průběžně komunikovat s občany.',
+    points: [
+      'Zveřejňování informací a záměrů s dostatečným časovým předstihem.',
+      'Pravidelné průzkumy spokojenosti a získávání zpětné vazby.',
+      'Kontaktní formulář na webu obce pro sběr podnětů.',
+      'Zveřejňování zápisů z veřejných zasedání zastupitelstva obce.',
+      'Digitalizace úřadu a služeb.',
+      'Na kus řeči se starostou.',
+    ],
+    Icon: Eye,
+  },
+  {
+    tag: 'Pro rozumné hospodaření',
+    title: 'Finance a investice',
+    intro: 'Investice musí být dlouhodobě udržitelné a spravedlivé pro všechny části obce.',
+    points: [
+      'Participativní rozpočet – občané se podílejí na rozhodování o využití části obecního rozpočtu.',
+      'Promyšlené strategické plánování budoucích investic do rozvoje obce.',
+      'Aktivní využívání vypsaných dotačních titulů.',
+      'Férové investice do rozvoje všech tří místních částí.',
+    ],
+    Icon: Wallet,
+  },
+  {
+    tag: 'Pro budoucí generace',
+    title: 'Strategický rozvoj obce',
+    intro: 'Rozvoj obce musí být promyšlený, odpovědný a připravený na další desetiletí.',
+    points: [
+      'Zodpovědné posuzování návrhů na změnu územního plánu.',
+      'Zapojení mladých lidí do plánování a definování dlouhodobé vize rozvoje.',
+      'Smysluplné rekonstrukce silnic a chodníků.',
+      'Pečlivé vyhodnocení budoucích plánů na rozvoj občanské vybavenosti a infrastruktury.',
+      'Údržba stávajících a podpora budování nových cyklostezek.',
+      'Rozšíření projektů vedoucích k částečné energetické soběstačnosti.',
+    ],
+    Icon: Route,
+  },
+  {
+    tag: 'Pro kvalitní vzdělání od školky po školu',
+    title: 'Školství',
+    intro: 'Kvalitní vzdělávání je základní investicí do budoucnosti celé obce.',
+    points: [
+      'Úzká spolupráce obce s vedením školských zařízení.',
+      'Podpora začleňování dětí ze sociálně slabých rodin do kolektivu.',
+      'Zkvalitnění výuky a preventivních programů na ochranu dětí před škodlivými vlivy.',
+      'Vypracování plánu pro další možnosti rozvoje a zkvalitnění výuky.',
+      'Investice do moderní výstavby, vybavení a učebních pomůcek.',
+      'Pravidelné vyhlašování výběrových řízení na vedení školských zařízení v obci.',
+    ],
+    Icon: School,
+  },
+  {
+    tag: 'Pro lidi. Nasloucháme, podporujeme, propojujeme.',
+    title: 'Sociální věci',
+    intro: 'Sociální oblast má pomáhat lidem v reálných situacích a propojovat generace.',
+    points: [
+      'Rozšíření sociálních služeb pro seniory (senior taxi, rozšíření terénní pečovatelské služby, ...).',
+      'Edukace veřejnosti o nabídce a možnostech sociálních služeb a podpory.',
+      'Podpora rodin a rodičů v těžké životní situaci a vytvoření krizového a sociálního fondu.',
+      'Podpora a spolupráce s Klubem seniorů, organizace pravidelných aktivit (přednášky, výlety atd.).',
+      'Vytvoření klidových a podpůrných zón pro relaxaci a duševní pohodu.',
+      'Spolupráce s charitativními a neziskovými organizacemi.',
+      'Transparentní pravidla pro přidělování obecních bytů.',
+      'Podpora a zřízení sociálních (startovacích) bytů.',
+    ],
+    Icon: HeartHandshake,
+  },
+  {
+    tag: 'Pro zelenou obec',
+    title: 'Životní prostředí',
+    intro: 'O životní prostředí je potřeba pečovat systematicky a s důrazem na prevenci.',
+    points: [
+      'Svědomitá péče o veřejná prostranství.',
+      'Pravidelná výsadba stromů, efektivní péče o zeleň v obci.',
+      'Revitalizace sběrných míst pro tříděný odpad a dohled nad dodržováním třídění.',
+      'Zřízení re-use centra - nabídka využití věcí před jejich likvidací.',
+      'Revize a rozšíření protipovodňových opatření.',
+    ],
+    Icon: Trees,
+  },
+  {
+    tag: 'Pro setkávání, tradice a komunitu',
+    title: 'Kultura',
+    intro: 'Kultura drží obec pohromadě a vytváří prostor pro setkávání napříč generacemi.',
+    points: [
+      'Podpora kulturního života v obci, akce pro všechny generace.',
+      'Podpora komunitního života.',
+      'Podpora nových i stávajících spolků a zájmových sdružení, vzájemná komunikace (křížení akcí).',
+    ],
+    Icon: Landmark,
+  },
+  {
+    tag: 'Pro klidný a spokojený život',
+    title: 'Bezpečnost',
+    intro: 'Bezpečná obec vyžaduje prevenci, pořádek i připravenost na mimořádné situace.',
+    points: [
+      'Podpora programů prevence a vzdělávání občanů.',
+      'Důraz na čistotu veřejných prostranství.',
+      'Revize a nápravná opatření pro nebezpečná a problémová místa.',
+      'Pravidelný audit bezpečnostní situace a kontinuální plány pro zlepšení.',
+      'Možnost hlášení problémů a transparentní komunikace incidentů.',
+      'Revize a vytvoření plánů pro mimořádné situace.',
+    ],
+    Icon: ShieldCheck,
+  },
+  {
+    tag: 'PRO TÝNEC SRDCEM',
+    title: 'Naše společná vize',
+    intro: 'Silná obec stojí na aktivních lidech, důvěře a spolupráci napříč celým Týncem.',
+    points: [
+      'Domov, kde chceme dobře žít dnes i za deset let.',
+      'Respekt k tradici, odpovědnost k budoucnosti.',
+      'Společný směr pro Velký Týnec, Vsisko i Čechovice.',
+    ],
+    Icon: Eye,
+    variant: 'brand',
+  },
 ];
 
 export default function ProgramPage() {
@@ -42,19 +166,22 @@ export default function ProgramPage() {
           <h1 className="mt-4 text-h1-mobile font-bold uppercase text-tynec-black md:text-h1-desktop">
             Náš program
           </h1>
-          <p className="mt-6 max-w-2xl text-lg text-tynec-black/80 md:text-xl">
+          <p className="mt-6 text-pretty text-lg text-tynec-black/80 md:text-xl">
             Krátké závazky. Žádné prázdné fráze — odpovědi na to, co občany štve.
           </p>
         </header>
 
-        {/* 10 bodů */}
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Programové oblasti */}
+        <div className="grid grid-cols-1 items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {PROGRAM.map((item, i) => {
             const Icon = item.Icon;
+            const isBrandTile = item.variant === 'brand';
+            const previewPoints = item.points.slice(0, 2);
+            const extraPoints = item.points.slice(2);
             return (
               <article
                 key={item.title}
-                className="relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-7 transition-colors duration-300 hover:border-gray-200"
+                className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white p-7 transition-all duration-300 hover:border-gray-200"
               >
                 <span
                   aria-hidden
@@ -64,7 +191,16 @@ export default function ProgramPage() {
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <div className="mb-4">
-                  <Icon className="h-7 w-7 shrink-0 text-primary" strokeWidth={2} aria-hidden />
+                  {isBrandTile ? (
+                    <div className="rounded-xl border border-gray-100 bg-white px-3 py-3">
+                      <CampaignLogo
+                        variant="header"
+                        className="mx-auto h-auto w-full max-w-[240px] object-contain"
+                      />
+                    </div>
+                  ) : (
+                    <Icon className="h-7 w-7 shrink-0 text-primary" strokeWidth={2} aria-hidden />
+                  )}
                 </div>
                 <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-tynec-gray">
                   {item.tag}
@@ -72,7 +208,39 @@ export default function ProgramPage() {
                 <h2 className="mt-2 text-base font-bold uppercase leading-snug tracking-tight text-tynec-black md:text-lg">
                   {item.title}
                 </h2>
-                <p className="mt-3 text-tynec-black/75">{item.body}</p>
+                <p className="mt-3 text-tynec-black/75">
+                  {item.intro}
+                </p>
+                <ul className="mb-4 mt-4 space-y-2">
+                  {previewPoints.map((point, pointIdx) => (
+                    <li
+                      key={`${item.title}-preview-${pointIdx}`}
+                      className="flex items-start gap-2 text-sm leading-relaxed text-tynec-black/75"
+                    >
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden />
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {extraPoints.length > 0 && (
+                  <details className="mt-auto rounded-xl border border-gray-200 bg-gray-50/70 p-3">
+                    <summary className="cursor-pointer list-none text-xs font-bold uppercase tracking-[0.12em] text-primary marker:content-none">
+                      Zobrazit více
+                    </summary>
+                    <ul className="mt-3 space-y-2">
+                      {extraPoints.map((point, pointIdx) => (
+                        <li
+                          key={`${item.title}-extra-${pointIdx}`}
+                          className="flex items-start gap-2 text-sm leading-relaxed text-tynec-black/75"
+                        >
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </details>
+                )}
               </article>
             );
           })}
@@ -88,10 +256,10 @@ export default function ProgramPage() {
             změnit.
           </p>
           <Link
-            href="/kontakt"
+            href="/podporte-nas"
             className="inline-flex items-center rounded-xl bg-primary px-8 py-4 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-primary-hover md:text-base"
           >
-            Napište nám
+            Podpořte nás
           </Link>
         </div>
       </div>

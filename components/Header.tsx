@@ -1,9 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
+import { CampaignLogo } from '@/components/CampaignLogo';
+
+const launched = process.env.NEXT_PUBLIC_SITE_LAUNCHED === 'true';
 
 export const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -13,10 +16,18 @@ export const Header: React.FC = () => {
     { label: 'O nás', href: '/o-nas' },
     { label: 'Program', href: '/program' },
     { label: 'Kandidáti', href: '/kandidati' },
-    { label: 'Kontakt', href: '/kontakt' },
   ];
 
   const path = pathname ?? '';
+
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [mobileMenuOpen]);
 
   const isActive = (href: string) => {
     if (href === '/o-nas') return path === '/o-nas';
@@ -29,36 +40,34 @@ export const Header: React.FC = () => {
         <div className="flex h-[70px] items-center justify-between md:h-[77px]">
           <Link
             href="/"
-            className="group flex items-center gap-3 transition-opacity duration-300 hover:opacity-90 md:gap-3.5"
+            className="group flex items-center transition-opacity duration-300 hover:opacity-90"
             onClick={() => setMobileMenuOpen(false)}
           >
-            <span
-              className="inline-flex h-9 w-9 shrink-0 overflow-hidden rounded-[10px] transition-transform duration-300 group-hover:scale-105 md:h-11 md:w-11 md:rounded-[12px]"
-              style={{ boxShadow: '0 2px 10px 0 rgba(215,25,32,0.30)' }}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/logo_srdce_red.svg"
-                alt=""
-                width={44}
-                height={44}
-                className="h-full w-full object-cover"
-                decoding="async"
-              />
-            </span>
-            <span className="text-base font-bold uppercase leading-tight tracking-[0.08em] text-tynec-black md:text-lg lg:text-xl">
-              Pro Týnec Srdcem
-            </span>
+            <CampaignLogo
+              variant="header"
+              priority
+              className="h-9 w-auto max-h-9 origin-left object-contain object-left transition-transform duration-300 group-hover:scale-[1.02] md:h-11 md:max-h-11"
+            />
           </Link>
 
           <nav className="hidden items-center gap-6 lg:gap-8 md:flex" aria-label="Hlavní navigace">
             {navItems.map((item) => {
+              if (!launched) {
+                return (
+                  <span
+                    key={item.label}
+                    className="border-b-2 border-transparent pb-0.5 text-xs font-semibold uppercase tracking-[0.14em] text-tynec-black/40 select-none"
+                  >
+                    {item.label}
+                  </span>
+                );
+              }
               const active = isActive(item.href);
               return (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className={`text-xs font-semibold uppercase tracking-[0.12em] transition-colors duration-300 ${
+                  className={`text-xs font-semibold uppercase tracking-[0.14em] transition-colors duration-300 ${
                     active
                       ? 'border-b-2 border-primary pb-0.5 text-tynec-black'
                       : 'border-b-2 border-transparent pb-0.5 text-tynec-black/80 hover:text-primary'
@@ -68,27 +77,31 @@ export const Header: React.FC = () => {
                 </Link>
               );
             })}
-            <Link
-              href="/kontakt"
-              className="rounded-xl bg-primary px-6 py-2.5 text-[11px] font-bold uppercase tracking-[0.12em] text-white transition-colors duration-300 hover:bg-primary-hover lg:px-8 lg:py-3 lg:text-xs"
-            >
-              Podpořte nás
-            </Link>
+            {launched && (
+              <Link
+                href="/podporte-nas"
+                className="btn-primary-sheen rounded-xl px-6 py-2.5 text-[11px] font-bold uppercase tracking-[0.14em] lg:px-8 lg:py-3 lg:text-xs"
+              >
+                Podpořte nás
+              </Link>
+            )}
           </nav>
 
-          <button
-            type="button"
-            className="rounded-lg p-2 text-tynec-black md:hidden"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-expanded={mobileMenuOpen}
-            aria-controls="mobile-nav"
-            aria-label={mobileMenuOpen ? 'Zavřít menu' : 'Otevřít menu'}
-          >
-            {mobileMenuOpen ? <X size={22} strokeWidth={1.75} /> : <Menu size={22} strokeWidth={1.75} />}
-          </button>
+          {launched && (
+            <button
+              type="button"
+              className="flex min-h-11 min-w-11 items-center justify-center rounded-lg text-tynec-black touch-manipulation md:hidden"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-nav"
+              aria-label={mobileMenuOpen ? 'Zavřít menu' : 'Otevřít menu'}
+            >
+              {mobileMenuOpen ? <X size={22} strokeWidth={1.75} /> : <Menu size={22} strokeWidth={1.75} />}
+            </button>
+          )}
         </div>
 
-        {mobileMenuOpen && (
+        {launched && mobileMenuOpen && (
           <nav
             id="mobile-nav"
             className="glass-panel mb-4 flex flex-col gap-1 rounded-2xl px-4 py-6 md:hidden"
@@ -111,9 +124,9 @@ export const Header: React.FC = () => {
               );
             })}
             <Link
-              href="/kontakt"
+              href="/podporte-nas"
               onClick={() => setMobileMenuOpen(false)}
-              className="mt-3 rounded-xl bg-primary py-4 text-center text-sm font-bold uppercase tracking-[0.1em] text-white transition-colors duration-300 hover:bg-primary-hover"
+              className="btn-primary-sheen mt-3 rounded-xl py-4 text-center text-sm font-bold uppercase tracking-[0.12em]"
             >
               Podpořte nás
             </Link>

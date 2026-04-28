@@ -13,12 +13,13 @@ const config: Config = {
       },
       colors: {
         primary: {
-          DEFAULT: "#D71920",
-          hover: "#B8141A",
+          /* Lehce hlubší „cihlová“ — stále jasné červené tlačítko, méně neon */
+          DEFAULT: "#C41E25",
+          hover: "#9E1A1F",
         },
         "tynec-red": {
-          DEFAULT: "#D71920",
-          hover: "#B8141A",
+          DEFAULT: "#C41E25",
+          hover: "#9E1A1F",
           deep: "#9E1518",
           light: "#F5A8A8",
           muted: "#FCE8E8",

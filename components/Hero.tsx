@@ -1,91 +1,74 @@
 import React from 'react';
-import Link from 'next/link';
-import { FacebookBrandIcon } from '@/components/FacebookBrandIcon';
-import { FACEBOOK_URL } from '@/lib/social';
+import { HeroInfoPanel } from '@/components/hero/HeroInfoPanel';
+import { HeroLead } from '@/components/hero/HeroLead';
 
 export const Hero: React.FC = () => {
   return (
     <section className="relative w-full overflow-hidden" aria-label="Úvod">
-      {/* Fotka obce — plná viditelnost bez tmavého překrytí */}
       <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/9000.jpg"
-          alt="Velký Týnec"
-          width={1920}
-          height={1080}
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
-          className="absolute inset-0 h-full w-full object-cover object-[center_45%] brightness-[1.1] contrast-[1.04] sm:object-[center_42%_40%] md:object-[62%_38%]"
+        <picture>
+          <source
+            type="image/webp"
+            srcSet="/images/hero-velky-tynec-dji-0224-v2026-1600.webp 1600w, /images/hero-velky-tynec-dji-0224-v2026-2560.webp 2560w"
+            sizes="100vw"
+          />
+          <source
+            type="image/jpeg"
+            srcSet="/images/hero-velky-tynec-dji-0224-v2026-1600.jpg 1600w, /images/hero-velky-tynec-dji-0224-v2026-2560.jpg 2560w"
+            sizes="100vw"
+          />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/hero-velky-tynec-dji-0224-v2026-1600.jpg"
+            alt=""
+            width={2560}
+            height={1440}
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover object-[52%_48%] brightness-[1.122] contrast-[1.03] saturate-[1.04] sm:object-[50%_50%] lg:object-[50%_48%]"
+          />
+        </picture>
+        {/* Cílené prosvětlení oblohy a krajiny; střed dole = maska vypne zesvětlení (kostel) */}
+        <div
+          className="absolute inset-0 mix-blend-soft-light"
+          style={{
+            background:
+              'linear-gradient(198deg, rgba(255,252,250,0.29) 0%, rgba(255,255,255,0.1) 38%, rgba(255,255,255,0) 70%)',
+            WebkitMaskImage:
+              'radial-gradient(ellipse 58% 50% at 50% 76%, #000 0%, #000 30%, #fff 100%)',
+            WebkitMaskSize: '100% 100%',
+            maskImage:
+              'radial-gradient(ellipse 58% 50% at 50% 76%, #000 0%, #000 30%, #fff 100%)',
+            maskSize: '100% 100%',
+          }}
         />
+        <div
+          className="absolute inset-0 mix-blend-overlay opacity-85"
+          style={{
+            background: 'linear-gradient(115deg, transparent 0%, rgba(220,234,255,0.14) 100%)',
+            WebkitMaskImage:
+              'radial-gradient(ellipse 58% 50% at 50% 76%, #000 0%, #000 28%, #fff 100%)',
+            WebkitMaskSize: '100% 100%',
+            maskImage:
+              'radial-gradient(ellipse 58% 50% at 50% 76%, #000 0%, #000 28%, #fff 100%)',
+            maskSize: '100% 100%',
+          }}
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(92deg,rgba(12,14,18,0.7)_0%,rgba(14,17,22,0.5)_32%,rgba(16,21,30,0.1)_55%,rgba(16,21,30,0)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(8,11,18,0.16)_0%,rgba(8,11,18,0.06)_16%,rgba(8,11,18,0)_45%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_26%,rgba(138,178,255,0.06)_0%,rgba(138,178,255,0)_50%),radial-gradient(circle_at_84%_18%,rgba(120,200,255,0.09)_0%,rgba(120,200,255,0)_50%)]" />
       </div>
 
-      {/* Layout */}
-      <div className="relative z-10 mx-auto flex min-h-[min(100dvh,920px)] max-w-6xl flex-col justify-end px-4 pb-14 pt-28 sm:px-6 md:min-h-[calc(100dvh-5rem)] md:justify-center md:pb-20 md:pt-12 lg:pb-24">
-
-        {/* Glass panel — text čitelný, foto prosvítá skrz */}
-        <div
-          className="w-full max-w-[460px] rounded-3xl px-7 py-8 sm:px-9 sm:py-10"
-          style={{
-            background: 'rgba(10, 10, 10, 0.48)',
-            backdropFilter: 'blur(18px)',
-            WebkitBackdropFilter: 'blur(18px)',
-            border: '1px solid rgba(255, 255, 255, 0.10)',
-            boxShadow: '0 8px 40px 0 rgba(0,0,0,0.25)',
-          }}
-        >
-          {/* Červená dekorativní linka */}
-          <div className="mb-6 h-[3px] w-10 bg-primary" aria-hidden />
-
-          <h1
-            className="font-sans leading-[1.07] tracking-[-0.03em] text-white"
-            style={{ fontWeight: 900, fontSize: 'clamp(2rem, 4.5vw, 3.8rem)' }}
-          >
-            Pro Týnec Srdcem
-          </h1>
-
-          <p
-            className="mt-5 font-medium leading-snug text-white/85"
-            style={{ fontSize: 'clamp(1rem, 2vw, 1.25rem)' }}
-          >
-            Rozum do rozvoje, srdce do komunity.
-          </p>
-
-          {/* CTA */}
-          <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:flex-wrap sm:gap-x-8">
-            <Link
-              href="/program"
-              className="inline-flex min-h-[50px] items-center text-[0.9rem] font-bold uppercase tracking-[0.12em] text-white underline decoration-primary decoration-2 underline-offset-[10px] transition-opacity hover:opacity-75"
-            >
-              Náš program 2026
-            </Link>
-            <Link
-              href="/o-nas"
-              className="inline-flex min-h-[50px] items-center text-[0.9rem] font-bold uppercase tracking-[0.12em] text-white/70 underline decoration-white/30 decoration-2 underline-offset-[10px] transition-colors hover:text-white"
-            >
-              Poznejte nás
-            </Link>
-          </div>
-
-          {/* Datum voleb */}
-          <p className="mt-6 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-white/55">
-            Volby 9.–10. října 2026
-          </p>
-
-          {/* Facebook */}
-          <a
-            href={FACEBOOK_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-7 inline-flex items-center gap-3 text-[0.9rem] font-medium leading-snug text-white/70 transition-colors hover:text-white"
-          >
-            <FacebookBrandIcon className="h-8 w-8 shrink-0" />
-            <span className="min-w-0 underline decoration-white/20 underline-offset-4">
-              Pojďme do toho společně.
-            </span>
-          </a>
+      {/* Desktop: dominantní vertikální glass panel vlevo, vpravo prostor pro fotografii */}
+      <div className="relative z-10 mx-auto flex min-h-[min(100dvh,940px)] w-full max-w-[1920px] flex-col justify-end px-4 pb-16 pt-28 sm:px-6 sm:pb-20 md:min-h-[calc(100dvh-5rem)] md:justify-center md:pb-24 md:pt-16 lg:flex-row lg:items-center lg:justify-start lg:px-10 lg:pb-28 xl:px-14">
+        <div className="mx-auto w-full max-w-md sm:max-w-xl lg:mx-0 lg:flex lg:w-[48%] lg:min-w-0 lg:max-w-none lg:justify-start">
+          <HeroInfoPanel className="w-full max-w-xl lg:max-w-2xl">
+            <HeroLead />
+          </HeroInfoPanel>
         </div>
+
+        <div className="hidden min-h-0 flex-1 lg:block" aria-hidden />
       </div>
     </section>
   );

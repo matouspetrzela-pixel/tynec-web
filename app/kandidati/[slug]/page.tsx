@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowLeft, Heart } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
+import { CampaignLogo } from '@/components/CampaignLogo';
 import { CANDIDATES, getCandidateBySlug } from '@/lib/candidates';
 import type { Metadata } from 'next';
 
@@ -19,7 +20,7 @@ export function generateMetadata({ params }: Props): Metadata {
   const candidate = getCandidateBySlug(params.slug);
   if (!candidate) return {};
   return {
-    title: `${candidate.name} – Pro Týnec Srdcem`,
+    title: `${candidate.name} – Pro Týnec srdcem`,
     description: candidate.heartPriority,
   };
 }
@@ -74,7 +75,7 @@ export default function CandidateProfilePage({ params }: Props) {
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-tynec-gray">
               Volby 2026
             </p>
-            <h1 className="mt-3 text-h1-mobile font-bold uppercase text-tynec-black md:text-h1-desktop">
+            <h1 className="mt-3 text-h1-mobile font-bold text-tynec-black md:text-h1-desktop">
               {candidate.name}
             </h1>
 
@@ -86,11 +87,7 @@ export default function CandidateProfilePage({ params }: Props) {
 
             {/* Srdcová priorita */}
             <div className="mt-8 flex items-start gap-3 rounded-2xl border border-gray-100 bg-white p-6">
-              <Heart
-                className="mt-0.5 h-5 w-5 shrink-0 text-primary"
-                strokeWidth={2}
-                aria-hidden
-              />
+              <CampaignLogo variant="inline" className="mt-0.5 h-5 w-auto shrink-0 object-contain object-left" />
               <div>
                 <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-tynec-gray">
                   Srdcová priorita
@@ -104,7 +101,7 @@ export default function CandidateProfilePage({ params }: Props) {
             {/* Bio */}
             <div className="mt-8">
               <h2 className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-tynec-gray">
-                O kandidátovi
+                {candidate.gender === 'female' ? 'O kandidátce' : 'O kandidátovi'}
               </h2>
               {candidate.bio ? (
                 <p className="text-tynec-black/80 leading-relaxed">{candidate.bio}</p>
@@ -135,10 +132,10 @@ export default function CandidateProfilePage({ params }: Props) {
             {/* CTA */}
             <div className="mt-10 border-t border-gray-100 pt-8">
               <Link
-                href="/kontakt"
+                href="/podporte-nas"
                 className="inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-sm font-bold uppercase tracking-[0.1em] text-white transition-colors hover:bg-primary-hover"
               >
-                Napište nám
+                Podpořte nás
               </Link>
             </div>
           </div>

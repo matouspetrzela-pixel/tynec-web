@@ -1,8 +1,15 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#1A1A1A",
+};
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
@@ -13,21 +20,26 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://tynec-web.vercel.app'),
+  metadataBase: new URL('https://protynec.cz'),
+  alternates: {
+    canonical: '/',
+  },
+  applicationName: 'Pro Týnec srdcem',
   title: {
-    default: 'Pro Týnec Srdcem — Komunální volby 2026',
-    template: '%s | Pro Týnec Srdcem',
+    default: 'Pro Týnec srdcem — Komunální volby 2026',
+    template: '%s | Pro Týnec srdcem',
   },
   description:
-    'Politické hnutí Pro Týnec Srdcem. Rozum do rozvoje, srdce do komunity. Komunální volby 9.–10. října 2026.',
-  keywords: ['Pro Týnec Srdcem', 'komunální volby 2026', 'Velký Týnec', 'zastupitelé', 'obecní volby'],
+    'Politické hnutí Pro Týnec srdcem. Rozum do rozvoje, srdce do komunity. Komunální volby 9.–10. října 2026.',
+  keywords: ['Pro Týnec srdcem', 'komunální volby 2026', 'Velký Týnec', 'zastupitelé', 'obecní volby'],
   openGraph: {
-    siteName: 'Pro Týnec Srdcem',
+    siteName: 'Pro Týnec srdcem',
     locale: 'cs_CZ',
     type: 'website',
-    title: 'Pro Týnec Srdcem — Komunální volby 2026',
+    url: 'https://protynec.cz',
+    title: 'Pro Týnec srdcem — Komunální volby 2026',
     description:
-      'Politické hnutí Pro Týnec Srdcem. Rozum do rozvoje, srdce do komunity. Komunální volby 9.–10. října 2026.',
+      'Politické hnutí Pro Týnec srdcem. Rozum do rozvoje, srdce do komunity. Komunální volby 9.–10. října 2026.',
     images: [
       {
         url: '/images/9000.jpg',
@@ -39,9 +51,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Pro Týnec Srdcem — Komunální volby 2026',
+    title: 'Pro Týnec srdcem — Komunální volby 2026',
     description: 'Rozum do rozvoje, srdce do komunity. Volby 9.–10. října 2026.',
     images: ['/images/9000.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -54,7 +70,9 @@ export default function RootLayout({
     <html lang="cs" className={inter.variable}>
       <body className={inter.className}>
         <Header />
-        <main className="min-h-screen pt-[70px] md:pt-[77px]">{children}</main>
+        <main className="min-h-screen pt-[calc(70px+env(safe-area-inset-top,0px))] md:pt-[calc(77px+env(safe-area-inset-top,0px))]">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

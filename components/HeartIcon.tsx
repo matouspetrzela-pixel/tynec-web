@@ -1,54 +1,43 @@
 import React from 'react';
 
-type HeartIconProps = {
+/** Jediné brand logo srdce (PNG, průhledné pozadí). */
+export const BRAND_HEART_LOGO_SRC = '/images/logo-srdce.png';
+
+const LOGO_WIDTH = 445;
+const LOGO_HEIGHT = 377;
+
+export type BrandHeartLogoProps = {
+  /** Velikost „krabice“ kolem loga (Tailwind); poměr stran loga se nemění — pouze měřítko. */
   className?: string;
 };
 
-const PATH_HEART =
-  'M 60 165 C 25 125 25 45 80 45 C 105 45 115 70 115 70 C 115 70 130 45 160 45 C 195 45 195 115 130 165 L 45 190';
-
-/** Standardní srdce — navigace, karty. */
-export const HeartIcon: React.FC<HeartIconProps> = ({ className = 'h-10 w-10' }) => (
-  <svg
-    viewBox="0 0 200 200"
-    xmlns="http://www.w3.org/2000/svg"
-    width={44}
-    height={44}
-    preserveAspectRatio="xMidYMid meet"
-    className={className}
-    aria-hidden
-  >
-    <path
-      d={PATH_HEART}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="3"
-      strokeLinejoin="round"
-      strokeLinecap="round"
-    />
-  </svg>
-);
-
 /**
- * Hero — silnější tah, výraznější červeň; ručnější křivka (mírný posun kontrolních bodů).
+ * Logo srdce z /public — škálování jen změnou className (např. h-10 w-10),
+ * bez deformace grafiky (object-contain).
  */
-export const HeroHeartBold: React.FC<HeartIconProps> = ({ className = 'h-48 w-48' }) => (
-  <svg
-    viewBox="0 0 200 200"
-    xmlns="http://www.w3.org/2000/svg"
-    width={192}
-    height={192}
-    preserveAspectRatio="xMidYMid meet"
-    className={className}
+export const BrandHeartLogo: React.FC<BrandHeartLogoProps> = ({
+  className = 'h-10 w-10',
+}) => (
+  <span
+    className={`inline-flex shrink-0 items-center justify-center ${className}`}
     aria-hidden
   >
-    <path
-      d="M 58 168 C 20 128 22 42 82 42 C 108 42 118 72 118 72 C 118 72 132 44 162 46 C 198 48 198 118 128 168 L 42 192"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="7"
-      strokeLinejoin="round"
-      strokeLinecap="round"
+    {/* eslint-disable-next-line @next/next/no-img-element -- statický brand asset v /public */}
+    <img
+      src={BRAND_HEART_LOGO_SRC}
+      alt=""
+      width={LOGO_WIDTH}
+      height={LOGO_HEIGHT}
+      className="max-h-full max-w-full object-contain object-center"
+      decoding="async"
     />
-  </svg>
+  </span>
 );
+
+export const HeartIcon: React.FC<BrandHeartLogoProps> = (props) => (
+  <BrandHeartLogo {...props} />
+);
+
+export const HeroHeartBold: React.FC<BrandHeartLogoProps> = ({
+  className = 'h-48 w-48',
+}) => <BrandHeartLogo className={className} />;

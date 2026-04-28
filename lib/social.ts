@@ -3,5 +3,5 @@ export const FACEBOOK_URL =
   process.env.NEXT_PUBLIC_FACEBOOK_URL ??
   'https://www.facebook.com/share/18R7rjcjTu/';
 
-/** Kontaktní email hnutí. */
-export const EMAIL = 'info@provelkytynec.cz';
+/** Kontaktní e-mail hnutí. */
+export const EMAIL = 'protynec@seznam.cz';

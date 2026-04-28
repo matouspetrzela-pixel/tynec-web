@@ -17,10 +17,10 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({
   return (
     <Link
       href={`/kandidati/${slug}`}
-      className="group flex h-full flex-col rounded-2xl border border-gray-100 bg-white p-6 transition-all duration-300 hover:border-gray-300 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+      className="card-elevated group flex h-full flex-col p-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
     >
       {/* Fotka */}
-      <div className="mb-6 flex aspect-[4/5] items-center justify-center overflow-hidden rounded-xl bg-gray-50 ring-1 ring-gray-100 transition-transform duration-300 group-hover:scale-[1.01]">
+      <div className="mb-6 flex aspect-[4/5] items-center justify-center overflow-hidden rounded-xl bg-slate-50 ring-1 ring-slate-200/80 transition-transform duration-300 group-hover:scale-[1.01]">
         {photo ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img src={photo} alt={name} className="h-full w-full object-cover" />
