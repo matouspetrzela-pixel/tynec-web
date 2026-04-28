@@ -4,4 +4,4 @@ export const FACEBOOK_URL =
   'https://www.facebook.com/share/18R7rjcjTu/';
 
 /** Kontaktní e-mail hnutí. */
-export const EMAIL = 'protynec@seznam.cz';
+export const EMAIL = 'protynecsrdcem@seznam.cz';

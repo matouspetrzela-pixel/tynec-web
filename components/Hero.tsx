@@ -62,24 +62,23 @@ export const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_26%,rgba(138,178,255,0.06)_0%,rgba(138,178,255,0)_50%),radial-gradient(circle_at_84%_18%,rgba(120,200,255,0.09)_0%,rgba(120,200,255,0)_50%)]" />
       </div>
 
-      {/* Desktop: dominantní vertikální glass panel vlevo, vpravo prostor pro fotografii */}
-      <div className="relative z-10 mx-auto flex min-h-[min(100dvh,940px)] w-full max-w-[1920px] flex-col justify-end px-4 pb-16 pt-28 sm:px-6 sm:pb-20 md:min-h-[calc(100dvh-5rem)] md:justify-center md:pb-24 md:pt-16 lg:flex-row lg:items-center lg:justify-start lg:px-10 lg:pb-28 xl:px-14">
-        <div className="mx-auto w-full max-w-md sm:max-w-xl lg:mx-0 lg:flex lg:w-[48%] lg:min-w-0 lg:max-w-none lg:justify-start">
+      {/* Desktop: čistý dvousloupcový layout bez překryvu */}
+      <div className="relative z-10 mx-auto flex min-h-[min(100dvh,940px)] w-full max-w-[1920px] flex-col justify-end px-4 pb-16 pt-28 sm:px-6 sm:pb-20 md:min-h-[calc(100dvh-5rem)] md:justify-center md:pb-24 md:pt-16 lg:grid lg:grid-cols-[minmax(0,640px)_minmax(0,560px)] lg:items-start lg:justify-start lg:gap-10 lg:px-10 lg:pb-20 lg:pt-20 xl:gap-12 xl:px-14">
+        <div className="mx-auto w-full max-w-md sm:max-w-xl lg:mx-0 lg:max-w-[640px]">
           <HeroInfoPanel className="w-full max-w-xl lg:max-w-2xl">
             <HeroLead />
           </HeroInfoPanel>
         </div>
 
         {!launched ? (
-          <div className="mt-8 w-full lg:mt-0 lg:pl-8 xl:pl-14">
-            <div className="mx-auto max-w-[560px] rounded-2xl border border-white/30 bg-black/20 px-6 py-5 text-white shadow-[0_16px_48px_rgba(0,0,0,0.32)] backdrop-blur-md lg:mx-0">
-              <p className="text-[0.66rem] font-semibold uppercase tracking-[0.22em] text-white/75">
+          <div className="mt-8 w-full lg:mt-12">
+            <div className="mx-auto inline-flex w-auto max-w-none flex-col rounded-3xl border border-white/35 bg-[linear-gradient(135deg,rgba(18,30,46,0.48),rgba(45,63,82,0.34))] px-6 py-5 text-white shadow-[0_18px_56px_rgba(0,0,0,0.34)] backdrop-blur-lg lg:mx-0 lg:self-start">
+              <p className="text-lg font-semibold leading-tight text-white/90">
                 Brzy odhalíme
               </p>
-              <p className="mt-3 text-2xl font-extrabold leading-tight sm:text-[2rem]">
-                Chystáme změnu pro Velký Týnec.
+              <p className="mt-2 text-[clamp(2rem,2.6vw,2.45rem)] font-extrabold leading-[1.08] text-white [text-shadow:0_2px_10px_rgba(0,0,0,0.35)] lg:whitespace-nowrap">
+                Chystáme změnu pro Velký Týnec
               </p>
-              <p className="mt-2 text-base font-medium text-white/90">Brzy vše odhalíme.</p>
             </div>
           </div>
         ) : (

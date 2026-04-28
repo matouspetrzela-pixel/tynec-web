@@ -5,6 +5,17 @@ Webová prezentace kandidátky **Pro Týnec srdcem** pro komunální volby 2026.
 **Live URL:** [protynec.cz](https://protynec.cz)  
 **Repozitář:** [github.com/matouspetrzela-pixel/tynec-web](https://github.com/matouspetrzela-pixel/tynec-web)
 
+## Dokumentace
+
+Detailní technická dokumentace je ve složce `docs/`:
+
+- `docs/README.md` — rozcestník dokumentace
+- `docs/architecture.md` — architektura aplikace a rozhodnutí
+- `docs/operations.md` — provoz, CI/CD, Vercel a troubleshooting
+- `docs/content-workflow.md` — jak bezpečně upravovat obsah
+- `docs/release-checklist.md` — checklist pro release a launch
+- `docs/owner-handbook.md` — rychlý návod pro správu webu bez programování
+
 ---
 
 ## Technický stack

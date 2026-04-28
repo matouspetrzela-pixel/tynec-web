@@ -69,7 +69,7 @@ export const HeroLead: React.FC = () => {
         >
           <span className="flex min-w-0 items-center gap-2">
             <FacebookBrandIcon className="h-6 w-6 shrink-0" aria-hidden />
-            <span className="min-w-0 truncate">Sledujte naši vizi v přímém přenosu</span>
+            <span className="min-w-0 truncate">Sledujte nás na Facebooku</span>
           </span>
           <ArrowUpRight className="h-5 w-5 shrink-0" aria-hidden />
         </a>

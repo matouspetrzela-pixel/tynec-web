@@ -78,6 +78,10 @@ export const Header: React.FC = () => {
                 </Link>
               );
             })}
+            <span className="inline-flex cursor-not-allowed select-none items-center gap-1.5 border-b-2 border-transparent pb-0.5 text-xs font-semibold uppercase tracking-[0.14em] text-tynec-black/45">
+              <Lock className="h-3 w-3" aria-hidden />
+              Aktuality
+            </span>
             {launched ? (
               <Link
                 href="/podporte-nas"
