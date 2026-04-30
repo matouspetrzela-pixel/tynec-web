@@ -111,11 +111,8 @@ export default function ONasPage() {
             id="vize-obce-heading"
             className="mb-4 text-h2-mobile font-bold uppercase tracking-tight text-tynec-black md:text-h2-desktop"
           >
-            Co chceme
+            Chceme Týnec:
           </h2>
-          <p className="mb-10 text-[1.05rem] leading-[1.7] text-tynec-black/68 md:whitespace-nowrap md:text-lg">
-            Jak má vypadat obec, kde se dobře žije — konkrétně, lidsky a s respektem ke každodennímu životu.
-          </p>
           <ol className="divide-y divide-slate-200/80 border-y border-slate-200/80">
             {hodnoty.map((h, index) => (
               <li
