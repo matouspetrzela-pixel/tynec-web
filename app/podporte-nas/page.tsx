@@ -1,7 +1,8 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { CalendarDays, Mail, Megaphone, Share2, Users } from 'lucide-react';
+import { CalendarDays, Mail } from 'lucide-react';
+import { Megaphone, Share2, Users } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { FacebookBrandIcon } from '@/components/FacebookBrandIcon';
 import { EMAIL, FACEBOOK_URL } from '@/lib/social';
@@ -49,8 +50,8 @@ export default function PodporteNasPage() {
     <div className="bg-white pb-20 pt-16 md:pb-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <section className="surface-panel p-6 md:p-10">
-          <div className="grid gap-8 lg:grid-cols-[1.12fr_0.88fr] lg:gap-12">
-            <header>
+          <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start lg:gap-12">
+            <header className="max-w-2xl">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-tynec-gray">
                 Zapojte se s námi
               </p>
@@ -63,44 +64,30 @@ export default function PodporteNasPage() {
                 budoucnosti obce.
               </p>
 
-              <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
+              <div className="mt-8 flex flex-col gap-3 sm:gap-3.5">
                 <a
                   href={FACEBOOK_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-secondary-campaign gap-2 px-4"
+                  className="inline-flex items-center gap-3 text-base font-medium text-tynec-black/80 transition-colors hover:text-primary md:text-lg"
                   aria-label="Sledujte nás na Facebooku"
                 >
-                  <FacebookBrandIcon className="h-5 w-5 shrink-0" />
-                  Sledujte nás
+                  <FacebookBrandIcon className="h-5 w-5 shrink-0 md:h-6 md:w-6" />
+                  <span className="font-semibold text-tynec-black">Sledujte nás</span>
                 </a>
-                <Link
-                  href="/program"
-                  className="btn-secondary-campaign"
-                >
-                  Volební program
-                </Link>
-                <Link
-                  href="/kandidati"
-                  className="btn-secondary-campaign"
-                >
-                  Poznej kandidáty
-                </Link>
-              </div>
-              <p className="mt-5">
                 <a
                   href={`mailto:${EMAIL}`}
-                  className="inline-flex items-center gap-2 text-sm text-tynec-black/70 transition-colors hover:text-primary"
+                  className="inline-flex items-center gap-3 text-base font-medium text-tynec-black/80 transition-colors hover:text-primary md:text-lg"
                 >
-                  <Mail className="h-4.5 w-4.5 shrink-0" aria-hidden />
+                  <Mail className="h-5 w-5 shrink-0 md:h-6 md:w-6" aria-hidden />
                   <span>
                     Kontakt: <span className="font-semibold text-tynec-black">{EMAIL}</span>
                   </span>
                 </a>
-              </p>
+              </div>
             </header>
 
-            <aside className="flex flex-col justify-center border-t border-gray-200 pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
+            <aside className="relative rounded-2xl border border-slate-200/85 bg-gradient-to-br from-white to-slate-50/65 p-6 sm:p-7 lg:p-8">
               <div className="inline-flex w-fit items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-primary">
                 <CalendarDays className="h-4 w-4" aria-hidden />
                 Komunální volby 2026
@@ -122,7 +109,6 @@ export default function PodporteNasPage() {
             </aside>
           </div>
         </section>
-
         <section className="surface-card mt-12 p-6 md:p-8">
           <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
@@ -174,7 +160,6 @@ export default function PodporteNasPage() {
             })}
           </div>
         </section>
-
       </div>
     </div>
   );

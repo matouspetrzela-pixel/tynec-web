@@ -155,7 +155,7 @@ const PROGRAM: ProgramItem[] = [
 export default function ProgramPage() {
   return (
     <div className="pb-20 pt-16">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="mx-auto max-w-[88rem] px-4 sm:px-6 lg:px-8">
 
         {/* Záhlaví */}
         <header className="mb-16 max-w-3xl">
@@ -166,22 +166,32 @@ export default function ProgramPage() {
           <h1 className="mt-4 text-h1-mobile font-bold uppercase text-tynec-black md:text-h1-desktop">
             Náš program
           </h1>
-          <p className="mt-6 text-pretty text-lg text-tynec-black/80 md:text-xl">
-            Krátké závazky. Žádné prázdné fráze — odpovědi na to, co občany štve.
-          </p>
         </header>
 
         {/* Programové oblasti */}
-        <div className="grid grid-cols-1 items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 items-stretch gap-6 sm:grid-cols-2 xl:grid-cols-3">
           {PROGRAM.map((item, i) => {
             const Icon = item.Icon;
             const isBrandTile = item.variant === 'brand';
-            const previewPoints = item.points.slice(0, 2);
-            const extraPoints = item.points.slice(2);
+            if (isBrandTile) {
+              return (
+                <article
+                  key={item.title}
+                  className="group relative flex h-full items-center justify-center overflow-hidden rounded-2xl border border-gray-100 bg-white p-7 transition-all duration-300 hover:border-gray-200"
+                >
+                  <div className="w-full rounded-xl border border-gray-100 bg-white px-3 py-4">
+                    <CampaignLogo
+                      variant="header"
+                      className="mx-auto h-auto w-full max-w-[280px] object-contain"
+                    />
+                  </div>
+                </article>
+              );
+            }
             return (
               <article
                 key={item.title}
-                className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white p-7 transition-all duration-300 hover:border-gray-200"
+                className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white p-8 transition-all duration-300 hover:border-gray-200"
               >
                 <span
                   aria-hidden
@@ -190,57 +200,15 @@ export default function ProgramPage() {
                 >
                   {String(i + 1).padStart(2, '0')}
                 </span>
-                <div className="mb-4">
-                  {isBrandTile ? (
-                    <div className="rounded-xl border border-gray-100 bg-white px-3 py-3">
-                      <CampaignLogo
-                        variant="header"
-                        className="mx-auto h-auto w-full max-w-[240px] object-contain"
-                      />
-                    </div>
-                  ) : (
-                    <Icon className="h-7 w-7 shrink-0 text-primary" strokeWidth={2} aria-hidden />
-                  )}
+                <div className="mb-5">
+                  <Icon className="h-7 w-7 shrink-0 text-primary" strokeWidth={2} aria-hidden />
                 </div>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-tynec-gray">
+                <p className="min-h-[2.6rem] text-[11px] font-semibold uppercase leading-[1.25] tracking-[0.18em] text-tynec-gray">
                   {item.tag}
                 </p>
-                <h2 className="mt-2 text-base font-bold uppercase leading-snug tracking-tight text-tynec-black md:text-lg">
+                <h2 className="mt-3 min-h-[3.1rem] text-[1.15rem] font-bold uppercase leading-tight tracking-tight text-tynec-black">
                   {item.title}
                 </h2>
-                <p className="mt-3 text-tynec-black/75">
-                  {item.intro}
-                </p>
-                <ul className="mb-4 mt-4 space-y-2">
-                  {previewPoints.map((point, pointIdx) => (
-                    <li
-                      key={`${item.title}-preview-${pointIdx}`}
-                      className="flex items-start gap-2 text-sm leading-relaxed text-tynec-black/75"
-                    >
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden />
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {extraPoints.length > 0 && (
-                  <details className="mt-auto rounded-xl border border-gray-200 bg-gray-50/70 p-3">
-                    <summary className="cursor-pointer list-none text-xs font-bold uppercase tracking-[0.12em] text-primary marker:content-none">
-                      Zobrazit více
-                    </summary>
-                    <ul className="mt-3 space-y-2">
-                      {extraPoints.map((point, pointIdx) => (
-                        <li
-                          key={`${item.title}-extra-${pointIdx}`}
-                          className="flex items-start gap-2 text-sm leading-relaxed text-tynec-black/75"
-                        >
-                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden />
-                          <span>{point}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </details>
-                )}
               </article>
             );
           })}

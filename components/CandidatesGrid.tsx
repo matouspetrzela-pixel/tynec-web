@@ -15,7 +15,7 @@ export const CandidatesGrid: React.FC<CandidatesGridProps> = ({
 
   return (
     <section className="section-padding border-t border-slate-200/60 bg-gradient-to-b from-slate-50/90 via-slate-50/50 to-white">
-      <div className="container mx-auto max-w-6xl">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6">
         {showTitle && (
           <header className="reveal mb-12 md:mb-16">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-tynec-gray">
@@ -30,7 +30,7 @@ export const CandidatesGrid: React.FC<CandidatesGridProps> = ({
           </header>
         )}
 
-        <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 lg:gap-9 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-10 xl:grid-cols-3 xl:gap-11">
           {displayed.map((candidate) => (
             <CandidateCard
               key={candidate.id}

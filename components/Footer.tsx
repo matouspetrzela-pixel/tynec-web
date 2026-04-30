@@ -10,6 +10,7 @@ export const Footer: React.FC = () => {
     { label: 'O nás', href: '/o-nas' },
     { label: 'Program', href: '/program' },
     { label: 'Kandidáti', href: '/kandidati' },
+    { label: 'Aktuality', href: '/aktuality' },
     { label: 'Podpořte nás', href: '/podporte-nas' },
   ];
 

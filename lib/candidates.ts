@@ -71,7 +71,7 @@ export const CANDIDATES: Candidate[] = [
   {
     id: 8,
     slug: 'vaclav-sklenar',
-    name: 'Ing. Václav Sklenář',
+    name: 'Ing. Václav Sklenář, Ph.D.',
     heartPriority: 'Sportoviště a zdravý životní styl',
     gender: 'male',
   },

@@ -7,16 +7,31 @@ import { Lock, Menu, X } from 'lucide-react';
 import { CampaignLogo } from '@/components/CampaignLogo';
 
 const launched = process.env.NEXT_PUBLIC_SITE_LAUNCHED === 'true';
+/** Lokálně (`next dev`) zobrazit plnou navigaci bez zámků kvůli vývoji */
+const devPreview = process.env.NODE_ENV === 'development';
+const allUnlocked = launched || devPreview;
+
+type NavItem = {
+  label: string;
+  href: string;
+  /** Phase 1.5 — odemčeno i při `NEXT_PUBLIC_SITE_LAUNCHED=false` */
+  alwaysUnlocked?: boolean;
+};
 
 export const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  const navItems = [
-    { label: 'O nás', href: '/o-nas' },
+  const navItems: NavItem[] = [
+    { label: 'O nás', href: '/o-nas', alwaysUnlocked: true },
     { label: 'Program', href: '/program' },
     { label: 'Kandidáti', href: '/kandidati' },
+    { label: 'Aktuality', href: '/aktuality', alwaysUnlocked: true },
   ];
+
+  const isItemUnlocked = (item: NavItem) =>
+    allUnlocked || Boolean(item.alwaysUnlocked);
+  const hasAnyUnlocked = navItems.some(isItemUnlocked);
 
   const path = pathname ?? '';
 
@@ -52,7 +67,7 @@ export const Header: React.FC = () => {
 
           <nav className="hidden items-center gap-6 lg:gap-8 md:flex" aria-label="Hlavní navigace">
             {navItems.map((item) => {
-              if (!launched) {
+              if (!isItemUnlocked(item)) {
                 return (
                   <span
                     key={item.label}
@@ -78,11 +93,7 @@ export const Header: React.FC = () => {
                 </Link>
               );
             })}
-            <span className="inline-flex cursor-not-allowed select-none items-center gap-1.5 border-b-2 border-transparent pb-0.5 text-xs font-semibold uppercase tracking-[0.14em] text-tynec-black/45">
-              <Lock className="h-3 w-3" aria-hidden />
-              Aktuality
-            </span>
-            {launched ? (
+            {allUnlocked ? (
               <Link
                 href="/podporte-nas"
                 className="btn-primary-sheen rounded-xl px-6 py-2.5 text-[11px] font-bold uppercase tracking-[0.14em] lg:px-8 lg:py-3 lg:text-xs"
@@ -97,7 +108,7 @@ export const Header: React.FC = () => {
             )}
           </nav>
 
-          {launched && (
+          {hasAnyUnlocked && (
             <button
               type="button"
               className="flex min-h-11 min-w-11 items-center justify-center rounded-lg text-tynec-black touch-manipulation md:hidden"
@@ -111,12 +122,23 @@ export const Header: React.FC = () => {
           )}
         </div>
 
-        {launched && mobileMenuOpen && (
+        {hasAnyUnlocked && mobileMenuOpen && (
           <nav
             id="mobile-nav"
             className="glass-panel mb-4 flex flex-col gap-1 rounded-2xl px-4 py-6 md:hidden"
           >
             {navItems.map((item) => {
+              if (!isItemUnlocked(item)) {
+                return (
+                  <span
+                    key={item.label}
+                    className="inline-flex select-none items-center gap-2 border-b-2 border-transparent py-3 text-sm font-semibold uppercase tracking-[0.1em] text-tynec-black/45"
+                  >
+                    <Lock className="h-3.5 w-3.5" aria-hidden />
+                    {item.label}
+                  </span>
+                );
+              }
               const active = isActive(item.href);
               return (
                 <Link
@@ -133,13 +155,20 @@ export const Header: React.FC = () => {
                 </Link>
               );
             })}
-            <Link
-              href="/podporte-nas"
-              onClick={() => setMobileMenuOpen(false)}
-              className="btn-primary-sheen mt-3 rounded-xl py-4 text-center text-sm font-bold uppercase tracking-[0.12em]"
-            >
-              Podpořte nás
-            </Link>
+            {allUnlocked ? (
+              <Link
+                href="/podporte-nas"
+                onClick={() => setMobileMenuOpen(false)}
+                className="btn-primary-sheen mt-3 rounded-xl py-4 text-center text-sm font-bold uppercase tracking-[0.12em]"
+              >
+                Podpořte nás
+              </Link>
+            ) : (
+              <span className="mt-3 inline-flex cursor-not-allowed select-none items-center justify-center gap-2 rounded-xl border border-tynec-black/15 bg-tynec-black/[0.06] py-4 text-center text-sm font-bold uppercase tracking-[0.12em] text-tynec-black/50">
+                <Lock className="h-3.5 w-3.5" aria-hidden />
+                Podpořte nás
+              </span>
+            )}
           </nav>
         )}
       </div>

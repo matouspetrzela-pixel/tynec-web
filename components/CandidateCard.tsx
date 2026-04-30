@@ -17,7 +17,7 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({
   return (
     <Link
       href={`/kandidati/${slug}`}
-      className="card-elevated group flex h-full flex-col p-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+      className="card-elevated group flex h-full flex-col px-7 py-7 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 sm:px-8 sm:py-8"
     >
       {/* Fotka */}
       <div className="mb-6 flex aspect-[4/5] items-center justify-center overflow-hidden rounded-xl bg-slate-50 ring-1 ring-slate-200/80 transition-transform duration-300 group-hover:scale-[1.01]">
@@ -32,7 +32,8 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({
       </div>
 
       <div className="mt-auto flex flex-1 flex-col justify-end gap-3">
-        <h3 className="text-lg font-bold text-tynec-black transition-colors group-hover:text-primary md:text-xl">
+        {/* Jedna řádka na větších šířkách; centrované projednotící dlaždice */}
+        <h3 className="flex min-h-[2.875rem] items-center justify-center text-center text-[0.9375rem] font-bold leading-snug tracking-tight text-tynec-black transition-colors group-hover:text-primary sm:text-[1rem] md:whitespace-nowrap md:text-[1.05rem] lg:text-lg xl:text-[1.2rem]">
           {name}
         </h3>
 

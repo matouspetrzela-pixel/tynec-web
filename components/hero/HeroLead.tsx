@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowUpRight, Lock } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { CampaignLogo } from '@/components/CampaignLogo';
 import { FacebookBrandIcon } from '@/components/FacebookBrandIcon';
 import { FACEBOOK_URL } from '@/lib/social';
@@ -44,20 +44,18 @@ export const HeroLead: React.FC = () => {
           </div>
         ) : (
           <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2">
-            <div
-              aria-disabled="true"
-              className="inline-flex min-h-[56px] w-full cursor-not-allowed items-center justify-center gap-2 rounded-xl border border-white/40 bg-white/[0.08] px-6 py-4 text-center text-sm font-bold uppercase tracking-[0.1em] text-white/70 ring-1 ring-inset ring-white/10"
+            <Link
+              href="/o-nas"
+              className="btn-primary-sheen inline-flex min-h-[56px] w-full items-center justify-center rounded-xl px-6 py-4 text-center text-sm font-bold uppercase tracking-[0.1em] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
-              <Lock className="h-4 w-4" aria-hidden />
-              Volební program 2026
-            </div>
-            <div
-              aria-disabled="true"
-              className="inline-flex min-h-[56px] w-full cursor-not-allowed items-center justify-center gap-2 rounded-xl border border-white/40 bg-white/[0.08] px-6 py-4 text-center text-sm font-bold uppercase tracking-[0.08em] text-white/70 ring-1 ring-inset ring-white/10"
+              O nás
+            </Link>
+            <Link
+              href="/aktuality"
+              className="inline-flex min-h-[56px] w-full items-center justify-center rounded-xl border border-white/50 bg-white/[0.08] px-6 py-4 text-center text-sm font-bold uppercase tracking-[0.08em] text-white ring-1 ring-inset ring-white/10 backdrop-blur-sm transition-all duration-300 hover:bg-white/[0.16] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
-              <Lock className="h-4 w-4" aria-hidden />
-              Naši kandidáti
-            </div>
+              Aktuality
+            </Link>
           </div>
         )}
 
