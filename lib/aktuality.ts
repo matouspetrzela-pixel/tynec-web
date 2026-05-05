@@ -54,7 +54,7 @@ export const AKTUALITY: Aktualita[] = [
     typ: 'clanek',
     datum: '2026-05-05',
     nadpis:
-      'Kandidáty představíme postupně. Chceme je ukázat jinak než jen seznam jmen.',
+      'Kandidáty představíme postupně. Chceme je ukázat jinak než jen seznam jmen',
     perex:
       'V následujících týdnech začneme postupně představovat svůj volební tým. Reagujeme tak na časté dotazy našich spoluobčanů, kteří chtějí vědět, kdo konkrétně za iniciativou Pro Týnec srdcem stojí.',
     obsah: `Namísto jednorázového zveřejnění seznamu kandidátů jsme se rozhodli jít jinou cestou. Každému kandidátovi chceme dát prostor představit se osobně, aby voliči znali nejen jeho jméno na kandidátce, ale především jeho vlastní příběh, zkušenosti a motivaci.
@@ -72,7 +72,7 @@ Buďte s námi u postupného odhalování celého týmu. ❤️💚`,
     id: '2026-05-01-startujeme',
     typ: 'clanek',
     datum: '2026-05-01',
-    nadpis: 'Startujeme. Buďte u toho s námi.',
+    nadpis: 'Startujeme. Buďte u toho s námi',
     perex:
       'Srdce je symbolem lásky, péče a opravdového zájmu. A právě proto, symbolicky v máji, spouštíme komunikační kampaň našeho týmu pro letošní komunální volby.',
     obsah: `Chceme pracovat pro Velký Týnec srdcem. Poctivě, otevřeně a s respektem k místu, kde žijeme. Protože obec nejsou jen ulice a domy. Obec tvoří lidé, jejich příběhy, potřeby i společná budoucnost.
