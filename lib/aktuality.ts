@@ -50,10 +50,29 @@ export interface Aktualita {
 
 export const AKTUALITY: Aktualita[] = [
   {
+    id: '2026-05-05-kandidaty-predstavime-postupne',
+    typ: 'clanek',
+    datum: '2026-05-05',
+    nadpis:
+      'Kandidáty představíme postupně. Chceme je ukázat jinak než jen seznam jmen.',
+    perex:
+      'V následujících týdnech začneme postupně představovat svůj volební tým. Reagujeme tak na časté dotazy našich spoluobčanů, kteří chtějí vědět, kdo konkrétně za iniciativou Pro Týnec srdcem stojí.',
+    obsah: `Namísto jednorázového zveřejnění seznamu kandidátů jsme se rozhodli jít jinou cestou. Každému kandidátovi chceme dát prostor představit se osobně, aby voliči znali nejen jeho jméno na kandidátce, ale především jeho vlastní příběh, zkušenosti a motivaci.
+
+"Nechceme zůstat jen u seznamu jmen. Chceme ukázat, kdo naši kandidáti opravdu jsou, co mají za sebou a proč se rozhodli zapojit do práce pro Týnec."
+
+Postupné představování kandidátů bude probíhat prostřednictvím našich komunikačních kanálů. Každý z členů týmu tak dostane prostor přiblížit své hodnoty, zkušenosti i důvody, proč chce přispět k rozvoji obce.
+
+Naším cílem je nabídnout občanům hlubší a autentičtější pohled na jednotlivé kandidáty a umožnit jim vytvořit si vlastní názor na základě konkrétních postojů a sdělených informací.
+
+Buďte s námi u postupného odhalování celého týmu. ❤️💚`,
+    obrazek: '/aktuality/kandidati-predstaveni-2026-05.png',
+  },
+  {
     id: '2026-05-01-startujeme',
     typ: 'clanek',
     datum: '2026-05-01',
-    nadpis: 'Startujeme. Buďte u toho s námi',
+    nadpis: 'Startujeme. Buďte u toho s námi.',
     perex:
       'Srdce je symbolem lásky, péče a opravdového zájmu. A právě proto, symbolicky v máji, spouštíme komunikační kampaň našeho týmu pro letošní komunální volby.',
     obsah: `Chceme pracovat pro Velký Týnec srdcem. Poctivě, otevřeně a s respektem k místu, kde žijeme. Protože obec nejsou jen ulice a domy. Obec tvoří lidé, jejich příběhy, potřeby i společná budoucnost.

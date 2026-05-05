@@ -63,6 +63,9 @@ export const Header: React.FC = () => {
               priority
               className="h-9 w-auto max-h-9 origin-left object-contain object-left transition-transform duration-300 group-hover:scale-[1.02] md:h-11 md:max-h-11"
             />
+            <span className="ml-3 text-xs font-semibold uppercase tracking-[0.14em] text-tynec-black/80">
+              2026-2030
+            </span>
           </Link>
 
           <nav className="hidden items-center gap-6 lg:gap-8 md:flex" aria-label="Hlavní navigace">
