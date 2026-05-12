@@ -67,6 +67,13 @@ function AktualitaCard({ item }: { item: Aktualita }) {
         ? item.soubor
         : null;
 
+  const thumbObjectPosition =
+    item.nahledOrez === 'left'
+      ? 'object-left'
+      : item.nahledOrez === 'right'
+        ? 'object-right'
+        : 'object-center';
+
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:border-gray-200 hover:shadow-md">
       <details className="group/dtl flex flex-1 flex-col" open={!hasExpandableContent}>
@@ -76,14 +83,14 @@ function AktualitaCard({ item }: { item: Aktualita }) {
             hasExpandableContent ? 'cursor-pointer' : 'cursor-default',
           ].join(' ')}
         >
-          {/* Náhled + datum dole vlevo (jako úřední rozcestník aktualit) */}
-          <div className="relative h-44 w-full shrink-0 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200/90 sm:h-48">
+          {/* Náhled + datum dole vpravo (jednotně na všech kartách) */}
+          <div className="relative h-52 w-full shrink-0 overflow-hidden bg-slate-100 sm:h-56">
             {thumbSrc ? (
               <Image
                 src={thumbSrc}
                 alt={item.nadpis}
                 fill
-                className="object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                className={`object-cover ${thumbObjectPosition} transition-transform duration-500 group-hover:scale-[1.02]`}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
               />
             ) : (
@@ -92,11 +99,11 @@ function AktualitaCard({ item }: { item: Aktualita }) {
               </div>
             )}
 
-            {/* Datum vložení — překryvný štítek */}
-            <div className="absolute bottom-3 left-3 z-[2] rounded-lg bg-black/70 px-3 py-1.5 shadow-md backdrop-blur-[2px]">
+            {/* Datum vložení — kompaktní štítek (méně překrývá náhledové grafiky) */}
+            <div className="absolute bottom-2 right-2 z-[2] rounded-md bg-black/65 px-2 py-0.5 shadow-sm backdrop-blur-[2px]">
               <time
                 dateTime={item.datum}
-                className="text-[13px] font-bold tracking-tight text-white"
+                className="text-[11px] font-semibold tabular-nums tracking-tight text-white sm:text-xs"
               >
                 {formatDatumBadge(item.datum)}
               </time>

@@ -42,6 +42,11 @@ export interface Aktualita {
    * Chybí-li, použije se obrázek ze `soubor`, jinak neutrální pozadí — datum se zobrazí vždy.
    */
   obrazek?: string;
+  /**
+   * Kam „najet“ při ořezu náhledu (`object-cover`). Výchozí: uprostřed.
+   * U širokých bannerů s logem vlevo použijte `left`.
+   */
+  nahledOrez?: 'center' | 'left' | 'right';
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -49,6 +54,26 @@ export interface Aktualita {
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const AKTUALITY: Aktualita[] = [
+  {
+    id: '2026-05-12-moznost-volby',
+    typ: 'clanek',
+    datum: '2026-05-12',
+    nadpis:
+      'Letos budou mít občané Týnce skutečnou možnost volby. Minule chyběla',
+    perex:
+      'Ve Velkém Týnci vzniklo nové sdružení nezávislých kandidátů „Pro Týnec srdcem“, které se chce ucházet o důvěru občanů v letošních komunálních volbách. Hlavním důvodem jeho vzniku je přesvědčení, že demokracie má stát na možnosti výběru, otevřené diskusi a různých pohledech na budoucnost obce.',
+    obsah: `Před čtyřmi lety měli občané v komunálních volbách k dispozici pouze jednu kandidátní listinu. Volby tak proběhly bez možnosti porovnání různých programů, názorů či priorit. Právě tato zkušenost byla impulzem pro vznik nového sdružení.
+
+„Nechceme stavět naši kampaň na útocích nebo rozdělování obce. Naším cílem je přinést otevřenost, novou energii a především možnost volby. Věříme, že obec je nejsilnější tehdy, když mohou lidé sami rozhodovat mezi více pohledy na její budoucnost.“
+
+V následujících měsících budeme postupně představovat své kandidáty, témata i konkrétní vize pro další rozvoj Velkého Týnce, Vsiska a Čechovic. Důraz budeme klást zejména na komunikaci s občany, transparentnost a aktivní zapojení veřejnosti do dění v obci.
+
+„Jsme přesvědčeni, že možnost výběru je základním principem demokracie. A jsme rádi, že letos na podzim budou mít občané Velkého Týnce a místních částí Čechovice a Vsisko možnost rozhodnout se sami.“
+
+Aktuální informace o kandidátech, programu i plánovaných aktivitách mohou občané sledovat na facebooku Pro Týnec srdcem.`,
+    obrazek: '/aktuality/letos-moznost-volby-2026-05-12.png',
+    nahledOrez: 'left',
+  },
   {
     id: '2026-05-05-kandidaty-predstavime-postupne',
     typ: 'clanek',
