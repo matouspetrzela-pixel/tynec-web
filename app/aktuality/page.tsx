@@ -24,6 +24,39 @@ function formatDatumBadge(iso: string) {
   return `${day}. ${month}. ${y}`;
 }
 
+/**
+ * Jednoduché odkazy v textu aktuality: `[popisek](https://…)` → klikací odkaz.
+ * (Datový soubor zůstává čitelný; HTML se do obsahu nedává.)
+ */
+function renderTextWithMarkdownLinks(text: string): React.ReactNode {
+  const re = /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g;
+  const parts: React.ReactNode[] = [];
+  let last = 0;
+  let m: RegExpExecArray | null;
+  let key = 0;
+  while ((m = re.exec(text)) !== null) {
+    if (m.index > last) {
+      parts.push(text.slice(last, m.index));
+    }
+    parts.push(
+      <a
+        key={`mdl-${key++}`}
+        href={m[2]}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="font-semibold text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary"
+      >
+        {m[1]}
+      </a>
+    );
+    last = re.lastIndex;
+  }
+  if (last < text.length) {
+    parts.push(text.slice(last));
+  }
+  return parts.length ? <>{parts}</> : text;
+}
+
 const TYP_META: Record<
   AktualitaTyp,
   { label: string; color: string; Icon: React.ElementType }
@@ -140,7 +173,7 @@ function AktualitaCard({ item }: { item: Aktualita }) {
           <div className="space-y-4 border-t border-gray-100 px-6 pb-6 pt-5 sm:px-7 sm:pb-7">
             {item.perex && (
               <p className="text-base leading-8 text-tynec-black/85 sm:text-[1.075rem]">
-                {item.perex}
+                {renderTextWithMarkdownLinks(item.perex)}
               </p>
             )}
             {item.obsah &&
@@ -154,7 +187,7 @@ function AktualitaCard({ item }: { item: Aktualita }) {
                     key={`${item.id}-obsah-${i}`}
                     className="text-base leading-8 text-tynec-black/85 sm:text-[1.075rem]"
                   >
-                    {blok}
+                    {renderTextWithMarkdownLinks(blok)}
                   </p>
                 ))}
           </div>

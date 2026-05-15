@@ -12,6 +12,11 @@
  *  'pdf'     — PDF ke stažení (soubor: cesta k PDF v /public/aktuality/)
  *  'letak'   — leták/obrázek (soubor: cesta k obrázku, volitelně odkaz na PDF)
  *  'video'   — video (odkaz: URL na YouTube nebo jiný zdroj)
+ *
+ * Náhled na kartě: volitelné `nahledOrez` ('center' | 'left' | 'right') určuje ořez u širokých obrázků.
+ * Štítek data je vždy vpravo dole (viz také docs/content-workflow.md, sekce Aktuality).
+ *
+ * V `perex` a `obsah` lze vložit odkaz zápisem [text](https://…) — viz vykreslení v app/aktuality/page.tsx.
  */
 
 export type AktualitaTyp = 'clanek' | 'pdf' | 'letak' | 'video';
@@ -54,6 +59,28 @@ export interface Aktualita {
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const AKTUALITY: Aktualita[] = [
+  {
+    id: '2026-05-15-dotaznik-program',
+    typ: 'clanek',
+    datum: '2026-05-15',
+    nadpis:
+      'Váš názor nás zajímá. Pojďte se podílet na budoucnosti obce',
+    perex:
+      'Sdružení Pro Týnec srdcem zahájilo sběr podnětů od občanů pro tvorbu volebního programu pro komunální volby 2026. Cílem není vytvořit program „od stolu“, ale připravit dokument, který bude vycházet z reálných potřeb lidí žijících ve Velkém Týnci, Vsisku a Čechovicích.',
+    obsah: `„Lidé se nás často ptají, proč jsme ještě nezveřejnili kompletní program. Odpověď je jednoduchá – chceme dát prostor také občanům. Máme rozpracované klíčové oblasti, ale důležité je pro nás vědět, co obyvatelé skutečně řeší a co považují za priority.“
+
+Sdružení proto spustilo krátký anonymní dotazník, jehož vyplnění zabere přibližně tři minuty. Občané mohou sdílet své nápady, připomínky i témata, která podle nich obec dlouhodobě opomíjí. Získané podněty chce sdružení využít při finalizaci programu, který plánuje zveřejnit v následujících měsících.
+
+„Nechceme slibovat nereálné věci ani vytvářet program na základě dohadů. Chceme, aby vznikal společně s lidmi, kterých se bude přímo týkat.“
+
+Dotazník je dostupný online a zapojit se může každý občan, kterému záleží na budoucnosti Velkého Týnce, Vsiska a Čechovic.
+
+Anonymní dotazník naleznete zde: [Jak se vám žije v Týnci?](https://forms.gle/syzcYT2EANiSLv6P6)
+
+Sdružení zároveň děkuje všem občanům, kteří se do tvorby programu zapojí a pomohou určit směr, kterým se má obec v následujících čtyřech letech vydat.`,
+    obrazek: '/aktuality/dotaznik-budoucnost-obce-2026-05-15.png',
+    nahledOrez: 'left',
+  },
   {
     id: '2026-05-12-moznost-volby',
     typ: 'clanek',
