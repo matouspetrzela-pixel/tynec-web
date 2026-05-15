@@ -109,10 +109,13 @@ function AktualitaCard({ item }: { item: Aktualita }) {
 
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:border-gray-200 hover:shadow-md">
-      <details className="group/dtl flex flex-1 flex-col" open={!hasExpandableContent}>
+      <details
+        className="group/dtl flex h-full min-h-0 flex-1 flex-col"
+        open={!hasExpandableContent}
+      >
         <summary
           className={[
-            'list-none marker:content-none [&::-webkit-details-marker]:hidden',
+            'flex min-h-0 flex-1 flex-col list-none marker:content-none group-open/dtl:flex-none [&::-webkit-details-marker]:hidden',
             hasExpandableContent ? 'cursor-pointer' : 'cursor-default',
           ].join(' ')}
         >
@@ -143,8 +146,8 @@ function AktualitaCard({ item }: { item: Aktualita }) {
             </div>
           </div>
 
-          <div className="flex flex-col p-6 sm:p-7">
-            <div className="mb-3">
+          <div className="flex min-h-0 flex-1 flex-col p-6 sm:p-7">
+            <div className="mb-3 shrink-0">
               <span
                 className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] ${meta.color}`}
               >
@@ -153,12 +156,12 @@ function AktualitaCard({ item }: { item: Aktualita }) {
               </span>
             </div>
 
-            <h2 className="text-lg font-bold leading-snug text-blue-900 sm:text-xl">
+            <h2 className="shrink-0 text-lg font-bold leading-snug text-blue-900 sm:text-xl">
               {item.nadpis}
             </h2>
 
             {hasExpandableContent && (
-              <div className="mt-5 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.12em] text-primary">
+              <div className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-bold uppercase tracking-[0.12em] text-primary">
                 Číst více
                 <ChevronDown
                   className="h-4.5 w-4.5 shrink-0 transition-transform duration-200 group-open/dtl:rotate-180"
