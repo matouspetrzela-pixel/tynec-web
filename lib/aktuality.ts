@@ -73,6 +73,32 @@ export interface Aktualita {
 
 export const AKTUALITY: Aktualita[] = [
   {
+    id: '2026-05-28-komunalni-volby-moznost-volby',
+    typ: 'clanek',
+    datum: '2026-05-28',
+    nadpis:
+      'Komunální volby nejsou formalita. Jsou o možnosti volby',
+    perex:
+      'Každé čtyři roky mají občané možnost rozhodnout o tom, kdo povede jejich obec. Komunální volby přitom nejsou jen administrativní povinností nebo formalitou. Jsou důležitým nástrojem demokracie a příležitostí vyjádřit spokojenost, nebo naopak potřebu změny.',
+    obsah: `V roce 2022 jsme i ve Velkém Týnci zažili situaci, která by měla být varováním. O vedení obce tehdy usilovala pouze jedna kandidátka s jedenácti kandidáty na jedenáct míst v zastupitelstvu. Volby tak proběhly prakticky bez možnosti skutečné volby.
+
+Dlouhodobě přitom sledujeme klesající zájem lidí o komunální politiku i veřejné dění. Právě na úrovni obce se ale rozhoduje o věcech, které ovlivňují každodenní život nás všech (od školství a dopravy přes veřejný prostor až po podporu spolků, kultury nebo komunikaci vedení obce s občany).
+
+Sdružení Pro Týnec srdcem vzniklo s cílem nabídnout občanům alternativu, otevřenější přístup a větší zapojení veřejnosti do života obce. Chceme přinést novou energii, podporovat férovou komunikaci a budovat vztahy mezi obcí a občany na důvěře, respektu a spolupráci.
+
+V tuto chvíli jsme zároveň jediným subjektem, který veřejně oznámil kandidaturu v nadcházejících komunálních volbách. Přesto věříme, že nebudeme jediní a že zájem o dění v obci existuje a lidem není budoucnost Velkého Týnce lhostejná.
+
+Obec podle nás nemá fungovat jako uzavřený úřad, ale jako živé společenství lidí, kteří mají možnost podílet se na jejím směřování.
+
+Proto chceme otevřít diskusi o tom, jakou obec si přejeme pro další roky. A hlavně — vrátit občanům pocit, že jejich názor má váhu.
+
+Budoucnost obce totiž nevytváří jednotlivci za zavřenými dveřmi, ale lidé, kterým na místě, kde žijí, skutečně záleží.`,
+    obrazek: '/aktuality/komunalni-volby-moznost-volby-2026-05-28.png',
+    obrazekSirka: 1024,
+    obrazekVyska: 1024,
+    kartaZobrazeni: 'contain',
+  },
+  {
     id: '2026-05-15-dotaznik-program',
     typ: 'clanek',
     datum: '2026-05-15',
