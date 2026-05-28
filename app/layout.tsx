@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { SITE_URL } from "@/lib/site";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -23,7 +24,7 @@ const inter = Inter({
 const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://protynec.cz'),
+  metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: '/',
   },
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     siteName: 'Pro Týnec srdcem',
     locale: 'cs_CZ',
     type: 'website',
-    url: 'https://protynec.cz',
+    url: SITE_URL,
     title: 'Pro Týnec srdcem — Komunální volby 2026',
     description:
       'Politické hnutí Pro Týnec srdcem. Rozum do rozvoje, srdce do komunity. Komunální volby 9.–10. října 2026.',
