@@ -48,10 +48,23 @@ export interface Aktualita {
    */
   obrazek?: string;
   /**
+   * Skutečné rozměry obrázku v px (kvůli zachování poměru stran na detailu článku).
+   * Když chybí, předpokládá se 3:2 (1200×800). Tip: spusť `node scripts/check-aktuality-images.mjs`.
+   */
+  obrazekSirka?: number;
+  obrazekVyska?: number;
+  /**
    * Kam „najet“ při ořezu náhledu (`object-cover`). Výchozí: uprostřed.
    * U širokých bannerů s logem vlevo použijte `left`.
    */
   nahledOrez?: 'center' | 'left' | 'right';
+  /**
+   * Jak zobrazit obrázek na kartě:
+   *   'cover'   – výchozí. Obrázek vyplní celou plochu náhledu, případně se ořízne (vhodné pro bannery).
+   *   'contain' – obrázek se zobrazí celý uvnitř karty (vhodné pro čtvercové grafiky / plakáty,
+   *              kde nesmí dojít k ořezu textu).
+   */
+  kartaZobrazeni?: 'cover' | 'contain';
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -79,6 +92,8 @@ Anonymní dotazník naleznete zde: [Jak se vám žije v Týnci?](https://forms.g
 
 Sdružení zároveň děkuje všem občanům, kteří se do tvorby programu zapojí a pomohou určit směr, kterým se má obec v následujících čtyřech letech vydat.`,
     obrazek: '/aktuality/dotaznik-budoucnost-obce-2026-05-15.png',
+    obrazekSirka: 1024,
+    obrazekVyska: 682,
     nahledOrez: 'left',
   },
   {
@@ -99,6 +114,8 @@ V následujících měsících budeme postupně představovat své kandidáty, t
 
 Aktuální informace o kandidátech, programu i plánovaných aktivitách mohou občané sledovat na facebooku Pro Týnec srdcem.`,
     obrazek: '/aktuality/letos-moznost-volby-2026-05-12.png',
+    obrazekSirka: 1024,
+    obrazekVyska: 858,
     nahledOrez: 'left',
   },
   {
@@ -119,6 +136,8 @@ Naším cílem je nabídnout občanům hlubší a autentičtější pohled na je
 
 Buďte s námi u postupného odhalování celého týmu. ❤️💚`,
     obrazek: '/aktuality/kandidati-predstaveni-2026-05.png',
+    obrazekSirka: 1024,
+    obrazekVyska: 682,
   },
   {
     id: '2026-05-01-startujeme',
@@ -133,6 +152,8 @@ Těšíme se, že s vámi budeme sdílet naše vize, nápady i konkrétní kroky
 
 Protože pro Týnec chceme to nejlepší. A chceme to dělat srdcem. ❤️`,
     obrazek: '/aktuality/startujeme-2026-05-banner.png',
+    obrazekSirka: 1024,
+    obrazekVyska: 576,
   },
   // ── PŘÍKLAD — článek ──────────────────────────────────────────────────────
   // {
