@@ -1,9 +1,9 @@
 import type { MetadataRoute } from 'next';
+import { AKTUALITY } from '@/lib/aktuality';
 import { CANDIDATES } from '@/lib/candidates';
+import { SITE_URL } from '@/lib/site';
 
-const SITE_URL = 'https://protynec.cz';
-
-const staticRoutes = ['', '/o-nas', '/program', '/kandidati', '/podporte-nas'];
+const staticRoutes = ['', '/o-nas', '/program', '/kandidati', '/podporte-nas', '/aktuality'];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -20,6 +20,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.6,
+    })),
+    ...AKTUALITY.map((a) => ({
+      url: `${SITE_URL}/aktuality/${a.id}`,
+      lastModified: new Date(a.datum),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
     })),
   ];
 }
