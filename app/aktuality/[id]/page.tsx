@@ -43,10 +43,14 @@ export function generateMetadata({ params }: Props): Metadata {
     };
   }
 
-  const og =
+  // OG / Twitter náhled MUSÍ být absolutní URL — Facebook scraper nepoužívá
+  // metadataBase z layoutu (pro jiný subdoménový kontext) a relativní cesty
+  // by se mohly nesprávně resolvnout vůči chybné base.
+  const ogImagePath =
     (item.obrazek && isImagePath(item.obrazek) ? item.obrazek : null) ??
     (item.soubor && isImagePath(item.soubor) ? item.soubor : null) ??
     '/images/9000.jpg';
+  const ogImageUrl = `${SITE_URL}${ogImagePath}`;
 
   return {
     title: item.nadpis,
@@ -62,7 +66,7 @@ export function generateMetadata({ params }: Props): Metadata {
       publishedTime: item.datum,
       images: [
         {
-          url: og,
+          url: ogImageUrl,
           alt: item.nadpis,
         },
       ],
@@ -71,7 +75,7 @@ export function generateMetadata({ params }: Props): Metadata {
       card: 'summary_large_image',
       title: item.nadpis,
       description: item.perex ?? item.nadpis,
-      images: [og],
+      images: [ogImageUrl],
     },
   };
 }
