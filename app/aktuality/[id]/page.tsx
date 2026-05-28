@@ -56,7 +56,9 @@ export function generateMetadata({ params }: Props): Metadata {
     title: item.nadpis,
     description: item.perex ?? item.nadpis,
     alternates: {
-      canonical: `/aktuality/${item.id}`,
+      // Absolutní URL — nezávislé na metadataBase v layoutu (ten zatím ukazuje
+      // na jinou doménu); kanonická adresa tak vždy míří na www.protynecsrdcem.cz.
+      canonical: `${SITE_URL}/aktuality/${item.id}`,
     },
     openGraph: {
       title: item.nadpis,
