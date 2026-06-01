@@ -24,6 +24,17 @@ const nextConfig = {
         destination: '/podporte-nas',
         permanent: true,
       },
+      // Zpětná kompatibilita URL z dokumentace / Search Console
+      {
+        source: '/images/og-pro-tynec-srdcem-square.jpg',
+        destination: '/opengraph-image',
+        permanent: false,
+      },
+      {
+        source: '/images/og-pro-tynec-srdcem.jpg',
+        destination: '/twitter-image',
+        permanent: false,
+      },
     ];
   },
   async headers() {
