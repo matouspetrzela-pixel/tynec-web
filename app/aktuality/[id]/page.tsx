@@ -20,6 +20,7 @@ import {
   renderTextWithMarkdownLinks,
 } from '@/components/AktualityCard';
 import { FacebookBrandIcon } from '@/components/FacebookBrandIcon';
+import { OG_SHARE_IMAGE_SQUARE } from '@/lib/og';
 import { SITE_URL } from '@/lib/site';
 
 interface Props {
@@ -49,7 +50,7 @@ export function generateMetadata({ params }: Props): Metadata {
   const ogImagePath =
     (item.obrazek && isImagePath(item.obrazek) ? item.obrazek : null) ??
     (item.soubor && isImagePath(item.soubor) ? item.soubor : null) ??
-    '/images/9000.jpg';
+    OG_SHARE_IMAGE_SQUARE;
   const ogImageUrl = `${SITE_URL}${ogImagePath}`;
 
   return {

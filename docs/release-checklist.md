@@ -13,26 +13,31 @@ Použijte tento checklist před každým release na produkci.
 
 - [ ] Homepage funguje na desktopu
 - [ ] Homepage funguje na mobilu
-- [ ] Hero obsah a CTA odpovídají aktuální fázi kampaně
-- [ ] Navigace odpovídá režimu (locked/full)
+- [ ] Hero obsah a CTA odpovídají aktuální fázi kampaně (Phase 1: O nás + Aktuality, bez pre-launch boxu)
+- [ ] Navigace odpovídá režimu (locked/full) — v Phase 1: Program + Kandidáti zamčené, Podpořte nás šedé
+- [ ] Text `2026–2030` za logem v hlavičce zobrazen správně
+- [ ] Aktuality: nové články a obrázky se zobrazují na `/aktuality`
 - [ ] Facebook odkaz je funkční a správný
 
 ## C) Launch flag a environment
 
 - [ ] `NEXT_PUBLIC_SITE_LAUNCHED` je správně nastaveno v Production
 - [ ] (Volitelně) `NEXT_PUBLIC_FACEBOOK_URL` je validní
+- [ ] (Volitelně) `NEXT_PUBLIC_GA_MEASUREMENT_ID` je nastaveno v Production (GA4)
 - [ ] Poslední production deploy je `Ready` + `Current`
 
 ## D) Doména
 
 - [ ] Doména je připojená ve Vercelu (`Valid/Connected`)
-- [ ] `protynec.cz` ukazuje správný aktuální deploy
+- [ ] `protynecsrdcem.cz` ukazuje správný aktuální deploy
 - [ ] Ověřeno v anonymním okně (bez cache)
 
 ## E) Post-release
 
 - [ ] Rychlá smoke kontrola klíčových URL
-- [ ] Kontrola metadat (title/description/OG)
+- [ ] Kontrola metadat (title/description/OG) — první `og:image` musí být `https://www.protynecsrdcem.cz/images/og-pro-tynec-srdcem-square.jpg` (barevné logo na bílém)
+- [ ] Po změně OG: [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/) + Search Console → kontrola URL homepage → **Požádat o indexování** (náhled ve Google se mění až po dnech)
+- [ ] Pokud používáš GA: po pár hodinách v **Administrátor → Události** zkontroluj vlastní události (`cta_podporte`, `cta_facebook`, `cta_email`, …), pak je v **Klíčové události** označ podle kampaně; detailní přehled je v samostatné aplikaci `tynec-analytics`.
 - [ ] Případné drobné bugfixy připravené v samostatném commitu
 
 ---

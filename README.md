@@ -2,7 +2,7 @@
 
 Webová prezentace kandidátky **Pro Týnec srdcem** pro komunální volby 2026.
 
-**Live URL:** [protynec.cz](https://protynec.cz)  
+**Live URL:** [protynecsrdcem.cz](https://protynecsrdcem.cz)  
 **Repozitář:** [github.com/matouspetrzela-pixel/tynec-web](https://github.com/matouspetrzela-pixel/tynec-web)
 
 ## Dokumentace
@@ -87,7 +87,7 @@ git push origin main
   │     ✓ nebo ✗ — výsledek vidíte na záložce "Actions" v GitHub
   │
   └─▶ Vercel (vercel.json)
-        npm ci + npm run build → nasazení na protynec.cz
+        npm ci + npm run build → nasazení na protynecsrdcem.cz
 ```
 
 ```bash
@@ -126,7 +126,7 @@ Web je řízen proměnnou `NEXT_PUBLIC_SITE_LAUNCHED` nastavenou ve Vercelu.
 ### Větvení
 
 ```
-main    → Vercel produkce → protynec.cz
+main    → Vercel produkce → protynecsrdcem.cz
 develop → Vercel preview URL (probíhající práce)
 ```
 
@@ -206,7 +206,9 @@ tynec-web/
 │
 ├── public/
 │   └── images/
-│       ├── 9000.jpg            # Hlavní fotografie obce (Hero, OG image)
+│       ├── 9000.jpg            # Hlavní fotografie obce (legacy / záloha)
+│       ├── og-pro-tynec-srdcem-square.jpg  # OG / Google SERP (logo na bílém, 1200×1200)
+│       ├── og-pro-tynec-srdcem.jpg  # OG Facebook/Twitter (logo na bílém, 1200×630)
 │       └── logo-srdce.png      # Logo srdce (průhledné pozadí), jediný brand asset
 │
 ├── next.config.mjs             # Next.js konfigurace
@@ -285,9 +287,9 @@ rounded-2xl border border-gray-100 bg-white hover:border-gray-200
 
 Globální metadata jsou definována v `app/layout.tsx`:
 
-- `metadataBase`: `https://protynec.cz`
+- `metadataBase`: `https://protynecsrdcem.cz` (konstanta `SITE_URL` v `lib/site.ts`)
 - `title template`: `%s | Pro Týnec srdcem`
-- **Open Graph** obrázek: `/images/9000.jpg` (1920×1080)
+- **Open Graph** obrázky: čtverec `/images/og-pro-tynec-srdcem-square.jpg` (1200×1200, primární pro Google) + landscape `/images/og-pro-tynec-srdcem.jpg` (1200×630); zdroj `brand-logo-pro-tynec-srdcem.png`; konstanty v `lib/og.ts`
 - **Twitter card**: `summary_large_image`
 
 Každá podstránka má vlastní `export const metadata` s konkrétním `title` a `description`.
@@ -331,7 +333,7 @@ export const FACEBOOK_URL =
   'https://www.facebook.com/share/18R7rjcjTu/';
 
 // Kontaktní email hnutí
-export const EMAIL = 'protynec@seznam.cz';
+export const EMAIL = 'protynecsrdcem@seznam.cz';
 ```
 
 ---

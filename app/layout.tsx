@@ -4,6 +4,11 @@ import Script from "next/script";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { CampaignJsonLd } from "@/components/CampaignJsonLd";
+import {
+  OG_SHARE_IMAGE_SQUARE,
+  OG_SHARE_METADATA_IMAGES,
+} from "@/lib/og";
 import { SITE_URL } from "@/lib/site";
 
 export const viewport: Viewport = {
@@ -44,20 +49,13 @@ export const metadata: Metadata = {
     title: 'Pro Týnec srdcem — Komunální volby 2026',
     description:
       'Politické hnutí Pro Týnec srdcem. Rozum do rozvoje, srdce do komunity. Komunální volby 9.–10. října 2026.',
-    images: [
-      {
-        url: '/images/9000.jpg',
-        width: 1920,
-        height: 1080,
-        alt: 'Velký Týnec — pohled na obec',
-      },
-    ],
+    images: [...OG_SHARE_METADATA_IMAGES],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Pro Týnec srdcem — Komunální volby 2026',
     description: 'Rozum do rozvoje, srdce do komunity. Volby 9.–10. října 2026.',
-    images: ['/images/9000.jpg'],
+    images: [OG_SHARE_IMAGE_SQUARE],
   },
   robots: {
     index: true,
@@ -73,6 +71,7 @@ export default function RootLayout({
   return (
     <html lang="cs" className={inter.variable}>
       <body className={inter.className}>
+        <CampaignJsonLd />
         <Header />
         <main className="min-h-screen pt-[calc(70px+env(safe-area-inset-top,0px))] md:pt-[calc(77px+env(safe-area-inset-top,0px))]">
           {children}
