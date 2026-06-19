@@ -73,6 +73,21 @@ export interface Aktualita {
 
 export const AKTUALITY: Aktualita[] = [
   {
+    id: '2026-06-18-pripraveni-tym',
+    typ: 'clanek',
+    datum: '2026-06-18',
+    nadpis: 'Jsme připraveni. Postupně zveřejníme náš tým',
+    perex:
+      'Komunální volby 2026 se blíží a my jsme připraveni představit vám tým lidí, který chce aktivně pracovat pro budoucnost Velkého Týnce.',
+    obsah: `Postupně budeme zveřejňovat kandidáty sdružení Pro Týnec srdcem. První osobnost zveřejníme už v pondělí 22. června 2026 v 18:00 hodin. Kandidáti budou představováni v náhodném pořadí. V tuto chvíli totiž není podstatné jejich pořadí na kandidátní listině, ale především lidé samotní, jejich zkušenosti, nápady a chuť věnovat svůj čas rozvoji naší obce.
+
+Každý člen našeho týmu je důležitou součástí společné snahy o rozvoj naší obce.`,
+    obrazek: '/aktuality/pripraveni-tym-odhaleni-2026-06-18.png',
+    obrazekSirka: 1024,
+    obrazekVyska: 785,
+    kartaZobrazeni: 'contain',
+  },
+  {
     id: '2026-05-28-komunalni-volby-moznost-volby',
     typ: 'clanek',
     datum: '2026-05-28',
