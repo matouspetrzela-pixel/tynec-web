@@ -73,6 +73,35 @@ export interface Aktualita {
 
 export const AKTUALITY: Aktualita[] = [
   {
+    id: '2026-06-19-zasedani-zastupitelstva-uzemni-plan',
+    typ: 'clanek',
+    datum: '2026-06-19',
+    nadpis: 'Desítky nových bytů v centru obce? Změna územního plánu otevírá nové možnosti',
+    perex:
+      'Na nejbližším jednání zastupitelstva obce, které proběhne v pondělí 22. 6. 2026 v 17:30 hodin na Malém sále Společenského domu, se bude schvalovat změna územního plánu, která může významně ovlivnit budoucí podobu centra Velkého Týnce.',
+    obsah: `Součástí navrhovaných změn jsou mimo jiné dvě plochy přímo v centru obce, u nichž se navrhuje změna využití — na hromadné bydlení. V prvním případě se jedná o objekt stávající sokolovny, kde bude současný objekt nahrazen novou budovou určenou pro bydlení. Druhá změna se týká částečně nevyužívaného objektu v centru obce (bývalé DAE), který bude nově sloužit také pro bytové účely.
+
+Změna územního plánu ještě automaticky neznamená realizaci konkrétní stavby. Vytváří však předpoklady pro budoucí rozvoj těchto lokalit a otevírá prostor pro následné projektové přípravy.
+
+Právě proto považujeme za důležité, aby se občané o předkládané změny zajímali již nyní. V souvislosti s možným vznikem nových bytů vyvstává řada otázek, které si zaslouží odpovědi:
+
+Kolik bytových jednotek by v jednotlivých objektech mohlo vzniknout?
+
+Jaké budou nároky na parkování a dopravní obslužnost?
+
+Budou kapacitně dostačovat mateřská škola, základní škola a další veřejné služby?
+
+Jaké dopady budou mít případné nové stavby na okolní zástavbu a kvalitu života v centru obce?
+
+Jaké další požadavky bude obec muset v souvislosti s novou bytovou výstavbou řešit?
+
+Podporujeme otevřenou diskusi o budoucím rozvoji naší obce, který je přirozenou součástí její budoucnosti. Stejně důležité je však také vědět, jaké konkrétní dopady budou mít jednotlivá rozhodnutí na každodenní život obyvatel a zda je obec na plánované změny dostatečně připravena.`,
+    obrazek: '/aktuality/zasedani-zastupitelstva-uzemni-plan-2026-06-19.png',
+    obrazekSirka: 1024,
+    obrazekVyska: 682,
+    kartaZobrazeni: 'contain',
+  },
+  {
     id: '2026-06-18-pripraveni-tym',
     typ: 'clanek',
     datum: '2026-06-18',
