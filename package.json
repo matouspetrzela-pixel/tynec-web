@@ -16,6 +16,9 @@
     "start": "next start",
     "lint": "next lint",
     "photos:kandidati": "node scripts/process-candidate-photos.mjs",
+    "photos:kandidati:preview": "node scripts/generate-candidates-grid-preview.mjs",
+    "photos:kandidati:measure": "node scripts/measure-eye-alignment.mjs",
+    "photos:kandidati:measure-head": "node scripts/measure-head-zoom.mjs",
     "photos:kandidati:backdrop": "node scripts/run-photos-with-backdrop.mjs",
     "photos:placeholders": "node scripts/make-placeholder-portraits.mjs",
     "og:generate": "node scripts/generate-og-share-images.mjs"

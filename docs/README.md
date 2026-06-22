@@ -19,6 +19,8 @@ Tato složka obsahuje provozní a vývojovou dokumentaci pro web `tynec-web`.
 - `owner-handbook.md`  
   Stručný provozní manuál pro vlastníka webu (bez vývoje): co kliknout, co nekazit, jak udělat rollback.
 
+Samostatný **interní přehled GA4** žije v paralelním projektu `../tynec-analytics/` (samostatný Vercel deploy).
+
 ## Rychlý start
 
 1. Pro orientaci v kódu otevřete `architecture.md`.

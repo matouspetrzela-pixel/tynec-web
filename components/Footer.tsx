@@ -1,6 +1,13 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import { Mail } from 'lucide-react';
+import {
+  TrackedEmailOutbound,
+  TrackedFacebookOutbound,
+  TrackedPodporteLink,
+} from '@/components/CampaignMeasuredLinks';
 import { FacebookBrandIcon } from '@/components/FacebookBrandIcon';
 import { CampaignLogo } from '@/components/CampaignLogo';
 import { EMAIL, FACEBOOK_URL } from '@/lib/social';
@@ -38,28 +45,30 @@ export const Footer: React.FC = () => {
             </p>
 
             <p className="max-w-sm text-center text-sm leading-relaxed text-white/50 md:text-left">
-              Komunální volby 2026. Profesionální přístup k rozvoji obce — s respektem k tradici i
-              moderním standardům.
+              Komunální kampaň vedeme jako sousedé — městysk chápeme jako službu každodenní
+              péče — férově, s rozumným hospodařením a respektem k lidem a spolkům, kteří pro obec něco opravdu dělají.
             </p>
 
             {/* Podpora — pouze Facebook */}
             <div className="mt-1 flex flex-col items-center gap-3 md:items-start">
-              <a
+              <TrackedFacebookOutbound
                 href={FACEBOOK_URL}
+                placement="footer_facebook"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2.5 text-sm text-white/65 transition-colors hover:text-white"
               >
                 <FacebookBrandIcon className="h-5 w-5 shrink-0" />
                 <span>Facebook</span>
-              </a>
-              <a
+              </TrackedFacebookOutbound>
+              <TrackedEmailOutbound
                 href={`mailto:${EMAIL}`}
+                placement="footer_email"
                 className="flex items-center gap-2.5 text-sm text-white/65 transition-colors hover:text-white"
               >
                 <Mail className="h-5 w-5 shrink-0" aria-hidden />
                 {EMAIL}
-              </a>
+              </TrackedEmailOutbound>
             </div>
           </div>
 
@@ -68,15 +77,25 @@ export const Footer: React.FC = () => {
             className="flex flex-wrap justify-center gap-x-8 gap-y-3 md:justify-end"
             aria-label="Patička"
           >
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="text-xs uppercase tracking-[0.12em] text-white/75 transition-colors hover:text-white"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) =>
+              item.href === '/podporte-nas' ? (
+                <TrackedPodporteLink
+                  key={item.label}
+                  placement="footer_podporte_nav"
+                  className="text-xs uppercase tracking-[0.12em] text-white/75 transition-colors hover:text-white"
+                >
+                  {item.label}
+                </TrackedPodporteLink>
+              ) : (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="text-xs uppercase tracking-[0.12em] text-white/75 transition-colors hover:text-white"
+                >
+                  {item.label}
+                </Link>
+              ),
+            )}
           </nav>
         </div>
 

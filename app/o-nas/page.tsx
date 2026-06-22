@@ -15,7 +15,7 @@ import type { LucideIcon } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'O nás',
   description:
-    'Jsme sdružení nezávislých kandidátů a aktivních občanů Velkého Týnce. Kandidujeme, protože nám na obci záleží — poznáváme ji, žijeme v ní a chceme ji rozvíjet.',
+    'Sdružení nezávislých kandidátů a aktivních občanů Velkého Týnce: nasloucháme komunálním tématům, otevřeně komunikujeme. Komunální volby 2026.',
 };
 
 type Hodnota = {

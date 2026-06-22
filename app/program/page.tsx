@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import { TrackedPodporteLink } from '@/components/CampaignMeasuredLinks';
 import { CampaignLogo } from '@/components/CampaignLogo';
 import {
   Eye,
@@ -223,12 +223,12 @@ export default function ProgramPage() {
             Program tvoříme společně s vámi. Napište nám, co vás v obci trápí nebo co byste chtěli
             změnit.
           </p>
-          <Link
-            href="/podporte-nas"
+          <TrackedPodporteLink
+            placement="program_page_cta"
             className="inline-flex items-center rounded-xl bg-primary px-8 py-4 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-primary-hover md:text-base"
           >
             Podpořte nás
-          </Link>
+          </TrackedPodporteLink>
         </div>
       </div>
     </div>

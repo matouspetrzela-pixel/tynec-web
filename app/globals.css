@@ -66,6 +66,54 @@ h6 {
       0 32px 60px -30px rgba(15, 23, 42, 0.12);
   }
 
+  /**
+   * Hero panel — lehké sklo: úmyslně slabší blur (ostřejší foto, klidnější „editorial“ vzhled),
+   * ne přezamžená „mlha“. WebKit prefix kvůli Safari.
+   */
+  .hero-info-panel {
+    border-radius: 26px;
+    border: 1px solid rgba(255, 255, 255, 0.36);
+    box-shadow:
+      0 6px 32px rgba(0, 0, 0, 0.11),
+      0 22px 60px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.24),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    background: linear-gradient(
+      165deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(232, 240, 255, 0.11) 40%,
+      rgba(14, 18, 32, 0.52) 100%
+    );
+    -webkit-backdrop-filter: blur(11px) saturate(1.12);
+    backdrop-filter: blur(11px) saturate(1.12);
+  }
+
+  @media (min-width: 640px) {
+    .hero-info-panel {
+      background: linear-gradient(
+        165deg,
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(228, 236, 252, 0.08) 40%,
+        rgba(14, 18, 32, 0.44) 100%
+      );
+      -webkit-backdrop-filter: blur(13px) saturate(1.15);
+      backdrop-filter: blur(13px) saturate(1.15);
+    }
+  }
+
+  @supports not (
+    (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))
+  ) {
+    .hero-info-panel {
+      background: linear-gradient(
+        165deg,
+        rgba(248, 250, 255, 0.58) 0%,
+        rgba(228, 235, 248, 0.42) 40%,
+        rgba(26, 32, 52, 0.72) 100%
+      );
+    }
+  }
+
   /* Měkký spodní odtok — čitelná hloubka bez plastického 3D */
   .btn-primary-sheen {
     @apply text-white;
@@ -137,6 +185,15 @@ h6 {
       0 1px 0 rgba(15, 23, 42, 0.04),
       0 32px 64px -28px rgba(15, 23, 42, 0.1),
       0 12px 28px -16px rgba(15, 23, 42, 0.06);
+  }
+
+  /* Kandidátní karty — profi: jemný šedý rám + červená linka dole (jako aktivní položka v menu) */
+  .card-elevated.card-candidate {
+    @apply border border-slate-200/70 border-b-2 border-b-primary;
+  }
+
+  .card-elevated.card-candidate:hover {
+    @apply border-slate-200/90 border-b-primary-hover;
   }
 
   .heavy-shadow {

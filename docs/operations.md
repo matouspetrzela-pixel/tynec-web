@@ -52,6 +52,13 @@ Deployment se spouští pushnutím do `main` nebo ručně přes Vercel UI.
 ### `NEXT_PUBLIC_FACEBOOK_URL` (volitelné)
 - Pokud není nastavená, použije se fallback z `lib/social.ts`.
 
+### `NEXT_PUBLIC_GA_MEASUREMENT_ID` (volitelné)
+- Measurement ID (`G-…`) z GA4 Admin → Datové streamy.
+- Pouze měření v prohlížeči na webu; **žádný** service account v tomto projektu nepatří.
+
+### Interní přehled (samostatný projekt)
+- Paralelní aplikace `../tynec-analytics/` s GA4 Data API a volitelně Looker Studiem — vlastní README, vlastní projekt na Vercelu (`Root Directory`: `tynec-analytics`). Na veřejný web ani do tohoto CI netahat `GOOGLE_SERVICE_ACCOUNT_JSON`.
+
 ## 5) Troubleshooting
 
 ### Build failed na Vercelu

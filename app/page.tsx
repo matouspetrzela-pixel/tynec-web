@@ -1,4 +1,6 @@
 import React from 'react';
+import { CampaignHomeJourney } from '@/components/CampaignHomeJourney';
+import { CampaignHomeLaunchedStrip } from '@/components/CampaignHomeLaunchedStrip';
 import { Hero } from '@/components/Hero';
 import { ProgramGrid } from '@/components/ProgramGrid';
 import { AboutPreview } from '@/components/AboutPreview';
@@ -10,6 +12,8 @@ export default function Home() {
   return (
     <>
       <Hero />
+      {launched && <CampaignHomeLaunchedStrip />}
+      {!launched && <CampaignHomeJourney />}
       {launched && (
         <>
           <ProgramGrid />

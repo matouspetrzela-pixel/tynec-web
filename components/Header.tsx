@@ -7,8 +7,10 @@ import { Lock, Menu, X } from 'lucide-react';
 import { CampaignLogo } from '@/components/CampaignLogo';
 
 const launched = process.env.NEXT_PUBLIC_SITE_LAUNCHED === 'true';
+/** Lokálně simulovat produkční zámky menu (Phase 1) */
+const productionPreview = process.env.NEXT_PUBLIC_PRODUCTION_PREVIEW === 'true';
 /** Lokálně (`next dev`) zobrazit plnou navigaci bez zámků kvůli vývoji */
-const devPreview = process.env.NODE_ENV === 'development';
+const devPreview = process.env.NODE_ENV === 'development' && !productionPreview;
 const allUnlocked = launched || devPreview;
 
 type NavItem = {
@@ -25,7 +27,7 @@ export const Header: React.FC = () => {
   const navItems: NavItem[] = [
     { label: 'O nás', href: '/o-nas', alwaysUnlocked: true },
     { label: 'Program', href: '/program' },
-    { label: 'Kandidáti', href: '/kandidati' },
+    { label: 'Kandidáti', href: '/kandidati', alwaysUnlocked: true },
     { label: 'Aktuality', href: '/aktuality', alwaysUnlocked: true },
   ];
 

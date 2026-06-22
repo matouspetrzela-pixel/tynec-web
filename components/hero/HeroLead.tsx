@@ -1,6 +1,11 @@
+'use client';
+
 import React from 'react';
-import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
+import {
+  TrackedFacebookOutbound,
+  TrackedHeroNavLink,
+} from '@/components/CampaignMeasuredLinks';
 import { CampaignLogo } from '@/components/CampaignLogo';
 import { FacebookBrandIcon } from '@/components/FacebookBrandIcon';
 import { FACEBOOK_URL } from '@/lib/social';
@@ -29,38 +34,43 @@ export const HeroLead: React.FC = () => {
 
         {launched ? (
           <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2">
-            <Link
+            <TrackedHeroNavLink
               href="/program"
+              link_path="/program"
               className="btn-primary-sheen inline-flex min-h-[56px] w-full items-center justify-center rounded-xl px-6 py-4 text-center text-sm font-bold uppercase tracking-[0.1em] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
               Volební program 2026
-            </Link>
-            <Link
+            </TrackedHeroNavLink>
+            <TrackedHeroNavLink
               href="/kandidati"
+              link_path="/kandidati"
               className="inline-flex min-h-[56px] w-full items-center justify-center rounded-xl border border-white/50 bg-white/[0.08] px-6 py-4 text-center text-sm font-bold uppercase tracking-[0.08em] text-white ring-1 ring-inset ring-white/10 backdrop-blur-sm transition-all duration-300 hover:bg-white/[0.16] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
               Naši kandidáti
-            </Link>
+            </TrackedHeroNavLink>
           </div>
         ) : (
           <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2">
-            <Link
+            <TrackedHeroNavLink
               href="/o-nas"
+              link_path="/o-nas"
               className="btn-primary-sheen inline-flex min-h-[56px] w-full items-center justify-center rounded-xl px-6 py-4 text-center text-sm font-bold uppercase tracking-[0.1em] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
               O nás
-            </Link>
-            <Link
+            </TrackedHeroNavLink>
+            <TrackedHeroNavLink
               href="/aktuality"
+              link_path="/aktuality"
               className="inline-flex min-h-[56px] w-full items-center justify-center rounded-xl border border-white/50 bg-white/[0.08] px-6 py-4 text-center text-sm font-bold uppercase tracking-[0.08em] text-white ring-1 ring-inset ring-white/10 backdrop-blur-sm transition-all duration-300 hover:bg-white/[0.16] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
               Aktuality
-            </Link>
+            </TrackedHeroNavLink>
           </div>
         )}
 
-        <a
+        <TrackedFacebookOutbound
           href={FACEBOOK_URL}
+          placement="hero_facebook_strip"
           target="_blank"
           rel="noopener noreferrer"
           className="grid min-h-[56px] w-full grid-cols-[1fr_auto] items-center gap-3 rounded-xl border border-white/40 bg-white/[0.1] px-4 py-3 text-sm font-semibold leading-snug text-white/95 ring-1 ring-inset ring-white/10 backdrop-blur-sm transition-colors hover:bg-white/[0.16] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-white sm:text-base"
@@ -70,7 +80,7 @@ export const HeroLead: React.FC = () => {
             <span className="min-w-0 truncate">Sledujte nás na Facebooku</span>
           </span>
           <ArrowUpRight className="h-5 w-5 shrink-0" aria-hidden />
-        </a>
+        </TrackedFacebookOutbound>
       </div>
     </div>
   );
