@@ -45,8 +45,8 @@ export const Footer: React.FC = () => {
             </p>
 
             <p className="max-w-sm text-center text-sm leading-relaxed text-white/50 md:text-left">
-              Komunální kampaň vedeme jako sousedé — městysk chápeme jako službu každodenní
-              péče — férově, s rozumným hospodařením a respektem k lidem a spolkům, kteří pro obec něco opravdu dělají.
+              Naše občanské angažmá vedeme jako sousedé — městys chápeme jako službu každodenní
+              péče — férově, s rozumným hospodařením a respektem k lidem a spolkům, kteří pro obec něco dělají.
             </p>
 
             {/* Podpora — pouze Facebook */}
