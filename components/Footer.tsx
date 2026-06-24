@@ -45,7 +45,7 @@ export const Footer: React.FC = () => {
             </p>
 
             <p className="max-w-sm text-center text-sm leading-relaxed text-white/50 md:text-left">
-              Naše občanské angažmá vedeme jako sousedé — městys chápeme jako službu každodenní
+              Naše občanské angažmá vedeme jako sousedé — vesnici chápeme jako službu každodenní
               péče — férově, s rozumným hospodařením a respektem k lidem a spolkům, kteří pro obec něco dělají.
             </p>
 
