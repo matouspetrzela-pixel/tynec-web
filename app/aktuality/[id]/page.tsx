@@ -20,6 +20,7 @@ import {
   renderTextWithMarkdownLinks,
 } from '@/components/AktualityCard';
 import { FacebookBrandIcon } from '@/components/FacebookBrandIcon';
+import { AktualitaPodrobnePanel } from '@/components/AktualitaPodrobnePanel';
 import { OG_SHARE_IMAGE_SQUARE } from '@/lib/og';
 import { SITE_URL } from '@/lib/site';
 
@@ -176,6 +177,13 @@ export default function AktualitaDetailPage({ params }: Props) {
             <p key={`p-${i}`}>{renderTextWithMarkdownLinks(blok)}</p>
           ))}
         </div>
+
+        {item.podrobneObsah && (
+          <AktualitaPodrobnePanel
+            nadpis={item.podrobneNadpis}
+            obsah={item.podrobneObsah}
+          />
+        )}
 
         {/* Akce ke stažení / přehrání */}
         {(item.soubor || item.odkaz) && (

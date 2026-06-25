@@ -35,6 +35,13 @@ export interface Aktualita {
   /** Další odstavce článku (odděl prázdným řádkem = nový odstavec) */
   obsah?: string;
   /**
+   * Rozbalovací podrobný text na stránce článku (tlačítko „Přečíst podrobnosti“).
+   * Odstavce odděl prázdným řádkem; podnadpisy jako krátký řádek bez tečky na konci;
+   * odrážky řádky začínající „• “.
+   */
+  podrobneNadpis?: string;
+  podrobneObsah?: string;
+  /**
    * Cesta k souboru v /public/aktuality/
    * PDF → zobrazí se tlačítko "Stáhnout PDF"
    * Obrázek (.jpg/.png/.webp) → zobrazí se náhled letáku
@@ -72,6 +79,113 @@ export interface Aktualita {
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const AKTUALITY: Aktualita[] = [
+  {
+    id: '2026-06-23-zasedani-zastupitelstva-hospodareni',
+    typ: 'clanek',
+    datum: '2026-06-25',
+    nadpis: 'Týnecké zastupitelstvo jednalo o hospodaření obce i dopravní situaci',
+    perex:
+      'V pondělí 22. června 2026 se uskutečnilo 26. veřejné zasedání Zastupitelstva obce Velký Týnec. Zastupitelé projednali celkem devět bodů programu, které se týkaly hospodaření obce, územního rozvoje i dalších záležitostí důležitých pro fungování obce.',
+    obsah: `Mezi schválenými body bylo rozpočtové opatření, závěrečný účet obce za rok 2025, účetní závěrka obce a účetní závěrky Základní školy a Mateřské školy Velký Týnec. Zastupitelé dále schválili smlouvu o přezkoumání hospodaření obce za rok 2026, změnu č. 2 územního plánu a smlouvu o zřízení služebnosti.
+
+Do programu byl zařazen také bod týkající se poskytnutí dotace z Olomouckého kraje pro Jednotku sboru dobrovolných hasičů Velký Týnec. Zastupitelstvo schválilo přijetí dotace ve výši 52 500 korun.
+
+Součástí jednání byl rovněž prostor pro vystoupení občanů. Dotazy směřovaly především k rozpočtovému opatření, účetní závěrce obce a změně územního plánu. V následné diskuzi zazněla řada podnětů týkajících se každodenního života v obci.
+
+Diskutovalo se například o možnosti instalace dopravního zrcadla na křižovatce v ulici Sadová, snížení rychlosti v úseku mezi kinem a sochou svatého Floriána, situaci s parkováním v ulici U Nové školy nebo o parkování vozidel na chodnících. Obyvatelé se zajímali také o dodržování obecní vyhlášky regulující hlučné činnosti, organizaci parkování během pivních a gulášových slavností, problematiku shromažďování mladistvých a osob pod vlivem omamných látek na veřejných prostranstvích, umístění přechodů pro chodce či funkčnost bezpečnostní kamery u altánu pod mateřskou školou.
+
+Sdružení Pro Týnec srdcem chce občanům pravidelně přinášet přehledné a srozumitelné informace o dění v obci. Věříme, že otevřená komunikace a informovanost občanů jsou základem dobrého fungování samosprávy.
+
+Podrobnější informace k jednotlivým bodům jednání najdete níže.`,
+    podrobneNadpis:
+      'Podrobněji k jednání zastupitelstva obce Velký Týnec ze dne 22. června 2026',
+    podrobneObsah: `Na červnovém zasedání zastupitelstva bylo projednáno celkem devět bodů programu. Všechny předložené materiály byly zastupiteli schváleny. Některé body však vyvolaly dotazy občanů a zajímavou diskuzi, proto přinášíme podrobnější shrnutí.
+
+Rozpočtové opatření č. 3/2026
+
+Zájem veřejnosti vzbudilo projednávání rozpočtového opatření. Občané se dotazovali především na plánované výdaje ve výši 325 tisíc korun určené na rekonstrukci hasičské dílny a na částku 400 tisíc korun vedenou v položce drobného dlouhodobého hmotného majetku. Podle informací vedení obce jsou tyto prostředky určeny na vybavení nově vznikajícího komunitního centra.
+
+Hospodaření obce za rok 2025
+
+Zastupitelstvo schválilo závěrečný účet obce i účetní závěrku za rok 2025.
+
+V průběhu jednání zazněl dotaz občana na výsledek hospodaření obce. Odpověď ze strany vedení nebyla zcela jednoznačná, proto doplňujeme základní informaci. Pro rok 2025 byl schválen schodkový rozpočet a obec hospodařila se saldem příjmů a výdajů po konsolidaci ve výši -12 525 187,36 Kč.
+
+Zastupitelé dále schválili účetní závěrky Mateřské školy Velký Týnec a Základní školy Velký Týnec.
+
+Změna č. 2 územního plánu
+
+Významnou část jednání zabralo schvalování změny č. 2 územního plánu obce.
+
+Starosta během projednávání upozornil, že v této fázi již občané nemohou podávat připomínky a konečné rozhodnutí je plně v kompetenci zastupitelů. Současně uvedl, že veřejnost měla možnost se ke změnám vyjádřit na informačním setkání organizovaném na konci loňského roku. Informace o tomto setkání byla zveřejněna pouze na úřední desce Magistrátu města Olomouce a podle vyjádření starosty měla být také odvysílána místním rozhlasem. V archivu hlášení na webových stránkách obce se nám však tuto informaci nepodařilo dohledat.
+
+Schválená změna územního plánu obsahuje mimo jiné dva body, které považujeme za zásadní:
+
+• objekt bývalé sokolovny bude nahrazen bytovým domem,
+• v centru obce dojde ke změně využití bývalého areálu DAE, který bude nově určen pro bytové bydlení namísto původní výrobní funkce.
+
+Oba bytové domy mají mít dohromady 40 bytů, nemají svou výškou překročit zdravotní středisko a každý byt má mít jedno parkovací stání. Obě změny mohou významně ovlivnit budoucí podobu centra obce.
+
+Další schválené body
+
+Bez větší diskuze byla schválena smlouva o výkonu přezkoumání hospodaření obce za rok 2026 a smlouva o zřízení služebnosti související se stavbou Ředitelství silnic a dálnic.
+
+Zastupitelé rovněž schválili přijetí dotace z Olomouckého kraje pro Jednotku požární ochrany Velký Týnec ve výši 52 500 Kč.
+
+Co zaznělo v diskuzi občanů
+
+Nepřehledná křižovatka v ulici Sadová
+
+Občané upozornili na problematickou dopravní situaci na křižovatce při příjezdu od kina směrem k Junácké aleji. Řidiči zde musí dávat přednost zprava, ale kvůli omezenému rozhledu často nevidí vozidla přijíždějící z vedlejších komunikací.
+
+Vedení obce bylo požádáno o prověření možnosti instalace dopravního zrcadla.
+
+Rychlost vozidel v centru obce
+
+Po schválení změny územního plánu zazněl také podnět ke snížení rychlosti projíždějících vozidel v úseku od kina k soše sv. Floriána.
+
+Vedení obce přislíbilo, že možnosti dopravního řešení prověří.
+
+Situace v ulici U Nové školy
+
+Občané upozornili na komplikovanou dopravní situaci v ulici U Nové školy. V průběhu dne zde proudí velké množství chodců, cyklistů i automobilů mířících do školy, na sportovní tréninky a další zájmové aktivity.
+
+Parkující vozidla podle diskutujících často zhoršují přehlednost a bezpečnost provozu. Vedení obce bylo vyzváno k hledání vhodného řešení.
+
+Parkování na chodnících
+
+Opakovaně zazněl problém parkování osobních vozidel na chodnících. Takové stání omezuje bezpečný pohyb chodců, rodičů s kočárky i seniorů, kteří jsou často nuceni vstupovat do vozovky.
+
+Podle informací z jednání bude obecní policista na tento problém více dohlížet a v případě potřeby využívat i sankční opatření.
+
+Dodržování vyhlášky o hlučných činnostech
+
+Diskutovalo se také o dodržování obecně závazné vyhlášky upravující hlučné činnosti.
+
+Připomínáme, že omezení se netýká pouze nedělí a státních svátků. V sobotu je nutné respektovat dobu klidu v čase od 6:00 do 8:00 hodin a od 18:00 do 22:00 hodin.
+
+Parkování během pivních a gulášových slavností
+
+V souvislosti s připravovanými slavnostmi bylo oznámeno, že návštěvníkům bude určeno parkování na ploše pod hřbitovem.
+
+Cílem je omezit parkování v okolních ulicích a předejít komplikacím pro místní obyvatele.
+
+Shromažďování problémových skupin v obci
+
+Občané upozornili na zvýšený výskyt skupinek mladistvých a osob pod vlivem omamných látek na některých veřejných prostranstvích.
+
+Nejčastěji byly zmíněny prostory dětského hřiště pod mateřskou školou a hřiště v bývalé pionýrské zahradě za společenským domem. Obecní policista bude tato místa pravidelně kontrolovat.
+
+Kamera u altánu pod mateřskou školou
+
+V závěru diskuze byla otevřena otázka funkčnosti kamery monitorující prostor dětského hřiště pod mateřskou školou.
+
+Přestože během jednání zaznělo z úst starosty, že kamera není funkční a je atrapou, podle dostupných informací zařízení funguje. Problémem jsou větve a listy stromů, které zasahují do zorného pole kamery a omezují její účinnost.`,
+    obrazek: '/aktuality/informace-ze-zastupitelstva-2026-06-25.png',
+    obrazekSirka: 1024,
+    obrazekVyska: 682,
+    kartaZobrazeni: 'contain',
+  },
   {
     id: '2026-06-19-zasedani-zastupitelstva-uzemni-plan',
     typ: 'clanek',
