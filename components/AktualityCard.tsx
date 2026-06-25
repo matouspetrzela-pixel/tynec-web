@@ -169,7 +169,7 @@ export function AktualitaCard({ item }: { item: Aktualita }) {
       {/* Náhled + datum — pevný poměr 3:2 pro jednotnou výšku v gridu */}
       <div
         className={`relative aspect-[3/2] w-full shrink-0 overflow-hidden ${
-          useContain ? 'bg-tynec-gray-soft' : 'bg-slate-100'
+          useContain ? 'bg-[#FBF6F3]' : 'bg-slate-100'
         }`}
       >
         {thumbSrc ? (
@@ -178,7 +178,7 @@ export function AktualitaCard({ item }: { item: Aktualita }) {
             alt={item.nadpis}
             fill
             className={[
-              useContain ? 'object-contain p-2' : `object-cover ${thumbObjectPosition}`,
+              useContain ? 'object-contain' : `object-cover ${thumbObjectPosition}`,
               'transition-transform duration-500',
               useContain ? '' : 'group-hover/card:scale-[1.03]',
             ].join(' ')}
