@@ -162,8 +162,6 @@ Dodržování vyhlášky o hlučných činnostech
 
 Diskutovalo se také o dodržování obecně závazné vyhlášky upravující hlučné činnosti.
 
-Připomínáme, že omezení se netýká pouze nedělí a státních svátků. V sobotu je nutné respektovat dobu klidu v čase od 6:00 do 8:00 hodin a od 18:00 do 22:00 hodin.
-
 Parkování během pivních a gulášových slavností
 
 V souvislosti s připravovanými slavnostmi bylo oznámeno, že návštěvníkům bude určeno parkování na ploše pod hřbitovem.
