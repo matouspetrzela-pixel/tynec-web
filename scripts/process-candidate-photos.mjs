@@ -93,7 +93,12 @@ const SLUG_EXTRACT_TUNING = {
   'katerina-parcova': { faceFrac: 0.348, headTopMargin: 0.10, boundaryPin: false },
   /** Řada 3 — sladění s řadou 1/4 */
   'filip-sklenar': { faceFrac: 0.352, headTopMargin: 0.09, boundaryPin: false },
-  'alena-sojakova': { faceFrac: 0.352, headTopMargin: 0.09, boundaryPin: false },
+  'alena-sojakova': {
+    faceFrac: 0.352,
+    headTopMargin: 0.09,
+    boundaryPin: false,
+    eyeLineInCrop: 0.335,
+  },
   /** Mírný zoom in u portrétů, které po globálním 0.36 působí menší */
   'pavlina-zlamalova': { faceFrac: 0.39 },
   'jiri-dvorak': { faceFrac: 0.38 },

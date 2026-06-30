@@ -163,7 +163,7 @@ export const CANDIDATES: Candidate[] = [
     slug: 'katerina-parcova',
     name: 'Mgr. Bc. Kateřina Parčová',
     gridSlot: 7,
-    revealed: false,
+    revealed: true,
     heartPriority: 'Pro komunikaci',
     gender: 'female',
     photo: '/images/kandidati/katerina-parcova.webp',
@@ -202,7 +202,7 @@ export const CANDIDATES: Candidate[] = [
     slug: 'alena-sojakova',
     name: 'Alena Sojáková',
     gridSlot: 9,
-    revealed: false,
+    revealed: true,
     heartPriority: 'Pro seniory',
     gender: 'female',
     photo: '/images/kandidati/alena-sojakova.webp',
@@ -283,14 +283,28 @@ export function getCandidatesForGrid(): Candidate[] {
   return [...CANDIDATES].sort((a, b) => a.gridSlot - b.gridSlot);
 }
 
+const LOCAL_REVEAL_EXTRA_SLUGS = new Set(
+  (process.env.NEXT_PUBLIC_LOCAL_REVEAL_EXTRA_SLUGS ?? '')
+    .split(',')
+    .map((slug) => slug.trim())
+    .filter(Boolean),
+);
+
 /**
  * Na localhostu zobrazí celou mřížku pro srovnání fotek (`NEXT_PUBLIC_PRODUCTION_PREVIEW` není `true`).
  * S `NEXT_PUBLIC_PRODUCTION_PREVIEW=true` v `.env.local` chování jako na produkci.
+ * `NEXT_PUBLIC_LOCAL_REVEAL_EXTRA_SLUGS` (jen dev, v `.env.local`) dočasně odhalí další slugy bez změny `revealed`.
  */
 export function isCandidateRevealed(candidate: Candidate): boolean {
   if (
     process.env.NODE_ENV === 'development' &&
     process.env.NEXT_PUBLIC_PRODUCTION_PREVIEW !== 'true'
+  ) {
+    return true;
+  }
+  if (
+    process.env.NODE_ENV === 'development' &&
+    LOCAL_REVEAL_EXTRA_SLUGS.has(candidate.slug)
   ) {
     return true;
   }
