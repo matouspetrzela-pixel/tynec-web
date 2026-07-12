@@ -399,6 +399,14 @@ h6 {
     .hero-lead-badge {
       min-height: 2.25rem;
     }
+
+    .hero-lead-logo {
+      margin-inline: auto;
+    }
+
+    .hero-lead-logo img {
+      object-position: center center;
+    }
   }
 
   @media (min-width: 1920px) {
