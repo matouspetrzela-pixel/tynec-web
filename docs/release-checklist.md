@@ -11,11 +11,15 @@ Použijte tento checklist před každým release na produkci.
 
 ## B) Funkční kontrola
 
-- [ ] Homepage funguje na desktopu
-- [ ] Homepage funguje na mobilu
+- [ ] Homepage funguje na desktopu (1920×1080)
+- [ ] Homepage funguje na mobilu (360–402 px)
+- [ ] Homepage funguje na tabletu (1024×768) — box centrovaný, neuseknutý
+- [ ] Hero mobil: patička těsně pod boxem, **bez dlouhé prázdné fotky** mezi boxem a patičkou
+- [ ] Hero desktop (≥ 1280 px): box vlevo dole, patička až po scrollu
 - [ ] Hero: box „Změna začíná vaším hlasem“, CTA Program / Kandidáti / Aktuality / Podpořte nás, Facebook pod logem
-- [ ] Navigace: Program a Podpořte nás odemčené; footer těsně pod hero na mobilu
+- [ ] Navigace: Program a Podpořte nás odemčené
 - [ ] Text `2026–2030` za logem v hlavičce zobrazen správně
+- [ ] Typografie: nadpisy stránek ~26 px desktop, primární tlačítka kompaktní (12–14 px) — viz `docs/typography.md`
 - [ ] Aktuality: nové články a obrázky se zobrazují na `/aktuality`
 - [ ] `/kandidati` — 11 odhalených karet, fotky edge-to-edge (včetně Michaela Dvořáková)
 - [ ] `/kandidati` — oční linka Drahomíra Obšnajdrová v ose s Michaela Dvořáková / Kateřina Parčová (desktop i mobil)

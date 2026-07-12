@@ -10,6 +10,9 @@ Webová prezentace kandidátky **Pro Týnec srdcem** pro komunální volby 2026.
 Detailní technická dokumentace je ve složce `docs/`:
 
 - `docs/README.md` — rozcestník dokumentace
+- `docs/current-production-state.md` — **aktuální stav produkce** (čti jako první)
+- `docs/hero-homepage.md` — hero homepage: responzivita mobil / tablet / desktop
+- `docs/typography.md` — typografie a tlačítka (CSS tokeny, třídy `.type-*` / `.btn-*`)
 - `docs/architecture.md` — architektura aplikace a rozhodnutí
 - `docs/operations.md` — provoz, CI/CD, Vercel a troubleshooting
 - `docs/content-workflow.md` — jak bezpečně upravovat obsah
@@ -120,8 +123,8 @@ Web je řízen proměnnou `NEXT_PUBLIC_SITE_LAUNCHED` nastavenou ve Vercelu.
 
 | Proměnná | Co uvidí návštěvník |
 |---|---|
-| `false` (Phase 1) | Pouze hero stránka s coming-soon sdělením, nav neklikatelný |
-| `true` (Phase 2) | Plný funkční web |
+| `false` (Phase 1 — aktuální stav, červenec 2026) | Homepage: hero + patička; plná navigace (Program, Kandidáti, Podpořte nás); 11 kandidátů odhaleno |
+| `true` (Phase 2) | Homepage navíc ProgramGrid, AboutPreview, CandidatesGrid |
 
 ### Větvení
 
@@ -249,9 +252,32 @@ Profily kandidátů jsou staticky generovány (`generateStaticParams`) z dat v `
 ### Typografie
 
 - **Písmo:** Inter (Google Fonts, variable font)
-- **Nadpisy:** `font-bold uppercase tracking-tight`
-- **Velikosti:** `text-h2-mobile` (28 px) → `md:text-h2-desktop` (36 px)
-- **Hero nadpis:** `clamp(2rem, 4.5vw, 3.8rem)` — plynulé škálování
+- **Základní text:** 16 px (`text-base` na `body`)
+- **Jeden zdroj pravdy:** CSS proměnné v `app/globals.css` (`--font-h1-mobile` …); Tailwind tokeny v `tailwind.config.ts` na ně mapují
+
+| Úroveň | Mobil (< 768 px) | Desktop (≥ 768 px) | Použití |
+|---|---|---|---|
+| **H1** | 20 px | 26 px | Nadpis stránky („Naši kandidáti“, „O nás“…) — `.type-h1` |
+| **H2** | 17 px | 22 px | Sekční nadpisy („Chceme Týnec:“…) — `.type-h2` |
+| **H3** | 15 px | 17 px | Podsekce, CTA bloky — `.type-h3` |
+| **Eyebrow** | 12 px | 12 px | „Volby 2026“, „Hnutí“ — `.type-eyebrow` |
+| **Perex** | 16 px | 18 px | Úvodní odstavce — `.type-lead` |
+
+**Záhlaví stránek:** `components/PageSectionHeader.tsx` — sjednocený vzor (eyebrow + červená linka + H1 + perex).
+
+**Primární tlačítka** (`.btn-primary-solid`, `.btn-primary-sheen`): text **12 px** / **14 px** (desktop), padding `px-6 py-2.5` → `md:px-7 md:py-3`. Sekundární varianty: `.btn-action--outline`, `--soft`, `--neutral`.
+
+**Hero panel** (`.hero-lead` v `globals.css` — detail v `docs/hero-homepage.md`):
+
+| Prvek | Velikost |
+|---|---|
+| Eyebrow „Změna začíná…“ | 13–15 px |
+| Badge voleb | 10–12 px |
+| Facebook pruh | 12–14 px |
+| CTA „Náš program“ | 12–14 px |
+| Miniboxy (Kandidáti, Aktuality…) | 11–12 px |
+
+Nadpisy: `font-bold`, sekce často `uppercase tracking-tight`.
 
 ### Klíčové vizuální prvky
 

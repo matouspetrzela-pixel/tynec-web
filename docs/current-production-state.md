@@ -1,7 +1,6 @@
-# Aktuální stav webu (červenec 2026 — po chystaném commitu)
+# Aktuální stav webu (červenec 2026 — nasazeno)
 
-> **Pro AI agenta / vývojáře:** Tento soubor čti jako první před jakoukoliv prací na projektu.  
-> Popisuje cílový stav kódu v repozitáři (připraveno k deployi, commit zatím na pokyn vlastníka).
+> **Pro AI agenta / vývojáře:** Tento soubor čti jako první před jakoukoliv prací na projektu.
 
 ## Pravidlo změn (závazné)
 
@@ -24,6 +23,17 @@ Commit a deploy **jen na explicitní pokyn**.
 - Hero box: eyebrow „Změna začíná vaším hlasem“, badge voleb, logo, Facebook pod logem
 - CTA: **Náš program** (primary), **Kandidáti**, **Aktuality**, **Podpořte nás**
 - **Není** mřížka kandidátů na homepage (zobrazí se až po `SITE_LAUNCHED=true`)
+
+#### Responzivita hero (nasazeno `9081639` + lokální oprava notebooku)
+
+| Zařízení | Chování |
+|---|---|
+| Mobil (~66 % GA) | Centrovaný box, patička těsně pod ním, **bez prázdné prodlevy** |
+| Tablet (~0,4 %) | Centrovaný box, fullscreen výška hero |
+| Notebook (1280–1919 px) | Dole vlevo, bez useknutí, bez nutnosti zoom out |
+| Desktop (~34 %, 1920 px+) | Fullscreen hero, box vlevo dole s `-ml-32`, patička po scrollu |
+
+Detailní popis breakpointů, CSS a QA: [`hero-homepage.md`](hero-homepage.md).
 
 ### Navigace (`components/Header.tsx`)
 
@@ -48,34 +58,46 @@ Commit a deploy **jen na explicitní pokyn**.
 
 ---
 
+## Poslední nasazené commity (main)
+
+| Commit | Popis |
+|---|---|
+| `9e43054` | Sjednocená typografie: menší H1–H3, perexy, kompaktní primární tlačítka, `PageSectionHeader` |
+| `9081639` | Responzivita hero: mobil bez prodlevy, tablet centrovaný, desktop box vlevo dole |
+| `b6d346c` | Hero fullscreen — patička pod foldem |
+| `70bd40c` | Kampaňová homepage, Program/Podpořte odemčeny, 11 kandidátů |
+
+### Typografie (nasazeno `9e43054`)
+
+- Nadpisy stránek: **20 / 26 px** (mobil / desktop)
+- Sekce H2: **17 / 22 px**, H3: **15 / 17 px**
+- Tělo: **16 px**, perex: **16 / 18 px**
+- Primární tlačítka: **12 / 14 px** — viz [`typography.md`](typography.md)
+
+---
+
 ## Lokální vývoj
 
 | Účel | Nastavení |
 |---|---|
 | Běžný vývoj | `npm run dev` — stejný vizuál jako produkce po deployi |
 | Náhled jen revealed | `NEXT_PUBLIC_PRODUCTION_PREVIEW=true` v `.env.local` (volitelné) |
+| Problém s portem 3000 | `npm run dev:clean` |
 
 `isCandidateRevealed()`: produkce = `candidate.revealed`; dev bez PRODUCTION_PREVIEW = všichni (pro ladění fotek).
 
 ---
 
-## Chystaný commit (připraveno lokálně, bez push)
+## Necommitovat
 
-Součást stejného commitu jako homepage / hero / odemknutí navigace / 11 kandidátů:
-
-| Oblast | Soubory |
-|---|---|
-| Oční osa Obšnajdrová | `scripts/process-candidate-photos.mjs` (`SLUG_EXTRACT_TUNING['drahomira-obsnajdrova']`), `lib/candidates.ts` (`portraitWebpTune`), `public/images/kandidati/drahomira-obsnajdrova.webp` |
-| Michaela Dvořáková (crop) | `lib/candidates.ts`, `public/images/kandidati/michaela-dvorakova.webp` |
-| Poslední odhalení | `vaclav-sklenar.webp`, `alena-sojakova.webp` |
-| Hero / layout / nav / program / podpora | viz `git status` |
-
-**Necommitovat:** `.cursor/`, `.vscode/`, `.tmp-photo-one/`, `components/home/HomeCampaignFront.tsx`, `.env.local`, `scripts/sources/` (prázdné).
+`.cursor/`, `.vscode/`, `.tmp-photo-one/`, `components/home/HomeCampaignFront.tsx`, `.env.local`, `scripts/sources/` (prázdné), zpracované PNG mimo pipeline.
 
 ---
 
 ## Související dokumentace
 
+- [`typography.md`](typography.md) — typografie a tlačítka
+- [`hero-homepage.md`](hero-homepage.md) — layout hero, breakpointy, QA
 - [`content-workflow.md`](content-workflow.md)
 - [`kandidati-local-status.md`](kandidati-local-status.md)
 - [`architecture.md`](architecture.md)

@@ -25,6 +25,7 @@ Primární cíl je rychlá prezentační kampaň s možností postupného odemyk
 ### `components/`
 - UI komponenty (header, hero, sekce homepage, karty).
 - Hero je rozdělené na kompozici (`Hero.tsx`) a obsah panelu (`components/hero/HeroLead.tsx`).
+- **Responzivita hero homepage:** viz [`hero-homepage.md`](hero-homepage.md) — mobil / tablet / desktop breakpointy, `.hero-viewport-fill`, pozice panelu.
 
 ### `lib/`
 - `lib/candidates.ts`: centralizovaná data kandidátů (single source of truth).
@@ -35,12 +36,11 @@ Primární cíl je rychlá prezentační kampaň s možností postupného odemyk
 
 Řídí proměnná `NEXT_PUBLIC_SITE_LAUNCHED`. **Aktuální produkční stav:** viz [`current-production-state.md`](current-production-state.md).
 
-- `false` (Phase 1 — aktuální stav, červen 2026):
+- `false` (Phase 1 — aktuální stav, červenec 2026):
   - Homepage: **pouze hero s fotkou + patička** (`app/page.tsx` — bez mezisekcí).
-  - Hero CTA: O nás, Aktuality, Facebook.
-  - Navigace: `O nás`, **`Kandidáti`**, `Aktuality` odemčeny (`alwaysUnlocked: true`).
-  - `Program` a `Podpořte nás` zamčeny v menu.
-  - `/kandidati` živá — 12 slotů, postupné odhalování přes `revealed` v `lib/candidates.ts`.
+  - Hero CTA: Náš program, Kandidáti, Aktuality, Podpořte nás, Facebook pod logem.
+  - Navigace: `O nás`, **`Program`**, **`Kandidáti`**, **`Aktuality`**, **`Podpořte nás`** odemčeny (`alwaysUnlocked: true` / `podporteUnlocked`).
+  - `/kandidati` živá — 11 kandidátů, všichni `revealed: true`.
   - `middleware.ts` se **nepoužívá** (soubor odstraněn); přístup k profilům řídí `isCandidateRevealed()`.
 
 - `true` (Phase 2 — budoucí plný launch):
@@ -52,6 +52,7 @@ Primární cíl je rychlá prezentační kampaň s možností postupného odemyk
 - App Router stránky jsou převážně statické.
 - Kandidáti jsou předgenerováni (`generateStaticParams`) pro nízkou latenci.
 - Hero využívá optimalizované obrázky (`webp` + fallback `jpg`) a responzivní `srcSet`.
+- Hero výška: mobil = obsah boxu (`min-height: auto`), tablet/desktop = `100dvh` minus hlavička — viz [`hero-homepage.md`](hero-homepage.md).
 
 ## 6) Bezpečnostní hardening
 
@@ -72,4 +73,19 @@ Tyto hlavičky jsou součástí baseline bezpečnosti a neměly by se oslabovat 
 - **Feature flag pro launch**: umožní bezpečné spuštění domény bez odhalení plného obsahu.
 - **CI před deploymentem**: build se validuje už na GitHub Actions.
 - **Postupné odhalování kandidátů**: `revealed` flag + ruční deploy; profily skrytých kandidátů vrací 404.
+
+## 8) Typografie a tlačítka
+
+Od července 2026 (commit `9e43054`) je typografie sjednocená přes CSS proměnné v `app/globals.css` a sdílené třídy — **bez duplikace `clamp()` v komponentách**.
+
+| Oblast | Soubory / třídy |
+|---|---|
+| Tokeny H1–H3 | `:root` → `--font-h1-mobile` (20 px) … `--font-h3-desktop` (17 px) |
+| Nadpisy stránek | `.type-h1`, `.type-h2`, `.type-h3`, `.type-eyebrow`, `.type-lead` |
+| Záhlaví sekcí | `components/PageSectionHeader.tsx` |
+| Tlačítka | `.btn-primary-solid`, `.btn-primary-sheen`, `.btn-action--*` |
+| Hero text v boxu | `.hero-lead` + `--hl-eyebrow-text`, `--hl-badge-text`, `--hl-btn-*` |
+| Tailwind aliasy | `text-h1-mobile` … mapují na stejné CSS proměnné |
+
+Kompletní tabulka velikostí: [`typography.md`](typography.md) a `README.md` § Design systém.
 
