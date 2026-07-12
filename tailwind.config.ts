@@ -31,14 +31,14 @@ const config: Config = {
         "tynec-gray-soft": "#F4F4F5",
       },
       fontSize: {
-        "h1-desktop": "48px",
-        "h1-mobile": "32px",
-        "h2-desktop": "36px",
-        "h2-mobile": "28px",
-        "h3-desktop": "24px",
-        "h3-mobile": "20px",
-        "body-desktop": "18px",
-        "body-mobile": "18px",
+        "h1-desktop": "var(--font-h1-desktop)",
+        "h1-mobile": "var(--font-h1-mobile)",
+        "h2-desktop": "var(--font-h2-desktop)",
+        "h2-mobile": "var(--font-h2-mobile)",
+        "h3-desktop": "var(--font-h3-desktop)",
+        "h3-mobile": "var(--font-h3-mobile)",
+        "body-desktop": "16px",
+        "body-mobile": "16px",
       },
       keyframes: {
         float: {

@@ -25,12 +25,8 @@ export const CandidatesGrid: React.FC<CandidatesGridProps> = ({
       <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {showTitle && (
           <header className="reveal mb-12 md:mb-16">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-tynec-gray">
-              Volby 2026
-            </p>
-            <h2 className="mt-4 text-h2-mobile font-bold uppercase tracking-tight text-tynec-black md:text-h2-desktop">
-              Náš tým
-            </h2>
+            <p className="type-eyebrow">Volby 2026</p>
+            <h2 className="type-h2 mt-4">Náš tým</h2>
             <p className="mt-6 max-w-4xl text-pretty text-tynec-black/80">
               Jedenáct lidí, jedna vize — postupně představujeme každého člena týmu.
             </p>

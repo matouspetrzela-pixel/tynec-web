@@ -102,7 +102,7 @@ export const Header: React.FC = () => {
             {podporteUnlocked ? (
               <Link
                 href="/podporte-nas"
-                className="btn-primary-sheen rounded-xl px-6 py-2.5 text-[11px] font-bold uppercase tracking-[0.14em] lg:px-8 lg:py-3 lg:text-xs"
+                className="btn-primary-sheen rounded-xl px-5 py-2 text-[10px] font-bold uppercase tracking-[0.14em] lg:px-6 lg:py-2.5 lg:text-[11px]"
               >
                 Podpořte nás
               </Link>
@@ -165,7 +165,7 @@ export const Header: React.FC = () => {
               <Link
                 href="/podporte-nas"
                 onClick={() => setMobileMenuOpen(false)}
-                className="btn-primary-sheen mt-3 rounded-xl py-4 text-center text-sm font-bold uppercase tracking-[0.12em]"
+                className="btn-primary-sheen mt-3 rounded-xl py-3 text-center text-xs font-bold uppercase tracking-[0.12em]"
               >
                 Podpořte nás
               </Link>

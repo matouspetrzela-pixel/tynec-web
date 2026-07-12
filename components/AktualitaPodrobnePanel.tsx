@@ -80,7 +80,7 @@ export function AktualitaPodrobnePanel({ nadpis, obsah }: Props) {
           className="mt-8 space-y-5 text-lg leading-8 text-tynec-black/85"
         >
           {nadpis && (
-            <h2 className="text-xl font-bold leading-snug text-tynec-black md:text-2xl">
+            <h2 className="type-h3 leading-snug">
               {nadpis}
             </h2>
           )}

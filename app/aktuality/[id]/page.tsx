@@ -144,7 +144,7 @@ export default function AktualitaDetailPage({ params }: Props) {
             </time>
           </div>
 
-          <h1 className="mt-5 text-h1-mobile font-bold leading-tight text-tynec-black md:text-h1-desktop">
+          <h1 className="type-h1 mt-5 leading-tight">
             {item.nadpis}
           </h1>
         </header>
@@ -167,9 +167,9 @@ export default function AktualitaDetailPage({ params }: Props) {
         )}
 
         {/* Text článku */}
-        <div className="space-y-5 text-lg leading-8 text-tynec-black/85">
+        <div className="space-y-5 text-base leading-7 text-tynec-black/85 md:text-lg md:leading-8">
           {item.perex && (
-            <p className="text-xl font-medium leading-9 text-tynec-black">
+            <p className="text-lg font-medium leading-8 text-tynec-black md:text-xl md:leading-9">
               {renderTextWithMarkdownLinks(item.perex)}
             </p>
           )}
@@ -301,7 +301,7 @@ export default function AktualitaDetailPage({ params }: Props) {
         <div className="mt-12 border-t border-gray-100 pt-10 sm:flex sm:justify-center">
           <Link
             href="/aktuality"
-            className="inline-flex w-full items-center justify-center gap-3 rounded-xl bg-primary px-8 py-4 text-sm font-bold uppercase tracking-[0.1em] text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 sm:w-auto md:text-base"
+            className="btn-primary-solid w-full shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 sm:w-auto"
           >
             <ArrowLeft className="h-4 w-4" strokeWidth={2.5} />
             Zpět na všechny aktuality

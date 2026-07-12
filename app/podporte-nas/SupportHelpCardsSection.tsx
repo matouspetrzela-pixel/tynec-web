@@ -46,7 +46,7 @@ export function SupportHelpCardsSection() {
   return (
     <section className="surface-card mt-12 p-6 md:p-8">
       <div>
-        <h2 className="text-h3-mobile font-bold uppercase tracking-tight text-tynec-black md:text-h3-desktop">
+        <h2 className="type-h3">
           Jak můžete pomoci
         </h2>
       </div>

@@ -214,7 +214,7 @@ export function AktualitaCard({ item }: { item: Aktualita }) {
           </span>
         </div>
 
-        <h2 className="text-lg font-bold leading-snug text-blue-900 sm:text-xl">
+        <h2 className="text-base font-bold leading-snug text-blue-900 sm:text-lg">
           {item.nadpis}
         </h2>
 

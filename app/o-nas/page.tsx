@@ -11,6 +11,7 @@ import {
   Wallet,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
+import { PageSectionHeader } from '@/components/PageSectionHeader';
 
 export const metadata: Metadata = {
   title: 'O nás',
@@ -82,34 +83,32 @@ export default function ONasPage() {
     <div className="bg-white pb-20 pt-16">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
 
-        {/* Záhlaví */}
-        <header className="mb-16 max-w-5xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-tynec-gray">
-            Hnutí
-          </p>
-          <div className="mt-3 h-[3px] w-10 bg-primary" />
-          <h1 className="mt-4 text-h1-mobile font-bold uppercase text-tynec-black md:text-h1-desktop">
-            O nás
-          </h1>
-          <div className="mt-6 max-w-5xl space-y-5 text-lg text-tynec-black/80 md:text-xl">
-            <p>
-              Týnec pro nás není jen bod na mapě. Je to náš domov. Místo, kde žijeme, vychováváme
-              děti, potkáváme sousedy a kde chceme jednou spokojeně zestárnout. Proto nám záleží na
-              tom, jak naše obec funguje dnes a jaká bude zítra.
-            </p>
-            <p>
-              Jsme sdružení nezávislých kandidátů PRO TÝNEC SRDCEM. Spojuje nás chuť dělat věci
-              otevřeně, férově a s respektem k lidem. Nechceme slibovat nereálné věci. Chceme naopak
-              naslouchat, mluvit s lidmi (ne o nich), přemýšlet a hledat řešení, která dávají smysl.
-            </p>
-          </div>
-        </header>
+        <PageSectionHeader
+          className="mb-16 max-w-5xl"
+          eyebrow="Hnutí"
+          title="O nás"
+          intro={
+            <>
+              <p>
+                Týnec pro nás není jen bod na mapě. Je to náš domov. Místo, kde žijeme, vychováváme
+                děti, potkáváme sousedy a kde chceme jednou spokojeně zestárnout. Proto nám záleží na
+                tom, jak naše obec funguje dnes a jaká bude zítra.
+              </p>
+              <p>
+                Jsme sdružení nezávislých kandidátů PRO TÝNEC SRDCEM. Spojuje nás chuť dělat věci
+                otevřeně, férově a s respektem k lidem. Nechceme slibovat nereálné věci. Chceme naopak
+                naslouchat, mluvit s lidmi (ne o nich), přemýšlet a hledat řešení, která dávají smysl.
+              </p>
+            </>
+          }
+          introClassName="max-w-5xl space-y-5"
+        />
 
         {/* Vize obce */}
         <section aria-labelledby="vize-obce-heading" className="max-w-6xl">
           <h2
             id="vize-obce-heading"
-            className="mb-4 text-h2-mobile font-bold uppercase tracking-tight text-tynec-black md:text-h2-desktop"
+            className="type-h2 mb-4"
           >
             Chceme Týnec:
           </h2>

@@ -9,8 +9,7 @@ export interface CandidatePersonNameProps {
 }
 
 const variantClass = {
-  profile:
-    'text-h1-mobile font-bold leading-tight text-tynec-black md:text-h1-desktop',
+  profile: 'type-h1 leading-tight',
   card: 'text-[0.875rem] font-bold leading-snug tracking-tight sm:text-[0.9325rem] md:text-[0.9625rem] lg:text-[1rem] xl:text-[1.07rem]',
 };
 

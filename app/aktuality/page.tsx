@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { CalendarDays, ChevronRight } from 'lucide-react';
 import { AKTUALITY } from '@/lib/aktuality';
 import { AktualitaCard } from '@/components/AktualityCard';
+import { PageSectionHeader } from '@/components/PageSectionHeader';
 
 export const metadata: Metadata = {
   title: 'Aktuality',
@@ -118,26 +119,20 @@ export default function AktualityPage({
     <div className="pb-20 pt-16">
       <div className="mx-auto max-w-[88rem] px-4 sm:px-6 lg:px-8">
 
-        {/* Záhlaví */}
-        <header className="mb-16 max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-tynec-gray">
-            Volby 2026
-          </p>
-          <div className="mt-3 h-[3px] w-10 bg-primary" />
-          <h1 className="mt-4 text-h1-mobile font-bold uppercase text-tynec-black md:text-h1-desktop">
-            Aktuality
-          </h1>
-          <p className="mt-6 text-pretty text-lg text-tynec-black/80 md:text-xl">
-            Zprávy, materiály a informace z dění Pro Týnec srdcem.
-          </p>
-        </header>
+        <PageSectionHeader
+          className="mb-16 max-w-3xl"
+          eyebrow="Volby 2026"
+          title="Aktuality"
+          intro="Zprávy, materiály a informace z dění Pro Týnec srdcem."
+          introClassName="text-pretty"
+        />
 
         {/* Obsah */}
         {sorted.length === 0 ? (
           /* Prázdný stav */
           <div className="flex flex-col items-center rounded-2xl border border-dashed border-gray-200 bg-gray-50/60 px-8 py-20 text-center">
             <CalendarDays className="mb-4 h-10 w-10 text-tynec-gray/40" strokeWidth={1.5} />
-            <h2 className="mb-2 text-lg font-bold uppercase tracking-tight text-tynec-black/60">
+            <h2 className="type-h3 mb-2 text-tynec-black/60">
               Brzy zde najdete první aktuality
             </h2>
             <p className="max-w-sm text-sm text-tynec-black/45">
@@ -160,7 +155,7 @@ export default function AktualityPage({
 
         {/* CTA */}
         <div className="mt-16 rounded-2xl border border-gray-100 bg-white p-8 text-center md:p-12">
-          <h2 className="mb-4 text-h3-mobile font-bold uppercase text-tynec-black md:text-h3-desktop">
+          <h2 className="type-h3 mb-4">
             Sledujte nás na Facebooku
           </h2>
           <p className="mb-8 text-tynec-black/75">
@@ -170,7 +165,7 @@ export default function AktualityPage({
             href="https://www.facebook.com/protynecsrdcem"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-primary-hover md:text-base"
+            className="btn-primary-solid"
           >
             Otevřít Facebook
           </a>

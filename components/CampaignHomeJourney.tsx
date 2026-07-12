@@ -27,11 +27,11 @@ export function CampaignHomeJourney() {
           <div className="mx-auto mt-3 h-[3px] w-10 bg-primary" />
           <h2
             id="kampan-domu-heading"
-            className="mt-4 text-pretty text-h2-mobile font-bold uppercase tracking-tight text-tynec-black md:text-h2-desktop"
+            className="type-h2 mt-4 text-pretty"
           >
             Cesta k Volbám: nejdříve posloucháme Velký Týnec — pak společně nastavujeme přístup
           </h2>
-          <p className="mt-5 text-lg leading-relaxed text-tynec-black/80 md:text-xl">
+          <p className="mt-5 text-base leading-relaxed text-tynec-black/80 md:text-lg">
             Web nevznikl jen kvůli hezkým sloganům. Chceme, aby komunální politika znala vaše problémy
             dřív, než vám ji někdo vnutí jako hotovku. Aktuality sledujeme týdně — Facebook používáme
             k rozhovoru, ne jen k oznámením.
@@ -43,7 +43,7 @@ export function CampaignHomeJourney() {
             <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/[0.1] text-primary">
               <Ear className="h-5 w-5" strokeWidth={1.8} aria-hidden />
             </div>
-            <h3 className="text-lg font-bold uppercase tracking-tight text-tynec-black">
+            <h3 className="type-h3">
               Naslouchání v terénu
             </h3>
             <p className="mt-3 flex-1 text-[0.95rem] leading-relaxed text-tynec-black/[0.78]">
@@ -57,7 +57,7 @@ export function CampaignHomeJourney() {
             <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/[0.1] text-primary">
               <MessageCircle className="h-5 w-5" strokeWidth={1.8} aria-hidden />
             </div>
-            <h3 className="text-lg font-bold uppercase tracking-tight text-tynec-black">
+            <h3 className="type-h3">
               Otevřená komunikace
             </h3>
             <p className="mt-3 flex-1 text-[0.95rem] leading-relaxed text-tynec-black/[0.78]">
@@ -71,7 +71,7 @@ export function CampaignHomeJourney() {
             <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/[0.1] text-primary">
               <Sparkles className="h-5 w-5" strokeWidth={1.8} aria-hidden />
             </div>
-            <h3 className="text-lg font-bold uppercase tracking-tight text-tynec-black">
+            <h3 className="type-h3">
               Co přijde později na web
             </h3>
             <p className="mt-3 flex-1 text-[0.95rem] leading-relaxed text-tynec-black/[0.78]">
@@ -130,14 +130,14 @@ export function CampaignHomeJourney() {
         <div className="mt-10 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4">
           <Link
             href="/o-nas"
-            className="btn-primary-sheen inline-flex min-h-[52px] items-center justify-center gap-2 rounded-xl px-8 py-3 text-center text-sm font-bold uppercase tracking-[0.1em]"
+            className="btn-primary-sheen"
           >
             Poznat nás lépe — O&nbsp;nás
             <ArrowRight className="h-4 w-4" aria-hidden />
           </Link>
           <Link
             href="/aktuality"
-            className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-xl border-2 border-tynec-black/88 bg-transparent px-8 py-3 text-center text-sm font-bold uppercase tracking-[0.1em] text-tynec-black transition-colors hover:border-primary hover:text-primary"
+            className="btn-action--outline"
           >
             Co právě publikujeme
             <ArrowRight className="h-4 w-4" aria-hidden />
@@ -147,13 +147,13 @@ export function CampaignHomeJourney() {
             placement="home_campaign_journey"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-xl border border-primary/35 bg-primary/5 px-8 py-3 text-center text-sm font-bold uppercase tracking-[0.1em] text-primary transition-colors hover:bg-primary/10"
+            className="btn-action--soft"
           >
             Jdeme řešit věci i na FB
           </TrackedFacebookOutbound>
           <TrackedPodporteLink
             placement="home_campaign_journey_podporte"
-            className="inline-flex min-h-[52px] items-center justify-center rounded-xl border border-slate-300 bg-white px-8 py-3 text-center text-sm font-bold uppercase tracking-[0.1em] text-tynec-black/85 transition-colors hover:border-primary hover:text-primary"
+            className="btn-action--neutral"
           >
             Chcete nás podpořit
           </TrackedPodporteLink>

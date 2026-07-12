@@ -4,6 +4,13 @@
 
 :root {
   --header-height: 4.375rem;
+  /* Typografie — jeden zdroj; ověřitelné v DevTools (Computed → font-size) */
+  --font-h1-mobile: 20px;
+  --font-h1-desktop: 26px;
+  --font-h2-mobile: 17px;
+  --font-h2-desktop: 22px;
+  --font-h3-mobile: 15px;
+  --font-h3-desktop: 17px;
 }
 
 @media (min-width: 768px) {
@@ -26,7 +33,7 @@ html {
 }
 
 body {
-  @apply font-sans text-lg leading-relaxed text-tynec-black antialiased;
+  @apply font-sans text-base leading-relaxed text-tynec-black antialiased;
   background-color: #f8fafc;
   background-image: linear-gradient(
     180deg,
@@ -54,6 +61,51 @@ h6 {
 }
 
 @layer components {
+  .type-eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.24em] text-tynec-gray;
+  }
+
+  .type-h1 {
+    font-size: var(--font-h1-mobile);
+    @apply font-bold leading-[1.12] tracking-tight text-tynec-black;
+  }
+
+  .type-h2 {
+    font-size: var(--font-h2-mobile);
+    @apply font-bold uppercase leading-[1.15] tracking-tight text-tynec-black;
+  }
+
+  .type-h3 {
+    font-size: var(--font-h3-mobile);
+    @apply font-bold uppercase leading-snug tracking-tight text-tynec-black;
+  }
+
+  .type-lead {
+    @apply text-base leading-relaxed text-tynec-black/80 md:text-lg;
+  }
+
+  .page-header__rule {
+    @apply mt-3 h-[3px] w-10 bg-primary;
+  }
+
+  .page-header__intro {
+    @apply type-lead mt-6;
+  }
+
+  @media (min-width: 768px) {
+    .type-h1 {
+      font-size: var(--font-h1-desktop);
+    }
+
+    .type-h2 {
+      font-size: var(--font-h2-desktop);
+    }
+
+    .type-h3 {
+      font-size: var(--font-h3-desktop);
+    }
+  }
+
   .section-padding {
     @apply px-4 py-[120px] sm:px-6 md:px-8 lg:py-[120px];
   }
@@ -280,15 +332,16 @@ h6 {
     --hl-px: clamp(0.875rem, 3.5vw, 2rem);
     --hl-py: clamp(1.1rem, 3vw, 2rem);
     --hl-logo-max: min(100%, clamp(13.9rem, 67vw, 38rem));
-    --hl-btn-h: 3.3rem;
-    --hl-btn-primary-h: 3.9rem;
-    --hl-btn-fb-h: 3.25rem;
-    --hl-btn-text: clamp(0.8125rem, 1.75vw, 0.9375rem);
-    --hl-btn-primary-text: clamp(0.875rem, 1.9vw, 1rem);
+    --hl-btn-h: 2.75rem;
+    --hl-btn-primary-h: 3.125rem;
+    --hl-btn-fb-h: 2.625rem;
+    --hl-btn-text: clamp(0.6875rem, 1.4vw, 0.75rem);
+    --hl-btn-primary-text: clamp(0.75rem, 1.5vw, 0.875rem);
     --hl-radius: 0.75rem;
     --hl-nav-gap: 0.625rem;
-    --hl-eyebrow-text: clamp(0.9375rem, 2.15vw, 1.0625rem);
-    --hl-badge-text: clamp(0.625rem, 2.8vw, 0.8125rem);
+    --hl-eyebrow-text: clamp(0.8125rem, 1.85vw, 0.9375rem);
+    --hl-badge-text: clamp(0.625rem, 2.5vw, 0.75rem);
+    --hl-fb-text: clamp(0.75rem, 1.55vw, 0.875rem);
 
     @apply relative z-[1] flex min-w-0 flex-col text-left text-white;
     gap: var(--hl-gap);
@@ -317,11 +370,11 @@ h6 {
       --hl-px: 1.25rem;
       --hl-py: 0.875rem;
       --hl-logo-max: min(100%, 32rem);
-      --hl-btn-h: 2.5rem;
-      --hl-btn-primary-h: 2.75rem;
-      --hl-btn-fb-h: 2.5rem;
-      --hl-btn-text: 0.75rem;
-      --hl-btn-primary-text: 0.8125rem;
+      --hl-btn-h: 2.375rem;
+      --hl-btn-primary-h: 2.5rem;
+      --hl-btn-fb-h: 2.375rem;
+      --hl-btn-text: 0.6875rem;
+      --hl-btn-primary-text: 0.75rem;
       --hl-radius: 0.5rem;
       --hl-nav-gap: 0.375rem;
       --hl-eyebrow-text: 0.8125rem;
@@ -337,15 +390,16 @@ h6 {
       --hl-py: clamp(2.21rem, 5.15vw, 4.33rem);
       --hl-pt: clamp(2.52rem, 5.77vw, 4.79rem);
       --hl-logo-max: min(100%, clamp(16.7rem, 46vw, 38rem));
-      --hl-btn-h: 3.3rem;
-      --hl-btn-primary-h: 3.9rem;
-      --hl-btn-fb-h: 3.25rem;
-      --hl-btn-text: clamp(0.8125rem, 1.75vw, 0.9375rem);
-      --hl-btn-primary-text: clamp(0.875rem, 1.9vw, 1rem);
+      --hl-btn-h: 2.75rem;
+      --hl-btn-primary-h: 3.125rem;
+      --hl-btn-fb-h: 2.625rem;
+      --hl-btn-text: clamp(0.6875rem, 1.4vw, 0.75rem);
+      --hl-btn-primary-text: clamp(0.75rem, 1.5vw, 0.875rem);
       --hl-radius: 0.75rem;
       --hl-nav-gap: 0.625rem;
-      --hl-eyebrow-text: clamp(0.9375rem, 2.15vw, 1.0625rem);
-      --hl-badge-text: clamp(0.625rem, 2.8vw, 0.8125rem);
+      --hl-eyebrow-text: clamp(0.8125rem, 1.85vw, 0.9375rem);
+      --hl-badge-text: clamp(0.625rem, 2.5vw, 0.75rem);
+      --hl-fb-text: clamp(0.75rem, 1.55vw, 0.875rem);
       padding: var(--hl-pt) var(--hl-px) var(--hl-py);
     }
   }
@@ -444,7 +498,7 @@ h6 {
     min-height: var(--hl-btn-fb-h);
     gap: 0.75rem;
     padding: 0.75rem clamp(0.875rem, 2vw, 1rem);
-    font-size: clamp(0.8125rem, 1.8vw, 1rem);
+    font-size: var(--hl-fb-text, clamp(0.75rem, 1.55vw, 0.875rem));
     border-radius: var(--hl-radius);
     border: 1px solid rgba(255, 255, 255, 0.4);
     background: rgba(255, 255, 255, 0.1);
@@ -518,9 +572,38 @@ h6 {
   }
 
   /* Měkký spodní odtok — čitelná hloubka bez plastického 3D */
+  .btn-primary-solid {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-2.5 text-xs font-bold uppercase tracking-[0.1em] text-white transition-colors hover:bg-primary-hover md:px-7 md:py-3 md:text-sm;
+  }
+
+  .btn-action {
+    @apply inline-flex min-h-[2.75rem] items-center justify-center gap-2 rounded-xl px-6 py-2.5 text-center text-xs font-bold uppercase tracking-[0.1em] md:min-h-[2.875rem] md:px-7 md:py-3 md:text-sm;
+  }
+
+  .btn-action--outline {
+    @apply btn-action border-2 bg-transparent text-tynec-black transition-colors hover:border-primary hover:text-primary;
+    border-color: rgb(26 26 26 / 0.88);
+  }
+
+  .btn-action--soft {
+    @apply btn-action border text-primary transition-colors;
+    border-color: rgb(196 30 37 / 0.35);
+    background-color: rgb(196 30 37 / 0.05);
+  }
+
+  .btn-action--soft:hover {
+    background-color: rgb(196 30 37 / 0.1);
+  }
+
+  .btn-action--neutral {
+    @apply btn-action border border-slate-300 bg-white transition-colors hover:border-primary hover:text-primary;
+    color: rgb(26 26 26 / 0.85);
+  }
+
   .btn-primary-sheen {
-    @apply text-white;
+    @apply btn-action text-white;
     background-image: linear-gradient(180deg, #e12e35 0%, #b01218 100%);
+    background-color: transparent;
     box-shadow:
       0 1px 0 rgba(255, 255, 255, 0.12) inset,
       0 8px 28px -8px rgba(196, 30, 36, 0.35);
@@ -535,11 +618,7 @@ h6 {
   }
 
   .btn-primary-campaign {
-    @apply inline-flex min-h-[52px] items-center justify-center rounded-xl px-7 py-3 text-sm font-bold uppercase tracking-[0.1em] text-white transition-all duration-200;
-    background-image: linear-gradient(180deg, #e12e35 0%, #b01218 100%);
-    box-shadow:
-      0 1px 0 rgba(255, 255, 255, 0.12) inset,
-      0 8px 28px -8px rgba(196, 30, 36, 0.35);
+    @apply btn-primary-sheen;
   }
 
   .btn-primary-campaign:hover {
@@ -550,7 +629,7 @@ h6 {
   }
 
   .btn-secondary-campaign {
-    @apply inline-flex min-h-[52px] items-center justify-center rounded-xl border border-gray-300 bg-white px-7 py-3 text-sm font-bold uppercase tracking-[0.1em] text-tynec-black transition-colors hover:border-gray-400;
+    @apply btn-action--neutral;
   }
 
   .glass-header {

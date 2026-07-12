@@ -69,10 +69,9 @@ export default function CandidateProfilePage({ params }: Props) {
 
           {/* Profil */}
           <div className="min-w-0">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-tynec-gray">
-              Volby 2026
-            </p>
-            <h1 className="mt-3 text-balance text-h1-mobile font-bold text-tynec-black md:text-h1-desktop">
+            <p className="type-eyebrow">Volby 2026</p>
+            <div className="page-header__rule" aria-hidden />
+            <h1 className="type-h1 mt-3 text-balance">
               {candidate.name}
             </h1>
 
@@ -91,7 +90,7 @@ export default function CandidateProfilePage({ params }: Props) {
 
             {/* Bio */}
             <div className="mt-6 sm:mt-8">
-              <h2 className="mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-tynec-gray sm:mb-4">
+              <h2 className="type-eyebrow mb-3 sm:mb-4">
                 {candidate.gender === 'female' ? 'O kandidátce' : 'O kandidátovi'}
               </h2>
               {candidate.bio ? (
@@ -110,7 +109,7 @@ export default function CandidateProfilePage({ params }: Props) {
             {/* Osobní priority */}
             {candidate.priorities && candidate.priorities.length > 0 && (
               <div className="mt-6 sm:mt-8">
-                <h2 className="mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-tynec-gray sm:mb-4">
+                <h2 className="type-eyebrow mb-3 sm:mb-4">
                   Priority
                 </h2>
                 <ul className="space-y-3 sm:space-y-4">
@@ -134,7 +133,7 @@ export default function CandidateProfilePage({ params }: Props) {
             <div className="mt-10 border-t border-gray-100 pt-8">
               <TrackedPodporteLink
                 placement="kandidat_detail_cta"
-                className="inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-sm font-bold uppercase tracking-[0.1em] text-white transition-colors hover:bg-primary-hover"
+                className="btn-primary-solid"
               >
                 Podpořte nás
               </TrackedPodporteLink>

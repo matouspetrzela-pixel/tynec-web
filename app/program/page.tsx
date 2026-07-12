@@ -7,6 +7,7 @@ import {
   PROGRAM_PAGE_HEADING,
   PROGRAM_PRIORITIES,
 } from '@/lib/program';
+import { PageSectionHeader } from '@/components/PageSectionHeader';
 
 export const metadata: Metadata = {
   title: 'Program 2026',
@@ -19,16 +20,12 @@ export default function ProgramPage() {
     <div className="pb-20 pt-16">
       <div className="mx-auto max-w-[88rem] px-4 sm:px-6 lg:px-8">
 
-        {/* Záhlaví */}
-        <header className="mb-16">
-          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-tynec-gray">
-            Volby 2026
-          </p>
-          <div className="mt-3 h-[3px] w-10 bg-primary" />
-          <h1 className="mt-4 max-w-none text-balance text-h1-mobile font-bold uppercase leading-[1.08] text-tynec-black md:text-h1-desktop">
-            {PROGRAM_PAGE_HEADING}
-          </h1>
-        </header>
+        <PageSectionHeader
+          className="mb-16"
+          eyebrow="Volby 2026"
+          title={PROGRAM_PAGE_HEADING}
+          titleClassName="max-w-none text-balance leading-[1.08]"
+        />
 
         {/* Programové oblasti */}
         <div className="grid grid-cols-1 items-stretch gap-6 sm:grid-cols-2 xl:grid-cols-3">
@@ -49,7 +46,7 @@ export default function ProgramPage() {
                 <div className="mb-5">
                   <Icon className="h-7 w-7 shrink-0 text-primary" strokeWidth={2} aria-hidden />
                 </div>
-                <h2 className="text-[1.05rem] font-bold uppercase leading-tight tracking-tight text-tynec-black md:text-[1.15rem]">
+                <h2 className="type-h3 leading-tight">
                   {item.title}
                 </h2>
                 <p className="mt-4 text-base leading-relaxed text-tynec-black/75">{item.intro}</p>
@@ -87,7 +84,7 @@ export default function ProgramPage() {
                   <div className="mb-5 flex h-7 items-center">
                     <Icon className="h-7 w-7 shrink-0 text-primary" strokeWidth={2} aria-hidden />
                   </div>
-                  <h3 className="min-h-[2.75rem] text-[1.05rem] font-bold uppercase leading-tight tracking-tight text-tynec-black md:min-h-[3rem] md:text-[1.15rem]">
+                  <h3 className="type-h3 min-h-[2.75rem] leading-tight md:min-h-[3rem]">
                     {block.title}
                   </h3>
                   <p className="mt-4 text-base leading-relaxed text-tynec-black/75">{block.text}</p>
@@ -99,7 +96,7 @@ export default function ProgramPage() {
 
         {/* CTA */}
         <div className="mt-16 rounded-2xl border border-gray-100 bg-white p-8 text-center md:p-12">
-          <h2 className="mb-4 text-h3-mobile font-bold uppercase text-tynec-black md:text-h3-desktop">
+          <h2 className="type-h3 mb-4">
             Máte nápad nebo připomínku?
           </h2>
           <p className="mb-8 text-tynec-black/75">
@@ -108,7 +105,7 @@ export default function ProgramPage() {
           </p>
           <TrackedPodporteLink
             placement="program_page_cta"
-            className="inline-flex items-center rounded-xl bg-primary px-8 py-4 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-primary-hover md:text-base"
+            className="btn-primary-solid"
           >
             Podpořte nás
           </TrackedPodporteLink>

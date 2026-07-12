@@ -28,7 +28,7 @@ export const ProgramGrid: React.FC<ProgramGridProps> = ({
           </p>
           <h2
             id="program-heading"
-            className="mt-3 text-h2-mobile font-bold uppercase leading-[1.1] tracking-tight text-tynec-black md:text-h2-desktop"
+            className="type-h2 mt-3 leading-[1.1]"
           >
             {PROGRAM_PAGE_HEADING}
           </h2>
@@ -116,7 +116,7 @@ export const ProgramGrid: React.FC<ProgramGridProps> = ({
             <div className="flex items-center justify-center sm:col-span-2 lg:col-span-3">
               <Link
                 href="/program"
-                className="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-6 py-3.5 text-sm font-bold uppercase tracking-[0.1em] text-tynec-black transition-colors hover:border-primary hover:text-primary"
+                className="btn-action--neutral"
               >
                 Celý program — 8 priorit
                 <span aria-hidden>→</span>
