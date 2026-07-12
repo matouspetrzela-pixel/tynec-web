@@ -73,12 +73,29 @@ h6 {
   }
 
   /**
-   * Hero — jedna obrazovka pod fixní hlavičkou; patička až po scrollu.
+   * Hero — desktop/tablet: celá obrazovka, patička pod foldem.
+   * Mobil (GA ~66 %): výška podle boxu + krátký pruh fotky — bez prázdné prodlevy před patičkou.
    */
   .hero-viewport-fill {
-    min-height: calc(
-      100dvh - var(--header-height) - env(safe-area-inset-top, 0px)
-    );
+    min-height: auto;
+  }
+
+  @media (min-width: 768px) {
+    .hero-viewport-fill {
+      min-height: calc(
+        100dvh - var(--header-height) - env(safe-area-inset-top, 0px)
+      );
+    }
+  }
+
+  @media (max-width: 767px) {
+    .hero-viewport-fill {
+      padding-bottom: clamp(1rem, 5vw, 2rem);
+    }
+
+    .hero-info-panel-stage {
+      border-radius: 22px;
+    }
   }
 
   /**
