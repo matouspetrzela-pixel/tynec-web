@@ -8,15 +8,16 @@ const HERO_ASSET_VER = '2';
 
 /**
  * Responzivita podle GA (2026):
- * - mobil ~66 %: 360–402 px — centrovaný box, bez ořezu, bez posunu pod header
- * - desktop ~34 %: 1920 px — xl+ (1280+) box vlevo dole
- * - tablet ~0,4 % — stejně jako mobil (centrovaný) do xl
+ * - mobil ~66 %: 360–402 px — centrovaný box
+ * - tablet ~0,4 %: 768–1279 px — centrovaný
+ * - notebook: 1280–1919 px — dole vlevo, bez negativního posunu
+ * - desktop ~34 %: 1920 px+ — box vlevo dole s -ml
  */
 const heroPanelWrap =
-  'mx-auto min-w-0 w-full max-w-[min(100%,22.75rem)] max-md:translate-y-0 sm:max-w-md md:max-w-xl md:-translate-y-3 xl:mx-0 xl:max-w-[min(51.5rem,calc(100%-3.5rem))] xl:-ml-24 xl:-translate-y-7 2xl:-ml-32 2xl:-translate-y-8';
+  'mx-auto min-w-0 w-full max-w-[min(100%,22.75rem)] max-md:translate-y-0 sm:max-w-md md:max-w-xl md:-translate-y-3 xl:mx-0 xl:max-w-[min(38rem,calc(100%-3rem))] xl:-translate-y-5 min-[1920px]:max-w-[min(51.5rem,calc(100%-3.5rem))] min-[1920px]:-ml-32 min-[1920px]:-translate-y-8';
 
 const heroPanelShell =
-  'relative z-10 mx-auto flex w-full max-w-[1920px] flex-col items-center justify-start px-4 pt-1 pb-2 sm:px-5 sm:pt-1 sm:pb-4 md:min-h-[inherit] md:px-6 md:pt-2 md:pb-5 xl:min-h-[inherit] xl:items-start xl:justify-end xl:pl-0 xl:pr-6 xl:pb-12 xl:pt-[clamp(1.5rem,4vh,6rem)] 2xl:pr-10';
+  'relative z-10 mx-auto flex w-full max-w-[1920px] flex-col items-center justify-start px-4 pt-1 pb-2 sm:px-5 sm:pt-1 sm:pb-4 md:min-h-[inherit] md:px-6 md:pt-2 md:pb-5 xl:min-h-[inherit] xl:items-start xl:justify-end xl:pl-6 xl:pr-6 xl:pb-12 xl:pt-[clamp(1.5rem,4vh,6rem)] min-[1920px]:pl-0 min-[1920px]:pr-6 2xl:pr-10';
 
 /** Fotka — mobil ukazuje věž pod boxem; desktop posune ostení vpravo */
 const heroPhotoObject =
@@ -25,7 +26,7 @@ const heroPhotoObject =
 export const Hero: React.FC = () => {
   return (
     <section
-      className="hero-viewport-fill relative isolate w-full overflow-x-clip overflow-y-hidden xl:overflow-x-visible"
+      className="hero-viewport-fill relative isolate w-full overflow-x-clip overflow-y-hidden min-[1920px]:overflow-x-visible"
       aria-label="Úvod"
     >
       <div className="pointer-events-none absolute inset-0" aria-hidden>

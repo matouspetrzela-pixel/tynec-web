@@ -35,7 +35,7 @@ const SECONDARY_NAV = [
 export const HeroLead: React.FC = () => {
   return (
     <div className="relative min-w-0 overflow-hidden">
-      <div className="relative z-[1] flex min-w-0 flex-col gap-[clamp(0.7rem,2.8vw,1.25rem)] px-[clamp(0.875rem,3.5vw,2rem)] py-[clamp(1.1rem,3vw,2rem)] text-left text-white sm:gap-[clamp(0.876rem,2.16vw,2.01rem)] sm:px-[clamp(1.07rem,4.12vw,3.61rem)] sm:py-[clamp(1.35rem,3.8vw,4.5rem)] md:px-[clamp(1.39rem,3.71vw,2.99rem)] xl:px-[clamp(1.75rem,4.02vw,3.61rem)] xl:pt-[clamp(2.52rem,5.77vw,4.79rem)] xl:pb-[clamp(2.21rem,5.15vw,4.33rem)]">
+      <div className="relative z-[1] flex min-w-0 flex-col gap-[clamp(0.7rem,2.8vw,1.25rem)] px-[clamp(0.875rem,3.5vw,2rem)] py-[clamp(1.1rem,3vw,2rem)] text-left text-white sm:gap-[clamp(0.876rem,2.16vw,2.01rem)] sm:px-[clamp(1.07rem,4.12vw,3.61rem)] sm:py-[clamp(1.35rem,3.8vw,4.5rem)] md:px-[clamp(1.39rem,3.71vw,2.99rem)] xl:px-[clamp(1.39rem,3.71vw,2.99rem)] min-[1920px]:px-[clamp(1.75rem,4.02vw,3.61rem)] min-[1920px]:pt-[clamp(2.52rem,5.77vw,4.79rem)] min-[1920px]:pb-[clamp(2.21rem,5.15vw,4.33rem)]">
         <div className="flex flex-col gap-2">
           <p className={heroStageEyebrow}>Změna začíná vaším hlasem</p>
           <p className="inline-flex min-h-[2.75rem] w-full max-w-full items-center rounded-xl border border-white/20 px-[clamp(0.875rem,2.4vw,1.2rem)] py-2.5 text-[clamp(0.625rem,2.8vw,0.8125rem)] font-bold uppercase leading-snug tracking-[0.1em] text-white shadow-[0_2px_12px_rgba(0,0,0,0.12),inset_0_1px_0_rgba(255,255,255,0.15)] sm:min-h-[3rem] sm:w-fit sm:tracking-[0.14em] [background:linear-gradient(180deg,rgba(225,46,53,0.95)_0%,rgba(176,18,24,0.98)_100%)]">
