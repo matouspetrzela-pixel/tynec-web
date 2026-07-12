@@ -2,10 +2,6 @@ import React from 'react';
 import { HeroInfoPanel } from '@/components/hero/HeroInfoPanel';
 import { HeroLead } from '@/components/hero/HeroLead';
 
-/** rem místo svh — fotka reaguje na zoom stejně jako panel */
-const heroPhotoMinHeight =
-  'min-h-[28rem] sm:min-h-[30rem] md:min-h-[34rem] lg:min-h-[42rem] xl:min-h-[46rem]';
-
 const HERO_BASE = 'hero-velky-tynec-dji-0702-v2026';
 /** Bump po přegenerování hero fotek — obchází cache prohlížeče */
 const HERO_ASSET_VER = '2';
@@ -17,13 +13,10 @@ const heroPanelWrap =
 export const Hero: React.FC = () => {
   return (
     <section
-      className='relative grid w-full [grid-template-areas:"stack"] overflow-x-clip overflow-y-hidden sm:overflow-x-visible'
+      className="hero-viewport-fill relative isolate w-full overflow-x-clip overflow-y-hidden sm:overflow-x-visible"
       aria-label="Úvod"
     >
-      <div
-        className={`pointer-events-none [grid-area:stack] relative w-full ${heroPhotoMinHeight}`}
-        aria-hidden
-      >
+      <div className="pointer-events-none absolute inset-0" aria-hidden>
         <picture className="absolute inset-0 block h-full w-full">
           <source
             type="image/webp"
@@ -52,7 +45,7 @@ export const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(15,23,42,0.14)_0%,transparent_42%)]" />
       </div>
 
-      <div className="relative z-10 mx-auto flex w-full max-w-[1920px] [grid-area:stack] flex-col items-center justify-start self-start px-4 pt-4 pb-3 sm:px-5 sm:pt-5 sm:pb-4 md:px-6 md:pt-6 md:pb-5 lg:flex lg:min-h-[42rem] lg:items-start lg:justify-end lg:pl-0 lg:pr-6 lg:pb-12 lg:pt-24 xl:min-h-[46rem] xl:pr-10">
+      <div className="relative z-10 mx-auto flex min-h-[inherit] w-full max-w-[1920px] flex-col items-center justify-start px-4 pt-4 pb-3 sm:px-5 sm:pt-5 sm:pb-4 md:px-6 md:pt-6 md:pb-5 lg:flex lg:min-h-[inherit] lg:items-start lg:justify-end lg:pl-0 lg:pr-6 lg:pb-12 lg:pt-[clamp(1.5rem,4vh,6rem)] xl:pr-10">
         <div className={heroPanelWrap}>
           <HeroInfoPanel className="hero-info-panel-stage w-full max-w-full">
             <HeroLead />
