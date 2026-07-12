@@ -14,10 +14,10 @@ const HERO_ASSET_VER = '2';
  * - desktop ~34 %: 1920 px+ — box vlevo dole s -ml
  */
 const heroPanelWrap =
-  'mx-auto min-w-0 w-full max-w-[min(100%,22.75rem)] max-md:translate-y-0 sm:max-w-md md:max-w-xl md:-translate-y-3 xl:mx-0 xl:max-w-[min(38rem,calc(100%-3rem))] xl:-translate-y-5 min-[1920px]:max-w-[min(51.5rem,calc(100%-3.5rem))] min-[1920px]:-ml-32 min-[1920px]:-translate-y-8';
+  'mx-auto min-w-0 w-full max-w-[min(100%,22.75rem)] max-md:translate-y-0 sm:max-w-md md:max-w-xl md:-translate-y-3 xl:mx-0 xl:max-w-[min(38rem,calc(100%-3rem))] xl:-translate-y-2 min-[1920px]:max-w-[min(51.5rem,calc(100%-3.5rem))] min-[1920px]:-ml-32 min-[1920px]:-translate-y-8';
 
 const heroPanelShell =
-  'relative z-10 mx-auto flex w-full max-w-[1920px] flex-col items-center justify-start px-4 pt-1 pb-2 sm:px-5 sm:pt-1 sm:pb-4 md:min-h-[inherit] md:px-6 md:pt-2 md:pb-5 xl:min-h-[inherit] xl:items-start xl:justify-end xl:pl-6 xl:pr-6 xl:pb-12 xl:pt-[clamp(1.5rem,4vh,6rem)] min-[1920px]:pl-0 min-[1920px]:pr-6 2xl:pr-10';
+  'relative z-10 mx-auto flex w-full max-w-[1920px] flex-col items-center justify-start px-4 pt-1 pb-2 sm:px-5 sm:pt-1 sm:pb-4 md:min-h-[inherit] md:px-6 md:pt-2 md:pb-5 xl:min-h-[inherit] xl:items-start xl:justify-end xl:pl-6 xl:pr-6 xl:pb-4 xl:pt-2 min-[1920px]:pl-0 min-[1920px]:pr-6 min-[1920px]:pb-12 min-[1920px]:pt-[clamp(1.5rem,4vh,6rem)] 2xl:pr-10';
 
 /** Fotka — mobil ukazuje věž pod boxem; desktop posune ostení vpravo */
 const heroPhotoObject =
