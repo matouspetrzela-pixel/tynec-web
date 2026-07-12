@@ -44,7 +44,7 @@ export default function PodporteNasPage() {
                   aria-label="Sledujte nás na Facebooku"
                 >
                   <FacebookBrandIcon className="h-5 w-5 shrink-0 md:h-6 md:w-6" />
-                  <span className="font-semibold text-tynec-black">Sledujte nás</span>
+                  <span className="font-semibold text-tynec-black">Sledujte nás na Facebooku</span>
                 </TrackedFacebookOutbound>
                 <TrackedEmailOutbound
                   href={`mailto:${EMAIL}`}

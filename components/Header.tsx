@@ -12,6 +12,7 @@ const productionPreview = process.env.NEXT_PUBLIC_PRODUCTION_PREVIEW === 'true';
 /** Lokálně (`next dev`) zobrazit plnou navigaci bez zámků kvůli vývoji */
 const devPreview = process.env.NODE_ENV === 'development' && !productionPreview;
 const allUnlocked = launched || devPreview;
+const podporteUnlocked = true;
 
 type NavItem = {
   label: string;
@@ -26,7 +27,7 @@ export const Header: React.FC = () => {
 
   const navItems: NavItem[] = [
     { label: 'O nás', href: '/o-nas', alwaysUnlocked: true },
-    { label: 'Program', href: '/program' },
+    { label: 'Program', href: '/program', alwaysUnlocked: true },
     { label: 'Kandidáti', href: '/kandidati', alwaysUnlocked: true },
     { label: 'Aktuality', href: '/aktuality', alwaysUnlocked: true },
   ];
@@ -54,7 +55,7 @@ export const Header: React.FC = () => {
   return (
     <header className="glass-header fixed top-0 left-0 z-50 w-full">
       <div className="container mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="flex h-[70px] items-center justify-between md:h-[77px]">
+        <div className="flex h-[var(--header-height)] items-center justify-between">
           <Link
             href="/"
             className="group flex items-center transition-opacity duration-300 hover:opacity-90"
@@ -98,7 +99,7 @@ export const Header: React.FC = () => {
                 </Link>
               );
             })}
-            {allUnlocked ? (
+            {podporteUnlocked ? (
               <Link
                 href="/podporte-nas"
                 className="btn-primary-sheen rounded-xl px-6 py-2.5 text-[11px] font-bold uppercase tracking-[0.14em] lg:px-8 lg:py-3 lg:text-xs"
@@ -160,7 +161,7 @@ export const Header: React.FC = () => {
                 </Link>
               );
             })}
-            {allUnlocked ? (
+            {podporteUnlocked ? (
               <Link
                 href="/podporte-nas"
                 onClick={() => setMobileMenuOpen(false)}

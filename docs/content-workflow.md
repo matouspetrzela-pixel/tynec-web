@@ -2,16 +2,28 @@
 
 ## 1) Zásady
 
-- Obsah měňte v datových souborech nebo dedikovaných komponentách, ne napříč náhodnými místy.
+- **Měňte pouze to, co je explicitně zadáno** — viz [`current-production-state.md`](current-production-state.md).
+- V aktuální fázi se na produkci typicky doplňují **jen jednotliví kandidáti** (`revealed: true` + deploy po schválení).
+- Obsah měňte v datových souborech, ne napříč náhodnými místy.
 - Každou změnu ověřte lokálně (`npm run build`) před push.
-- U mediálních souborů hlídejte velikost, názvy a konzistenci cest.
+- Commit a deploy **jen na pokyn vlastníka**.
 
 ## 2) Kandidáti
 
-Zdroj dat: `lib/candidates.ts`
+Zdroj dat: `lib/candidates.ts` — detail UI: [`kandidati-local-status.md`](kandidati-local-status.md).
 
-Při přidání kandidáta:
-1. Přidat objekt do pole kandidátů.
+### Zveřejnění dalšího kandidáta (standardní workflow)
+
+1. U daného slug nastavit `revealed: true` (harmonogram v komentáři v `candidates.ts`).
+2. Doplnit `bio` / texty, pokud je to součást zadání.
+3. Lokálně ověřit `/kandidati` a `/kandidati/[slug]`; pro náhled produkce: `NEXT_PUBLIC_PRODUCTION_PREVIEW=true`.
+4. Po pokynu vlastníka: `npm run lint && npm run typecheck && npm run build`, commit, push.
+
+Nezveřejnění zůstávají jako bílé placeholdery; jejich profily vrací 404.
+
+### Přidání nového kandidáta (výjimečné)
+
+1. Přidat objekt do pole kandidátů včetně `gridSlot`.
 2. Vyplnit stabilní `slug` (používá se v URL).
 3. Přidat fotku do `public/images/kandidati/`.
 4. Nastavit cestu `photo`.
@@ -40,17 +52,16 @@ Náhledový obrázek: pole `obrazek` — pokud chybí, zobrazí se neutrální i
 
 - Hero panel: `components/hero/HeroLead.tsx`
 - Kompozice hero sekce: `components/Hero.tsx`
-- Další homepage sekce: `app/page.tsx`
+- Homepage: `app/page.tsx` — **Phase 1 = jen `<Hero />` + footer**, bez dalších sekcí.
 
-Pro Phase 1 udržujte jasnou návštěvnickou zprávu a aktivní pouze schválené externí CTA.  
-Pre-launch box „Brzy odhalíme…" byl odstraněn (2026-05-05) — do `components/Hero.tsx` jej nevracet.
+**Neměnit homepage bez explicitního pokynu.** Soubory `CampaignHomeJourney.tsx` a `CampaignHomeLaunchedStrip.tsx` existují, ale na homepage se aktuálně nepoužívají.
 
 ## 5) Navigace
 
 - `components/Header.tsx`
-- Za logem je zobrazen text `2026–2030` (přidán 2026-05-05) — jde o statický `<span>` ve stejném stylu jako navigační položky.
-- V Phase 1 jsou `Program` a `Kandidáti` vizuálně zamčené, `O nás` a `Aktuality` jsou volně přístupné.
-- V Phase 2 se navigace plně odemyká přepnutím `NEXT_PUBLIC_SITE_LAUNCHED=true`.
+- Za logem: text `2026–2030`.
+- Phase 1 (aktuálně): `O nás`, **`Kandidáti`**, `Aktuality` odemčeny; `Program` a `Podpořte nás` zamčeny.
+- Phase 2: plná navigace přes `NEXT_PUBLIC_SITE_LAUNCHED=true`.
 
 ## 6) Sociální odkazy
 

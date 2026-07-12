@@ -73,7 +73,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <CampaignJsonLd />
         <Header />
-        <main className="min-h-screen pt-[calc(70px+env(safe-area-inset-top,0px))] md:pt-[calc(77px+env(safe-area-inset-top,0px))]">
+        <main className="pt-[calc(var(--header-height)+env(safe-area-inset-top,0px))]">
           {children}
         </main>
         <Footer />

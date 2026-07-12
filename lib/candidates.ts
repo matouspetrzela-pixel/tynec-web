@@ -4,7 +4,7 @@ export interface Candidate {
   slug: string;
   name: string;
   /**
-   * Fixní pozice na mřížce (1–12), abecedně podle příjmení.
+   * Fixní pozice na mřížce (1–11), abecedně podle příjmení.
    * Pořadí odhalování je jiné — při zveřejnění se obsah objeví v tomto slotu.
    */
   gridSlot: number;
@@ -37,14 +37,13 @@ export interface Candidate {
  *  2 Petra Andrýsková
  *  3 Jiří Dvořák
  *  4 Michaela Dvořáková
- *  5 Ing. Vladimíra Hacsiková
- *  6 Drahomíra Obšnajdrová
- *  7 Kateřina Parčová
- *  8 Filip Sklenář
+ *  5 Drahomíra Obšnajdrová
+ *  6 Kateřina Parčová
+ *  7 Filip Sklenář
+ *  8 Ing. Václav Sklenář, Ph.D.
  *  9 Alena Sojáková
  * 10 Michal Sviták
- * 11 Pavlína Zlámalová
- * 12 Jakub Žádník
+ * 11 Jakub Žádník
  *
  * Harmonogram ručního odhalování (18:00, `revealed: true` + deploy):
  *  22. 6. — jakub-zadnik
@@ -52,8 +51,7 @@ export interface Candidate {
  *  30. 6. — katerina-parcova, drahomira-obsnajdrova
  *   4. 7. — michal-andrysek, michal-svitak
  *   8. 7. — jiri-dvorak, alena-sojakova
- *  12. 7. — pavlina-zlamalova, michaela-dvorakova
- *  14. 7. — vladimira-hacsikova
+ *  12. 7. — michaela-dvorakova, vaclav-sklenar
  */
 export const CANDIDATES: Candidate[] = [
   {
@@ -113,12 +111,11 @@ export const CANDIDATES: Candidate[] = [
     slug: 'michaela-dvorakova',
     name: 'Michaela Dvořáková',
     gridSlot: 4,
-    revealed: false,
+    revealed: true,
     heartPriority: 'Pro rodinu',
     gender: 'female',
     photo: '/images/kandidati/michaela-dvorakova.webp',
-    /** Řada 2 — bez zoomu, více headroomu jako řada 1 */
-    portraitObjectPosition: 'object-[center_55%]',
+    portraitObjectPosition: 'object-[center_51%]',
     bio: [
       'Jmenuji se Michaela Dvořáková, je mi 46 let a pracuji na Magistrátu města Olomouce na personálním oddělení. Ve své profesi se denně setkávám s fungováním veřejné správy i s prací s lidmi, což považuji za cennou zkušenost využitelnou i pro rozvoj naší obce.',
       'Ve Velkém Týnci jsem se narodila, mám zde rodinu i zázemí. Jsem mámou dvou dospívajících dcer, a proto dobře vnímám potřeby rodin i mladých lidí, otázku vzdělávání, trávení volného času, bezpečí i celkové prostředí, ve kterém děti vyrůstají. Záleží mi na tom, jakým směrem se naše obec rozvíjí, a ráda bych se aktivně zapojila do jejího života nejen v oblasti kultury, ale i v dalších oblastech.',
@@ -130,24 +127,16 @@ export const CANDIDATES: Candidate[] = [
       'Mým cílem je otevřený a vstřícný úřad pro všechny spoluobčany. Záleží mi na tom, aby se v naší obci dobře žilo.',
   },
   {
-    id: 8,
-    slug: 'vladimira-hacsikova',
-    name: 'Ing. Vladimíra Hacsiková',
-    gridSlot: 5,
-    revealed: false,
-    heartPriority: 'Profil doplníme',
-    gender: 'female',
-  },
-  {
     id: 5,
     slug: 'drahomira-obsnajdrova',
     name: 'Drahomíra Obšnajdrová',
-    gridSlot: 6,
+    gridSlot: 5,
     revealed: true,
     heartPriority: 'Pro bezpečí',
     gender: 'female',
     photo: '/images/kandidati/drahomira-obsnajdrova.webp',
-    /** Řada 2 — bez zoomu, více headroomu jako řada 1 */
+    /** Osa očí s Dvořáková / Parčová — jemný posun dolů v kartě (crop + translate) */
+    portraitWebpTune: '-translate-y-[5%]',
     portraitObjectPosition: 'object-[center_51%]',
     bio: [
       'Jmenuji se Drahomíra Obšnajdrová, je mi 51 let a dlouhodobě žiji ve Velkém Týnci v místní části Čechovice. Jsem vyučená v oboru zemědělství. Nyní pracuji jako vedoucí v místním obchodu. Díky své profesní i životní zkušenosti dobře rozumím každodenním potřebám lidí i fungování běžného života v obci.',
@@ -162,7 +151,7 @@ export const CANDIDATES: Candidate[] = [
     id: 6,
     slug: 'katerina-parcova',
     name: 'Mgr. Bc. Kateřina Parčová',
-    gridSlot: 7,
+    gridSlot: 6,
     revealed: true,
     heartPriority: 'Pro komunikaci',
     gender: 'female',
@@ -181,7 +170,7 @@ export const CANDIDATES: Candidate[] = [
     id: 7,
     slug: 'filip-sklenar',
     name: 'Filip Sklenář',
-    gridSlot: 8,
+    gridSlot: 7,
     revealed: true,
     heartPriority: 'Pro budoucnost',
     gender: 'male',
@@ -196,6 +185,30 @@ export const CANDIDATES: Candidate[] = [
     ].join('\n\n'),
     profileClosing:
       'Přeji si, aby se i mladá generace aktivně účastnila dění v obci a všichni společně přispěli k tomu, aby byl Týnec moderní a přátelská obec. Myslím si, že i malé kroky mohou přinést velké změny.',
+  },
+  {
+    id: 13,
+    slug: 'vaclav-sklenar',
+    name: 'Ing. Václav Sklenář, Ph.D.',
+    gridSlot: 8,
+    revealed: true,
+    heartPriority: 'Pro zdraví',
+    gender: 'male',
+    photo: '/images/kandidati/vaclav-sklenar.webp',
+    portraitObjectPosition: 'object-[center_50%]',
+    bio: [
+      'Jmenuji se Václav Sklenář a ve Velkém Týnci s rodinou žijeme již 21 let. Profesí jsem pokusný technik a ve své každodenní práci se podílím na vývoji moderních, bezpečnějších agrochemikálií. Mým cílem je přispívat k tomu, aby zemědělství bylo šetrnější k přírodě a dlouhodobě udržitelné. Tento odborný pohled na krajinu a ekologii bych rád přenesl i do správy naší obce.',
+      'Narodil jsem se v sousedních Čechovicích, kde jsem prožil krásné dětství. Po studiích v Brně jsme s manželkou hledali místo, kde zapustíme kořeny a vychováme naše tři děti. Velký Týnec byl jasnou volbou a za dvě dekády se stal naším skutečným domovem.',
+      'Od mládí vedeme děti ke sportu a aktivnímu životu. Prošly si sborem dobrovolných hasičů i atletikou a v současné době se věnují fotbalu. Jako rodič jsem byl po celou dobu v úzkém kontaktu s vedoucími těchto organizací a snažil se je v jejich záslužné práci všemožně podporovat. Vidím totiž, jak důležité je mít v obci funkční zázemí pro volný čas.',
+      'Na základě získaných zkušeností bych se rád podílel na rozvoji obce, zejména v těchto oblastech:',
+    ].join('\n\n'),
+    priorities: [
+      'Podpora spolků a mládeže: Chci zajistit stabilní a transparentní financování pro hasiče, sportovce i kulturní spolky. Právě oni tvoří srdce naší obce.',
+      'Bezpečnost a infrastruktura: Zaměřím se na bezpečný pohyb dětí v obci, ať už jde o přechody pro chodce nebo kvalitu cyklostezek spojujících naše místní části.',
+      'Udržitelná krajina: Díky své profesi chci dohlédnout na to, aby obec hospodařila šetrně s vodou a zelení, a aby okolní pole i příroda zůstaly zdravým místem pro život i příští generace.',
+    ],
+    profileClosing:
+      'Věřím, že obec má vzkvétat pro všechny generace – od těch nejmenších až po seniory.',
   },
   {
     id: 9,
@@ -244,27 +257,10 @@ export const CANDIDATES: Candidate[] = [
       'Chci být součástí týmu, který bude naslouchat lidem a společně s nimi tvořit obec, kde se dobře žije.',
   },
   {
-    id: 11,
-    slug: 'pavlina-zlamalova',
-    name: 'Mgr. Pavlína Zlámalová',
-    gridSlot: 11,
-    revealed: false,
-    heartPriority: 'Pro občany Čechovic, Týnce a Vsiska',
-    gender: 'female',
-    photo: '/images/kandidati/pavlina-zlamalova.webp',
-    bio: [
-      'Ve Velkém Týnci žiji od svého narození, společně s manželem vychováváme dva syny. Na životě v obci a na rozvoji obce mi záleží, protože je to domov naší rodiny. Ve své práci se denně setkávám s lidmi v náročných životních situacích, kteří potřebují pomoc a podporu. Právě díky tomu vím, jak je důležité mít kolem sebe podporující a chápající komunitu. Práce mě naučila naslouchat lidem a hledat řešení v neřešitelných situacích.',
-      'Díky lásce mých synů k fotbalu jsem aktivní v místním fotbalovém klubu TJ Sokol Velký Týnec. Práce s lidmi mě baví, a to je také jeden z důvodů, proč se účastním kulturních a společenských akcí v obci, kde se snažím pomáhat.',
-      'Ráda bych se věnovala především podpoře rodin s dětmi, zajištění dostupných služeb pro seniory a podpoře neformálně pečujících. Mojí vizí je vytvoření krizového obecního bytu pro rodiny, popř. osoby v nouzi. Budu se snažit o zavedení dobrovolnického projektu „sousedská výpomoc“. Pokusím se prosadit pravidelné vyhlašování výběrových řízení na vedoucí pozice školských zařízení v obci. Samozřejmostí pro mě bude podpora nových i stávajících spolků a zájmových sdružení v obci. Zasadím se o neměnnost územního plánu obce.',
-    ].join('\n\n'),
-    profileClosing:
-      'Záleží mi na tom, aby naše obec byla místem, kde se lidé cítí dobře, vzájemně si pomáhají a podporují se a mají prostor pro spokojený rodinný život.',
-  },
-  {
     id: 12,
     slug: 'jakub-zadnik',
     name: 'Jakub Žádník',
-    gridSlot: 12,
+    gridSlot: 11,
     revealed: true,
     heartPriority: 'Pro sport',
     gender: 'male',

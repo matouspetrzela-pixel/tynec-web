@@ -86,13 +86,24 @@ const TARGET_FACE_FRAC = Math.min(
  * - `eyeLineInCrop` — výška oční linky v cílovém výřezu (default 0.36)
  */
 const SLUG_EXTRACT_TUNING = {
-  /** Michaela — víc rezervy nad hlavou, oddálení jako řada 1 */
-  'michaela-dvorakova': { faceFrac: 0.338, headTopMargin: 0.11, boundaryPin: false },
-  /** Drahomíra + Kateřina — kompaktní studiový výřez */
-  'drahomira-obsnajdrova': { faceFrac: 0.352, headTopMargin: 0.09, boundaryPin: false },
+  /** Michaela — těsnější výřez, bez okrajů studiového pozadí v kartě */
+  'michaela-dvorakova': { faceFrac: 0.418, headTopMargin: 0.075, boundaryPin: false, eyeLineInCrop: 0.355 },
+  /** Drahomíra — oční linka sladěná s Dvořáková / Parčová */
+  'drahomira-obsnajdrova': {
+    faceFrac: 0.352,
+    headTopMargin: 0.05,
+    boundaryPin: false,
+    eyeLineInCrop: 0.458,
+  },
   'katerina-parcova': { faceFrac: 0.348, headTopMargin: 0.10, boundaryPin: false },
   /** Řada 3 — sladění s řadou 1/4 */
   'filip-sklenar': { faceFrac: 0.352, headTopMargin: 0.09, boundaryPin: false },
+  'vaclav-sklenar': {
+    faceFrac: 0.418,
+    headTopMargin: 0.04,
+    boundaryPin: false,
+    eyeLineInCrop: 0.381,
+  },
   'alena-sojakova': {
     faceFrac: 0.352,
     headTopMargin: 0.09,
@@ -282,13 +293,12 @@ const CANDIDATES = [
   { slug: 'petra-andryskova', name: 'Ing. Petra Andrýsková' },
   { slug: 'jiri-dvorak', name: 'Ing. Jiří Dvořák' },
   { slug: 'michaela-dvorakova', name: 'Michaela Dvořáková' },
-  { slug: 'vladimira-hacsikova', name: 'Ing. Vladimíra Hacsiková' },
   { slug: 'drahomira-obsnajdrova', name: 'Drahomíra Obšnajdrová' },
   { slug: 'katerina-parcova', name: 'Mgr. Bc. Kateřina Parčová' },
   { slug: 'filip-sklenar', name: 'Filip Sklenář' },
+  { slug: 'vaclav-sklenar', name: 'Ing. Václav Sklenář, Ph.D.' },
   { slug: 'alena-sojakova', name: 'Alena Sojáková' },
   { slug: 'michal-svitak', name: 'Michal Sviták' },
-  { slug: 'pavlina-zlamalova', name: 'Mgr. Pavlína Zlámalová' },
   { slug: 'jakub-zadnik', name: 'Jakub Žádník' },
 ];
 

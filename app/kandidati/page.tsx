@@ -5,7 +5,7 @@ import { CandidatesGrid } from '@/components/CandidatesGrid';
 export const metadata: Metadata = {
   title: 'Kandidáti',
   description:
-    'Dvanáct tváří hnutí Pro Týnec srdcem. Poznáváme je — lidé z obce, kteří chtějí rozvíjet Velký Týnec, Vsisko a Čechovice.',
+    'Jedenáct tváří hnutí Pro Týnec srdcem. Poznáváme je — lidé z obce, kteří chtějí rozvíjet Velký Týnec, Vsisko a Čechovice.',
 };
 
 export default function KandidatiPage() {

@@ -13,10 +13,12 @@ Použijte tento checklist před každým release na produkci.
 
 - [ ] Homepage funguje na desktopu
 - [ ] Homepage funguje na mobilu
-- [ ] Hero obsah a CTA odpovídají aktuální fázi kampaně (Phase 1: O nás + Aktuality, bez pre-launch boxu)
-- [ ] Navigace odpovídá režimu (locked/full) — v Phase 1: Program + Kandidáti zamčené, Podpořte nás šedé
+- [ ] Hero: box „Změna začíná vaším hlasem“, CTA Program / Kandidáti / Aktuality / Podpořte nás, Facebook pod logem
+- [ ] Navigace: Program a Podpořte nás odemčené; footer těsně pod hero na mobilu
 - [ ] Text `2026–2030` za logem v hlavičce zobrazen správně
 - [ ] Aktuality: nové články a obrázky se zobrazují na `/aktuality`
+- [ ] `/kandidati` — 11 odhalených karet, fotky edge-to-edge (včetně Michaela Dvořáková)
+- [ ] `/kandidati` — oční linka Drahomíra Obšnajdrová v ose s Michaela Dvořáková / Kateřina Parčová (desktop i mobil)
 - [ ] Facebook odkaz je funkční a správný
 
 ## C) Launch flag a environment

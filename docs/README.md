@@ -4,6 +4,9 @@ Tato složka obsahuje provozní a vývojovou dokumentaci pro web `tynec-web`.
 
 ## Obsah
 
+- **`current-production-state.md`**  
+  **Čti jako první.** Jak web aktuálně vypadá na produkci, harmonogram kandidátů, pravidlo „jen to, co je zadáno“.
+
 - `architecture.md`  
   Architektura projektu, hlavní komponenty, routing, práce s daty a bezpečnostní opatření.
 
@@ -12,6 +15,9 @@ Tato složka obsahuje provozní a vývojovou dokumentaci pro web `tynec-web`.
 
 - `content-workflow.md`  
   Jak upravovat texty, kandidáty, fotografie a sociální odkazy bez rizika regresí.
+
+- `kandidati-local-status.md`  
+  UI mřížky kandidátů, portréty, klíčové soubory.
 
 - `release-checklist.md`  
   Praktický checklist pro běžný release, launch domény a přepnutí Phase 1 -> Phase 2.
@@ -23,8 +29,9 @@ Samostatný **interní přehled GA4** žije v paralelním projektu `../tynec-ana
 
 ## Rychlý start
 
-1. Pro orientaci v kódu otevřete `architecture.md`.
-2. Pro nasazování a provoz otevřete `operations.md`.
-3. Před jakoukoliv produkční změnou projděte `release-checklist.md`.
-4. Pro netechnickou obsluhu a krizové situace používejte `owner-handbook.md`.
+1. Pro aktuální stav produkce a pravidla změn otevřete **`current-production-state.md`**.
+2. Pro orientaci v kódu otevřete `architecture.md`.
+3. Pro nasazování a provoz otevřete `operations.md`.
+4. Před jakoukoliv produkční změnou projděte `release-checklist.md`.
+5. Pro netechnickou obsluhu a krizové situace používejte `owner-handbook.md`.
 

@@ -31,25 +31,21 @@ Primární cíl je rychlá prezentační kampaň s možností postupného odemyk
 - `lib/social.ts`: Facebook URL a kontakt.
 - `lib/aktuality.ts`: centralizovaná data aktualit (pole `AKTUALITY`). Každá položka obsahuje `id`, `typ`, `datum`, `nadpis`, `perex`, `obsah` a volitelně `obrazek`/`soubor`/`odkaz` a **`nahledOrez`** (`center`, `left`, `right`) pro zarovnání ořezu náhledu. Řazení na webu je automatické — sestupně dle `datum`. Vykreslení karet včetně štítku data: `app/aktuality/page.tsx` (náhled `object-cover`, datum vpravo dole).
 
-### `middleware.ts`
-- V režimu Phase 1 přesměruje všechny relevantní routy na `/`.
-- Brání přístupu na neodhalené části webu i při přímém zadání URL.
-
 ## 4) Fázovaný režim (Phase 1 vs Phase 2)
 
-Řídí proměnná `NEXT_PUBLIC_SITE_LAUNCHED`:
+Řídí proměnná `NEXT_PUBLIC_SITE_LAUNCHED`. **Aktuální produkční stav:** viz [`current-production-state.md`](current-production-state.md).
 
-- `false` (Phase 1 — aktuální stav):
-  - Homepage bez pre-launch boxu, logo s letopočtem `2026–2030` v hlavičce.
-  - Navigace: `O nás` a `Aktuality` jsou odemčeny (`alwaysUnlocked: true`); `Program` a `Kandidáti` jsou viditelné jako zamčené (ikonka zámku) a klik na ně nefunguje.
-  - `Podpořte nás` tlačítko v navigaci je zobrazeno šedě jako neaktivní.
-  - Middleware (`middleware.ts`) přesměruje přímý přístup na `/program`, `/kandidati`, `/podporte-nas` a všechny ostatní nepovoleně přístupné routy zpět na `/`.
-  - Povolené routy v Phase 1: `/`, `/o-nas`, `/aktuality`, `/aktuality/*`.
+- `false` (Phase 1 — aktuální stav, červen 2026):
+  - Homepage: **pouze hero s fotkou + patička** (`app/page.tsx` — bez mezisekcí).
+  - Hero CTA: O nás, Aktuality, Facebook.
+  - Navigace: `O nás`, **`Kandidáti`**, `Aktuality` odemčeny (`alwaysUnlocked: true`).
+  - `Program` a `Podpořte nás` zamčeny v menu.
+  - `/kandidati` živá — 12 slotů, postupné odhalování přes `revealed` v `lib/candidates.ts`.
+  - `middleware.ts` se **nepoužívá** (soubor odstraněn); přístup k profilům řídí `isCandidateRevealed()`.
 
-- `true` (Phase 2):
-  - Full web (program, kandidáti, podstránky, akce).
-  - Navigace i CTA jsou aktivní.
-  - Middleware neomezuje interní routy.
+- `true` (Phase 2 — budoucí plný launch):
+  - Homepage navíc: `ProgramGrid`, `AboutPreview`, `CandidatesGrid`.
+  - Navigace i CTA plně aktivní.
 
 ## 5) Rendering a výkon
 
@@ -75,5 +71,5 @@ Tyto hlavičky jsou součástí baseline bezpečnosti a neměly by se oslabovat 
 - **Single source of truth pro kandidáty**: data nejsou duplikována v UI.
 - **Feature flag pro launch**: umožní bezpečné spuštění domény bez odhalení plného obsahu.
 - **CI před deploymentem**: build se validuje už na GitHub Actions.
-- **Defenzivní middleware**: nečeká na klientský stav, rozhoduje už na serverové vrstvě.
+- **Postupné odhalování kandidátů**: `revealed` flag + ruční deploy; profily skrytých kandidátů vrací 404.
 

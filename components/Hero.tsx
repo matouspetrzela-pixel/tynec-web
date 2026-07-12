@@ -2,73 +2,62 @@ import React from 'react';
 import { HeroInfoPanel } from '@/components/hero/HeroInfoPanel';
 import { HeroLead } from '@/components/hero/HeroLead';
 
+/** rem místo svh — fotka reaguje na zoom stejně jako panel */
+const heroPhotoMinHeight =
+  'min-h-[28rem] sm:min-h-[30rem] md:min-h-[34rem] lg:min-h-[42rem] xl:min-h-[46rem]';
+
+const HERO_BASE = 'hero-velky-tynec-dji-0702-v2026';
+/** Bump po přegenerování hero fotek — obchází cache prohlížeče */
+const HERO_ASSET_VER = '2';
+
+/** Panel — mobil: centrovaný; desktop: dole vlevo */
+const heroPanelWrap =
+  'mx-auto min-w-0 w-full max-w-[min(100%,22.75rem)] sm:max-w-md md:max-w-xl lg:mx-0 lg:max-w-[min(51.5rem,calc(100%-3.5rem))] lg:-ml-14 lg:-translate-y-2 xl:-ml-24 xl:-translate-y-3 2xl:-ml-32 2xl:-translate-y-4';
+
 export const Hero: React.FC = () => {
   return (
-    <section className="relative w-full overflow-hidden" aria-label="Úvod">
-      <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
-        <picture>
+    <section
+      className='relative grid w-full [grid-template-areas:"stack"] overflow-x-clip overflow-y-hidden sm:overflow-x-visible'
+      aria-label="Úvod"
+    >
+      <div
+        className={`pointer-events-none [grid-area:stack] relative w-full ${heroPhotoMinHeight}`}
+        aria-hidden
+      >
+        <picture className="absolute inset-0 block h-full w-full">
           <source
             type="image/webp"
-            srcSet="/images/hero-velky-tynec-dji-0224-v2026-1600.webp 1600w, /images/hero-velky-tynec-dji-0224-v2026-2560.webp 2560w"
+            srcSet={`/images/${HERO_BASE}-1600.webp?v=${HERO_ASSET_VER} 1600w, /images/${HERO_BASE}-2560.webp?v=${HERO_ASSET_VER} 2560w`}
             sizes="100vw"
           />
           <source
             type="image/jpeg"
-            srcSet="/images/hero-velky-tynec-dji-0224-v2026-1600.jpg 1600w, /images/hero-velky-tynec-dji-0224-v2026-2560.jpg 2560w"
+            srcSet={`/images/${HERO_BASE}-1600.jpg?v=${HERO_ASSET_VER} 1600w, /images/${HERO_BASE}-2560.jpg?v=${HERO_ASSET_VER} 2560w`}
             sizes="100vw"
           />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/hero-velky-tynec-dji-0224-v2026-1600.jpg"
+            src={`/images/${HERO_BASE}-1600.jpg?v=${HERO_ASSET_VER}`}
             alt=""
             width={2560}
             height={1440}
             loading="eager"
             fetchPriority="high"
             decoding="async"
-            className="absolute inset-0 h-full w-full object-cover object-[52%_48%] brightness-[1.122] contrast-[1.03] saturate-[1.04] sm:object-[50%_50%] lg:object-[50%_48%]"
+            className="absolute inset-0 h-full w-full object-cover object-[50%_38%] sm:object-[52%_36%] md:object-[56%_34%] lg:object-[62%_34%]"
           />
         </picture>
-        {/* Cílené prosvětlení oblohy a krajiny; střed dole = maska vypne zesvětlení (kostel) */}
-        <div
-          className="absolute inset-0 mix-blend-soft-light"
-          style={{
-            background:
-              'linear-gradient(198deg, rgba(255,252,250,0.29) 0%, rgba(255,255,255,0.1) 38%, rgba(255,255,255,0) 70%)',
-            WebkitMaskImage:
-              'radial-gradient(ellipse 58% 50% at 50% 76%, #000 0%, #000 30%, #fff 100%)',
-            WebkitMaskSize: '100% 100%',
-            maskImage:
-              'radial-gradient(ellipse 58% 50% at 50% 76%, #000 0%, #000 30%, #fff 100%)',
-            maskSize: '100% 100%',
-          }}
-        />
-        <div
-          className="absolute inset-0 mix-blend-overlay opacity-85"
-          style={{
-            background: 'linear-gradient(115deg, transparent 0%, rgba(220,234,255,0.14) 100%)',
-            WebkitMaskImage:
-              'radial-gradient(ellipse 58% 50% at 50% 76%, #000 0%, #000 28%, #fff 100%)',
-            WebkitMaskSize: '100% 100%',
-            maskImage:
-              'radial-gradient(ellipse 58% 50% at 50% 76%, #000 0%, #000 28%, #fff 100%)',
-            maskSize: '100% 100%',
-          }}
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(92deg,rgba(12,14,18,0.7)_0%,rgba(14,17,22,0.5)_32%,rgba(16,21,30,0.1)_55%,rgba(16,21,30,0)_100%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(8,11,18,0.16)_0%,rgba(8,11,18,0.06)_16%,rgba(8,11,18,0)_45%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_26%,rgba(138,178,255,0.06)_0%,rgba(138,178,255,0)_50%),radial-gradient(circle_at_84%_18%,rgba(120,200,255,0.09)_0%,rgba(120,200,255,0)_50%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(102deg,rgba(15,23,42,0.36)_0%,rgba(15,23,42,0.14)_38%,transparent_55%)] sm:bg-[linear-gradient(102deg,rgba(15,23,42,0.32)_0%,rgba(15,23,42,0.12)_36%,transparent_52%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_16%,rgba(255,255,255,0.14)_0%,transparent_48%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(15,23,42,0.14)_0%,transparent_42%)]" />
       </div>
 
-      {/* Desktop: čistý dvousloupcový layout bez překryvu */}
-      <div className="relative z-10 mx-auto flex min-h-[min(100dvh,940px)] w-full max-w-[1920px] flex-col justify-end px-4 pb-16 pt-28 sm:px-6 sm:pb-20 md:min-h-[calc(100dvh-5rem)] md:justify-center md:pb-24 md:pt-16 lg:grid lg:grid-cols-[minmax(0,640px)_minmax(0,560px)] lg:items-start lg:justify-start lg:gap-10 lg:px-10 lg:pb-20 lg:pt-20 xl:gap-12 xl:px-14">
-        <div className="mx-auto w-full max-w-md sm:max-w-xl lg:mx-0 lg:max-w-[640px]">
-          <HeroInfoPanel className="w-full max-w-xl lg:max-w-2xl">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1920px] [grid-area:stack] flex-col items-center justify-start self-start px-4 pt-4 pb-3 sm:px-5 sm:pt-5 sm:pb-4 md:px-6 md:pt-6 md:pb-5 lg:flex lg:min-h-[42rem] lg:items-start lg:justify-end lg:pl-0 lg:pr-6 lg:pb-12 lg:pt-24 xl:min-h-[46rem] xl:pr-10">
+        <div className={heroPanelWrap}>
+          <HeroInfoPanel className="hero-info-panel-stage w-full max-w-full">
             <HeroLead />
           </HeroInfoPanel>
         </div>
-
-        <div className="hidden min-h-0 flex-1 lg:block" aria-hidden />
       </div>
     </section>
   );

@@ -32,12 +32,12 @@ export const CandidatesGrid: React.FC<CandidatesGridProps> = ({
               Náš tým
             </h2>
             <p className="mt-6 max-w-4xl text-pretty text-tynec-black/80">
-              Dvanáct lidí, jedna vize — postupně představujeme každého člena týmu.
+              Jedenáct lidí, jedna vize — postupně představujeme každého člena týmu.
             </p>
           </header>
         )}
 
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-stretch justify-items-center gap-7 sm:grid-cols-2 sm:gap-8 xl:grid-cols-3 xl:gap-9">
+        <div className="mx-auto flex max-w-6xl flex-wrap justify-center gap-7 sm:gap-8 xl:gap-9">
           {displayed.map((candidate) => (
             <CandidateCard
               key={candidate.slug}

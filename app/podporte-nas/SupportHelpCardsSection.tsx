@@ -45,18 +45,10 @@ const HELP_CARDS: HelpCard[] = [
 export function SupportHelpCardsSection() {
   return (
     <section className="surface-card mt-12 p-6 md:p-8">
-      <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-tynec-gray">
-            Zapojení
-          </p>
-          <h2 className="mt-2 text-h3-mobile font-bold uppercase tracking-tight text-tynec-black md:text-h3-desktop">
-            Jak můžete pomoci
-          </h2>
-        </div>
-        <p className="max-w-md text-sm leading-relaxed text-tynec-black/65">
-          Tři jednoduché kroky, které pomůžou dostat naši vizi k dalším lidem v obci.
-        </p>
+      <div>
+        <h2 className="text-h3-mobile font-bold uppercase tracking-tight text-tynec-black md:text-h3-desktop">
+          Jak můžete pomoci
+        </h2>
       </div>
       <div className="mt-7 grid divide-y divide-gray-200 md:grid-cols-3 md:divide-x md:divide-y-0">
         {HELP_CARDS.map((item) => {
