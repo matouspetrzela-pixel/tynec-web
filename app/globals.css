@@ -200,6 +200,323 @@ h6 {
     }
   }
 
+  /**
+   * Hero layout — mobil / tablet / notebook (1280–1919) / desktop (1920+).
+   * Jedna vrstva CSS; TSX jen sémantické třídy.
+   */
+  .hero-panel-shell {
+    @apply relative z-10 mx-auto flex w-full max-w-[1920px] flex-col items-center justify-start;
+    padding: 0.25rem 1rem 0.5rem;
+  }
+
+  .hero-panel-wrap {
+    @apply mx-auto min-w-0 w-full;
+    max-width: min(100%, 22.75rem);
+  }
+
+  @media (max-width: 767px) {
+    .hero-panel-wrap {
+      transform: none;
+    }
+  }
+
+  @media (min-width: 640px) {
+    .hero-panel-shell {
+      padding: 0.25rem 1.25rem 1rem;
+    }
+
+    .hero-panel-wrap {
+      max-width: 28rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .hero-panel-shell {
+      min-height: inherit;
+      padding: 0.5rem 1.5rem 1.25rem;
+    }
+
+    .hero-panel-wrap {
+      max-width: 36rem;
+      transform: translateY(-0.75rem);
+    }
+  }
+
+  @media (min-width: 1280px) and (max-width: 1919px) {
+    .hero-panel-shell {
+      min-height: inherit;
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding: 0.5rem 1.5rem 1rem;
+    }
+
+    .hero-panel-wrap {
+      margin-left: 0;
+      margin-right: 0;
+      max-width: min(38rem, calc(100% - 3rem));
+      transform: translateY(-0.5rem);
+    }
+  }
+
+  @media (min-width: 1920px) {
+    .hero-panel-shell {
+      min-height: inherit;
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding: clamp(1.5rem, 4vh, 6rem) 2.5rem 3rem 0;
+    }
+
+    .hero-panel-wrap {
+      margin-left: -8rem;
+      max-width: min(51.5rem, calc(100% - 3.5rem));
+      transform: translateY(-2rem);
+    }
+  }
+
+  /** Obsah hero panelu — velikosti přes CSS proměnné */
+  .hero-lead {
+    --hl-gap: clamp(0.7rem, 2.8vw, 1.25rem);
+    --hl-gap-tight: 0.5rem;
+    --hl-px: clamp(0.875rem, 3.5vw, 2rem);
+    --hl-py: clamp(1.1rem, 3vw, 2rem);
+    --hl-logo-max: min(100%, clamp(13.9rem, 67vw, 38rem));
+    --hl-btn-h: 3.3rem;
+    --hl-btn-primary-h: 3.9rem;
+    --hl-btn-fb-h: 3.25rem;
+    --hl-btn-text: clamp(0.8125rem, 1.75vw, 0.9375rem);
+    --hl-btn-primary-text: clamp(0.875rem, 1.9vw, 1rem);
+    --hl-radius: 0.75rem;
+    --hl-nav-gap: 0.625rem;
+    --hl-eyebrow-text: clamp(0.9375rem, 2.15vw, 1.0625rem);
+    --hl-badge-text: clamp(0.625rem, 2.8vw, 0.8125rem);
+
+    @apply relative z-[1] flex min-w-0 flex-col text-left text-white;
+    gap: var(--hl-gap);
+    padding: var(--hl-py) var(--hl-px);
+  }
+
+  @media (min-width: 640px) {
+    .hero-lead {
+      --hl-gap: clamp(0.876rem, 2.16vw, 2.01rem);
+      --hl-px: clamp(1.07rem, 4.12vw, 3.61rem);
+      --hl-py: clamp(1.35rem, 3.8vw, 4.5rem);
+      --hl-logo-max: min(100%, clamp(16.7rem, 46vw, 38rem));
+    }
+  }
+
+  @media (min-width: 768px) {
+    .hero-lead {
+      --hl-px: clamp(1.39rem, 3.71vw, 2.99rem);
+    }
+  }
+
+  @media (min-width: 1280px) and (max-width: 1919px) {
+    .hero-lead {
+      --hl-gap: 0.5rem;
+      --hl-gap-tight: 0.375rem;
+      --hl-px: 1.25rem;
+      --hl-py: 0.875rem;
+      --hl-logo-max: min(100%, 26rem);
+      --hl-btn-h: 2.5rem;
+      --hl-btn-primary-h: 2.75rem;
+      --hl-btn-fb-h: 2.5rem;
+      --hl-btn-text: 0.75rem;
+      --hl-btn-primary-text: 0.8125rem;
+      --hl-radius: 0.5rem;
+      --hl-nav-gap: 0.375rem;
+      --hl-eyebrow-text: 0.8125rem;
+      --hl-badge-text: 0.625rem;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    .hero-lead {
+      --hl-gap: clamp(0.876rem, 2.16vw, 2.01rem);
+      --hl-gap-tight: 0.5rem;
+      --hl-px: clamp(1.75rem, 4.02vw, 3.61rem);
+      --hl-py: clamp(2.21rem, 5.15vw, 4.33rem);
+      --hl-pt: clamp(2.52rem, 5.77vw, 4.79rem);
+      --hl-logo-max: min(100%, clamp(16.7rem, 46vw, 38rem));
+      --hl-btn-h: 3.3rem;
+      --hl-btn-primary-h: 3.9rem;
+      --hl-btn-fb-h: 3.25rem;
+      --hl-btn-text: clamp(0.8125rem, 1.75vw, 0.9375rem);
+      --hl-btn-primary-text: clamp(0.875rem, 1.9vw, 1rem);
+      --hl-radius: 0.75rem;
+      --hl-nav-gap: 0.625rem;
+      --hl-eyebrow-text: clamp(0.9375rem, 2.15vw, 1.0625rem);
+      --hl-badge-text: clamp(0.625rem, 2.8vw, 0.8125rem);
+      padding: var(--hl-pt) var(--hl-px) var(--hl-py);
+    }
+  }
+
+  .hero-lead-intro {
+    display: flex;
+    flex-direction: column;
+    gap: var(--hl-gap-tight);
+  }
+
+  .hero-lead-eyebrow {
+    @apply inline-flex w-fit max-w-full items-center font-bold leading-snug text-white;
+    gap: 0.25rem;
+    padding: clamp(0.55rem, 1.35vw, 0.75rem) clamp(0.9rem, 2.25vw, 1.25rem);
+    font-size: var(--hl-eyebrow-text);
+    border-radius: var(--hl-radius);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow:
+      0 3px 14px rgba(0, 0, 0, 0.28),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .hero-lead-badge {
+    @apply inline-flex w-full max-w-full items-center font-bold uppercase leading-snug text-white sm:w-fit;
+    min-height: 2.75rem;
+    padding: 0.625rem clamp(0.875rem, 2.4vw, 1.2rem);
+    font-size: var(--hl-badge-text);
+    letter-spacing: 0.1em;
+    border-radius: var(--hl-radius);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(
+      180deg,
+      rgba(225, 46, 53, 0.95) 0%,
+      rgba(176, 18, 24, 0.98) 100%
+    );
+    box-shadow:
+      0 2px 12px rgba(0, 0, 0, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+
+  @media (min-width: 640px) {
+    .hero-lead-badge {
+      min-height: 3rem;
+      letter-spacing: 0.14em;
+    }
+  }
+
+  @media (min-width: 1280px) and (max-width: 1919px) {
+    .hero-lead-badge {
+      min-height: 2.25rem;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    .hero-lead-badge {
+      min-height: 3rem;
+    }
+  }
+
+  .hero-lead-brand {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: var(--hl-gap-tight);
+  }
+
+  .hero-lead-logo {
+    width: 100%;
+    max-width: var(--hl-logo-max);
+    aspect-ratio: 879 / 495;
+  }
+
+  .hero-lead-logo > span {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .hero-lead-logo img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  .hero-lead-logo-fx {
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.55))
+      drop-shadow(0 2px 12px rgba(0, 0, 0, 0.55));
+  }
+
+  .hero-lead-facebook {
+    @apply grid w-full items-center font-semibold leading-snug text-white/95 backdrop-blur-sm transition-all duration-200 hover:scale-[1.01] hover:bg-white/[0.18] hover:shadow-[0_8px_24px_rgba(0,0,0,0.16)] active:scale-[0.99] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-white;
+    grid-template-columns: 1fr auto;
+    min-height: var(--hl-btn-fb-h);
+    gap: 0.75rem;
+    padding: 0.75rem clamp(0.875rem, 2vw, 1rem);
+    font-size: clamp(0.8125rem, 1.8vw, 1rem);
+    border-radius: var(--hl-radius);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  }
+
+  .hero-lead-facebook-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  @media (min-width: 1280px) and (max-width: 1919px) {
+    .hero-lead-facebook {
+      gap: 0.5rem;
+      padding: 0.375rem 0.625rem;
+      font-size: 0.8125rem;
+    }
+
+    .hero-lead-facebook-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+
+  .hero-lead-nav {
+    @apply flex w-full flex-col;
+    gap: var(--hl-nav-gap);
+  }
+
+  .hero-lead-nav-grid {
+    @apply grid grid-cols-2 sm:grid-cols-3;
+    gap: var(--hl-nav-gap);
+  }
+
+  .hero-lead-btn {
+    @apply inline-flex w-full items-center justify-center gap-1 text-center font-bold uppercase text-white transition-all duration-200 hover:scale-[1.02] active:scale-[0.99] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-white;
+    min-height: var(--hl-btn-h);
+    padding: 0.75rem 0.625rem;
+    font-size: var(--hl-btn-text);
+    letter-spacing: 0.1em;
+    border-radius: var(--hl-radius);
+  }
+
+  .hero-lead-btn--ghost {
+    @apply border border-white/60 bg-white/[0.18] backdrop-blur-sm hover:border-white/75 hover:bg-white/[0.26];
+    box-shadow:
+      0 2px 10px rgba(0, 0, 0, 0.18),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+  }
+
+  .hero-lead-btn--ghost:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
+  }
+
+  .hero-lead-btn--primary {
+    min-height: var(--hl-btn-primary-h);
+    padding: 1rem;
+    font-size: var(--hl-btn-primary-text);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (min-width: 1280px) and (max-width: 1919px) {
+    .hero-lead-btn {
+      padding: 0.375rem 0.5rem;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-lead-btn--primary {
+      padding: 0.5rem 0.75rem;
+    }
+  }
+
   /* Měkký spodní odtok — čitelná hloubka bez plastického 3D */
   .btn-primary-sheen {
     @apply text-white;
