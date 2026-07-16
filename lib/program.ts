@@ -43,7 +43,7 @@ export const PROGRAM_PRIORITIES: ProgramPriority[] = [
   {
     title: 'PRO obec, která naslouchá',
     intro:
-      'Chceme obec, která bude občanům naslouchat, otevřeně komunikovat a využívat moderní technologie pro jednodušší a dostupnější služby.',
+      'Chceme obec, která bude občanům naslouchat, otevřeně komunikovat a budovat vzájemnou důvěru i respekt.',
     Icon: Ear,
   },
   {
@@ -67,7 +67,7 @@ export const PROGRAM_PRIORITIES: ProgramPriority[] = [
   {
     title: 'PRO kvalitní služby',
     intro:
-      'Naším cílem je rozvíjet kvalitní veřejný prostor a služby, které lidem usnadní každodenní život a zvýší komfort bydlení v obci.',
+      'Naším cílem je rozvíjet kvalitní veřejný prostor a služby, které lidem usnadní každodenní život a přinesou jim moderní technologie.',
     Icon: Building2,
   },
   {
