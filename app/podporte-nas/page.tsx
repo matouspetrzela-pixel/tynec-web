@@ -8,6 +8,7 @@ import {
 } from '@/components/CampaignMeasuredLinks';
 import { EMAIL, FACEBOOK_URL } from '@/lib/social';
 import { SupportHelpCardsSection } from './SupportHelpCardsSection';
+import { SupportSponsorsStrip } from './SupportSponsorsStrip';
 import { PageSectionHeader } from '@/components/PageSectionHeader';
 
 export const metadata: Metadata = {
@@ -77,6 +78,8 @@ export default function PodporteNasPage() {
             </aside>
           </div>
         </section>
+
+        <SupportSponsorsStrip />
 
         <SupportHelpCardsSection />
       </div>
