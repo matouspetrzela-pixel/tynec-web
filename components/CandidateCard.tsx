@@ -1,10 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
 import { CandidatePortrait } from '@/components/CandidatePortrait';
+import { CandidateListNumber } from '@/components/CandidateListNumber';
 
 export interface CandidateCardProps {
   slug: string;
   name?: string;
+  /** Pořadí na kandidátní listině (1–11) */
+  listNumber?: number;
   heartPriority?: string;
   photo?: string;
   portraitWebpTune?: string;
@@ -45,6 +48,7 @@ function CandidatePlaceholderCard() {
 export const CandidateCard: React.FC<CandidateCardProps> = ({
   slug,
   name = 'Jméno Příjmení',
+  listNumber,
   photo,
   portraitWebpTune,
   portraitObjectPosition,
@@ -58,16 +62,25 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({
     <Link
       href={`/kandidati/${slug}`}
       className={`${cardRevealedClass} group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2`}
-      aria-label={`Profil kandidáta: ${name}`}
+      aria-label={
+        listNumber
+          ? `Profil kandidáta č. ${listNumber}: ${name}`
+          : `Profil kandidáta: ${name}`
+      }
     >
-      <CandidatePortrait
-        photo={photo}
-        name={name ?? ''}
-        variant="card"
-        portraitWebpTune={portraitWebpTune}
-        portraitObjectPosition={portraitObjectPosition}
-        className="mb-4 shrink-0 transition-[box-shadow,transform] duration-300 group-hover:shadow-md group-hover:ring-slate-300/90"
-      />
+      <div className="relative mb-4 shrink-0">
+        <CandidatePortrait
+          photo={photo}
+          name={name ?? ''}
+          variant="card"
+          portraitWebpTune={portraitWebpTune}
+          portraitObjectPosition={portraitObjectPosition}
+          className="transition-[box-shadow,transform] duration-300 group-hover:shadow-md group-hover:ring-slate-300/90"
+        />
+        {listNumber != null && (
+          <CandidateListNumber number={listNumber} variant="card" />
+        )}
+      </div>
 
       <div className="flex min-h-0 flex-1 flex-col">
         <h3

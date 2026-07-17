@@ -4,8 +4,7 @@ export interface Candidate {
   slug: string;
   name: string;
   /**
-   * Fixní pozice na mřížce (1–11), abecedně podle příjmení.
-   * Pořadí odhalování je jiné — při zveřejnění se obsah objeví v tomto slotu.
+   * Fixní pozice na mřížce (1–11) — volební / kampanijní pořadí kandidátů.
    */
   gridSlot: number;
   /** Zveřejněn na webu (fotka, jméno, profil). Jinak bílý placeholder. */
@@ -32,33 +31,25 @@ export interface Candidate {
 }
 
 /**
- * Abecední mapa slotů podle příjmení (pexeso — pozice fixní, odhalování postupné):
- *  1 Michal Andrýsek
- *  2 Petra Andrýsková
- *  3 Jiří Dvořák
- *  4 Michaela Dvořáková
- *  5 Drahomíra Obšnajdrová
- *  6 Kateřina Parčová
+ * Pořadí na mřížce (`gridSlot` 1–11) — finální kampanijní pořadí:
+ *  1 Michaela Dvořáková
+ *  2 Michal Sviták
+ *  3 Kateřina Parčová
+ *  4 Jiří Dvořák
+ *  5 Jakub Žádník
+ *  6 Michal Andrýsek
  *  7 Filip Sklenář
- *  8 Ing. Václav Sklenář, Ph.D.
+ *  8 Petra Andrýsková
  *  9 Alena Sojáková
- * 10 Michal Sviták
- * 11 Jakub Žádník
- *
- * Harmonogram ručního odhalování (18:00, `revealed: true` + deploy):
- *  22. 6. — jakub-zadnik
- *  26. 6. — filip-sklenar, petra-andryskova
- *  30. 6. — katerina-parcova, drahomira-obsnajdrova
- *   4. 7. — michal-andrysek, michal-svitak
- *   8. 7. — jiri-dvorak, alena-sojakova
- *  12. 7. — michaela-dvorakova, vaclav-sklenar
+ * 10 Drahomíra Obšnajdrová
+ * 11 Václav Sklenář
  */
 export const CANDIDATES: Candidate[] = [
   {
     id: 1,
     slug: 'michal-andrysek',
     name: 'Mgr. Michal Andrýsek',
-    gridSlot: 1,
+    gridSlot: 6,
     revealed: true,
     heartPriority: 'Pro moderní technologie',
     gender: 'male',
@@ -77,7 +68,7 @@ export const CANDIDATES: Candidate[] = [
     id: 2,
     slug: 'petra-andryskova',
     name: 'Ing. Petra Andrýsková',
-    gridSlot: 2,
+    gridSlot: 8,
     revealed: true,
     heartPriority: 'Pro komunitní život',
     gender: 'female',
@@ -96,7 +87,7 @@ export const CANDIDATES: Candidate[] = [
     id: 3,
     slug: 'jiri-dvorak',
     name: 'Ing. Jiří Dvořák',
-    gridSlot: 3,
+    gridSlot: 4,
     revealed: true,
     heartPriority: 'Pro otevřenost',
     gender: 'male',
@@ -110,7 +101,7 @@ export const CANDIDATES: Candidate[] = [
     id: 4,
     slug: 'michaela-dvorakova',
     name: 'Michaela Dvořáková',
-    gridSlot: 4,
+    gridSlot: 1,
     revealed: true,
     heartPriority: 'Pro rodinu',
     gender: 'female',
@@ -130,7 +121,7 @@ export const CANDIDATES: Candidate[] = [
     id: 5,
     slug: 'drahomira-obsnajdrova',
     name: 'Drahomíra Obšnajdrová',
-    gridSlot: 5,
+    gridSlot: 10,
     revealed: true,
     heartPriority: 'Pro bezpečí',
     gender: 'female',
@@ -151,7 +142,7 @@ export const CANDIDATES: Candidate[] = [
     id: 6,
     slug: 'katerina-parcova',
     name: 'Mgr. Bc. Kateřina Parčová',
-    gridSlot: 6,
+    gridSlot: 3,
     revealed: true,
     heartPriority: 'Pro komunikaci',
     gender: 'female',
@@ -190,7 +181,7 @@ export const CANDIDATES: Candidate[] = [
     id: 13,
     slug: 'vaclav-sklenar',
     name: 'Ing. Václav Sklenář, Ph.D.',
-    gridSlot: 8,
+    gridSlot: 11,
     revealed: true,
     heartPriority: 'Pro zdraví',
     gender: 'male',
@@ -237,7 +228,7 @@ export const CANDIDATES: Candidate[] = [
     id: 10,
     slug: 'michal-svitak',
     name: 'Michal Sviták',
-    gridSlot: 10,
+    gridSlot: 2,
     revealed: true,
     heartPriority: 'Pro kulturu',
     gender: 'male',
@@ -260,7 +251,7 @@ export const CANDIDATES: Candidate[] = [
     id: 12,
     slug: 'jakub-zadnik',
     name: 'Jakub Žádník',
-    gridSlot: 11,
+    gridSlot: 5,
     revealed: true,
     heartPriority: 'Pro sport',
     gender: 'male',
@@ -274,7 +265,7 @@ export const CANDIDATES: Candidate[] = [
   },
 ];
 
-/** Mřížka vždy v abecedním pořadí podle příjmení (gridSlot). */
+/** Mřížka v pořadí podle `gridSlot` (finální kampanijní pořadí). */
 export function getCandidatesForGrid(): Candidate[] {
   return [...CANDIDATES].sort((a, b) => a.gridSlot - b.gridSlot);
 }

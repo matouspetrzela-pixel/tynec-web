@@ -39,6 +39,7 @@ export const CandidatesGrid: React.FC<CandidatesGridProps> = ({
               key={candidate.slug}
               slug={candidate.slug}
               name={candidate.name}
+              listNumber={candidate.gridSlot}
               heartPriority={candidate.heartPriority}
               photo={candidate.photo}
               portraitWebpTune={candidate.portraitWebpTune}

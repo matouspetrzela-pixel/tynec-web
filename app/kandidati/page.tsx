@@ -21,9 +21,9 @@ export default function KandidatiPage() {
           intro={
             <>
               Naši kandidáti jsou sousedé, rodiče, prarodiče i mladé rodiny z Velkého Týnce, Vsiska
-              a Čechovic, na které se můžete spolehnout. Chtějí obec rozvíjet a zlepšovat každodenní život všech občanů. Kandidáty
-              představujeme postupně: na přehledu má každý své pevné místo podle abecedy příjmení,
-              jednotlivé profily odhalujeme v několika vlnách.
+              a Čechovic, na které se můžete spolehnout. Chtějí obec rozvíjet a zlepšovat každodenní život všech občanů.
+              <br />
+              Členové týmu jsou seřazeni podle pořadí na kandidátní listině.
             </>
           }
           introClassName="w-full text-pretty md:mt-8 md:leading-[1.65] text-tynec-black/85"

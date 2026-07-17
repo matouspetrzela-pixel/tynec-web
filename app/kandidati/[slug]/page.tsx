@@ -5,6 +5,7 @@ import { ArrowLeft } from 'lucide-react';
 import { TrackedPodporteLink } from '@/components/CampaignMeasuredLinks';
 import { CampaignLogo } from '@/components/CampaignLogo';
 import { CandidatePortrait } from '@/components/CandidatePortrait';
+import { CandidateListNumber } from '@/components/CandidateListNumber';
 import { CANDIDATES, getCandidateBySlug, isCandidateRevealed } from '@/lib/candidates';
 import type { Metadata } from 'next';
 
@@ -51,14 +52,17 @@ export default function CandidateProfilePage({ params }: Props) {
 
           {/* Fotka */}
           <div className="group mx-auto flex w-full max-w-[18rem] flex-col gap-5 md:mx-0 md:max-w-none">
-            <CandidatePortrait
-              photo={candidate.photo}
-              name={candidate.name}
-              variant="detail"
-              portraitWebpTune={candidate.portraitWebpTune}
-              portraitObjectPosition={candidate.portraitObjectPosition}
-              className="w-full"
-            />
+            <div className="relative w-full">
+              <CandidatePortrait
+                photo={candidate.photo}
+                name={candidate.name}
+                variant="detail"
+                portraitWebpTune={candidate.portraitWebpTune}
+                portraitObjectPosition={candidate.portraitObjectPosition}
+                className="w-full"
+              />
+              <CandidateListNumber number={candidate.gridSlot} variant="detail" />
+            </div>
 
             <div className="rounded-xl border border-gray-100 bg-white px-5 py-4">
               <span className="text-sm font-semibold uppercase tracking-[0.1em] text-tynec-gray">

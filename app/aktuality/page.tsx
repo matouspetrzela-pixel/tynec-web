@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { CalendarDays, ChevronRight } from 'lucide-react';
+import { CalendarDays } from 'lucide-react';
 import { AKTUALITY } from '@/lib/aktuality';
 import { AktualitaCard } from '@/components/AktualityCard';
 import { PageSectionHeader } from '@/components/PageSectionHeader';
@@ -12,8 +12,12 @@ export const metadata: Metadata = {
     'Novinky, zprávy a materiály Pro Týnec srdcem — sledujte přípravy na komunální volby 2026.',
 };
 
-/** 4 sloupce × 3 řady na velkém displeji */
-const ITEMS_PER_PAGE = 12;
+/**
+ * Počet článků na každou stránku (1, 2, 3…).
+ * Nejnovější vždy na stránce 1; další stránky berou dalších 8 podle data.
+ * Poslední stránka může mít méně než 8, pokud celkový počet není násobkem 8.
+ */
+const ITEMS_PER_PAGE = 8;
 
 // ─── stránkování ─────────────────────────────────────────────────────────────
 
@@ -45,52 +49,50 @@ function Pagination({ current, total }: { current: number; total: number }) {
   if (total <= 1) return null;
   const pages = buildPageList(current, total);
 
-  const linkClass = (active: boolean) =>
-    [
-      'inline-flex h-9 min-w-[2.25rem] items-center justify-center rounded-lg px-3 text-sm font-semibold transition-colors duration-200',
-      active
-        ? 'bg-primary text-white shadow-sm'
-        : 'border border-gray-200 bg-white text-tynec-black/80 hover:border-primary/40 hover:text-primary',
-    ].join(' ');
+  const cellBase =
+    'inline-flex h-10 min-w-[2.75rem] items-center justify-center px-3.5 text-sm font-semibold transition-colors';
 
   return (
-    <nav
-      aria-label="Stránkování"
-      className="mt-12 flex flex-wrap items-center justify-center gap-1.5"
-    >
-      {pages.map((p, i) =>
-        p === '...' ? (
-          <span
-            key={`ellipsis-${i}`}
-            className="inline-flex h-9 w-9 items-center justify-center text-sm text-tynec-black/40"
-            aria-hidden
-          >
-            …
-          </span>
-        ) : (
+    <nav aria-label="Stránkování" className="mt-12 flex justify-center">
+      <div className="inline-flex overflow-hidden rounded-full border border-slate-200/90 bg-white shadow-[0_1px_0_rgba(15,23,42,0.04),0_10px_28px_-18px_rgba(15,23,42,0.25)]">
+        {pages.map((p, i) =>
+          p === '...' ? (
+            <span
+              key={`ellipsis-${i}`}
+              className={`${cellBase} border-l border-slate-200/90 text-tynec-black/35 first:border-l-0`}
+              aria-hidden
+            >
+              …
+            </span>
+          ) : (
+            <Link
+              key={p}
+              href={p === 1 ? '/aktuality' : `/aktuality?strana=${p}`}
+              className={[
+                cellBase,
+                'border-l border-slate-200/90 first:border-l-0',
+                p === current
+                  ? 'bg-tynec-navy text-white'
+                  : 'bg-white text-tynec-navy/80 hover:bg-slate-50 hover:text-tynec-navy',
+              ].join(' ')}
+              aria-current={p === current ? 'page' : undefined}
+              scroll={false}
+            >
+              {p}
+            </Link>
+          ),
+        )}
+
+        {current < total && (
           <Link
-            key={p}
-            href={p === 1 ? '/aktuality' : `/aktuality?strana=${p}`}
-            className={linkClass(p === current)}
-            aria-current={p === current ? 'page' : undefined}
+            href={`/aktuality?strana=${current + 1}`}
+            className={`${cellBase} border-l border-slate-200/90 bg-white px-5 text-tynec-navy/80 hover:bg-slate-50 hover:text-tynec-navy`}
             scroll={false}
           >
-            {p}
+            Další
           </Link>
-        ),
-      )}
-
-      {/* Tlačítko Další */}
-      {current < total && (
-        <Link
-          href={`/aktuality?strana=${current + 1}`}
-          className="inline-flex h-9 items-center gap-1 rounded-lg border border-gray-200 bg-white px-4 text-sm font-semibold text-tynec-black/80 transition-colors hover:border-primary/40 hover:text-primary"
-          scroll={false}
-        >
-          Další
-          <ChevronRight className="h-3.5 w-3.5" aria-hidden />
-        </Link>
-      )}
+        )}
+      </div>
     </nav>
   );
 }

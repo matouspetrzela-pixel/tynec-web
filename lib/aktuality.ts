@@ -80,6 +80,26 @@ export interface Aktualita {
 
 export const AKTUALITY: Aktualita[] = [
   {
+    id: '2026-07-17-volebni-program-poradi-kandidatu',
+    typ: 'clanek',
+    datum: '2026-07-17',
+    nadpis:
+      'Představujeme náš volební program. V příštích dnech ho najdete ve svých schránkách',
+    perex:
+      'V příštích dnech dorazí do poštovních schránek ve Velkém Týnci, Vsisku a Čechovicích náš volební leták. Najdete v něm představení všech členů našeho týmu i základní body programu, se kterým se ucházíme o vaši důvěru v komunálních volbách.',
+    obsah: `Věříme, že obec se nejlépe rozvíjí tehdy, když ji vedou lidé, kteří v ní skutečně žijí. Proto náš tým tvoří sousedé, rodiče, prarodiče i mladí lidé, kteří znají každodenní život v naší obci, její silné stránky i výzvy, které je potřeba řešit.
+
+Náš volební program nevznikal za zavřenými dveřmi. Je výsledkem rozhovorů s občany, podnětů z našeho dotazníkového šetření i komentářů a zpráv, které nám posíláte prostřednictvím sociálních sítí. Všechny vaše názory jsme pečlivě četli a řada z nich se promítla do konkrétních návrhů. Program se proto zaměřuje na témata, která považujete za důležitá – otevřenou komunikaci, odpovědné hospodaření, podporu rodin, spolků i seniorů, kvalitní veřejný prostor a moderní obec, která svým občanům naslouchá.
+
+Všechny informace, představení našeho týmu i základní volební program najdete také na našem webu a sociálních sítích.
+
+Děkujeme za podporu, důvěru i všechny podněty, které nám posíláte. Právě díky nim můžeme společně pracovat na tom, aby se ve Velkém Týnci, Vsisku a Čechovicích dobře žilo všem generacím.`,
+    obrazek: '/aktuality/volebni-program-poradi-kandidatu-2026-07-17.png',
+    obrazekSirka: 1024,
+    obrazekVyska: 681,
+    nahledOrez: 'left',
+  },
+  {
     id: '2026-06-23-zasedani-zastupitelstva-hospodareni',
     typ: 'clanek',
     datum: '2026-06-25',
