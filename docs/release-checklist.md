@@ -20,9 +20,10 @@ Použijte tento checklist před každým release na produkci.
 - [ ] Navigace: Program a Podpořte nás odemčené
 - [ ] Text `2026–2030` za logem v hlavičce zobrazen správně
 - [ ] Typografie: nadpisy stránek ~26 px desktop, primární tlačítka kompaktní (12–14 px) — viz `docs/typography.md`
-- [ ] Aktuality: nové články a obrázky se zobrazují na `/aktuality`
-- [ ] `/kandidati` — 11 odhalených karet, fotky edge-to-edge (včetně Michaela Dvořáková)
+- [ ] Aktuality: nové články a obrázky se zobrazují na `/aktuality`; při > 8 článcích funguje paginace (`?strana=2`)
+- [ ] `/kandidati` — 11 odhalených karet v pořadí listiny, studio mark čísla na fotkách
 - [ ] `/kandidati` — oční linka Drahomíra Obšnajdrová v ose s Michaela Dvořáková / Kateřina Parčová (desktop i mobil)
+- [ ] `/podporte-nas` — pás partnerů (Klabačka, Řehula) mezi úvodem a „Jak můžete pomoci“
 - [ ] Facebook odkaz je funkční a správný
 
 ## C) Launch flag a environment

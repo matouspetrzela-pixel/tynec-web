@@ -23,13 +23,13 @@ Nezveřejnění zůstávají jako bílé placeholdery; jejich profily vrací 404
 
 ### Přidání nového kandidáta (výjimečné)
 
-1. Přidat objekt do pole kandidátů včetně `gridSlot`.
+1. Přidat objekt do pole kandidátů včetně `gridSlot` (**pořadí na kandidátní listině**, ne abeceda).
 2. Vyplnit stabilní `slug` (používá se v URL).
 3. Přidat fotku do `public/images/kandidati/`.
 4. Nastavit cestu `photo`.
-5. Ověřit detail i listing lokálně.
+5. Ověřit detail i listing lokálně (číslo listiny se bere z `gridSlot`).
 
-Poznámka: změna `slug` mění URL a může rozbít sdílené odkazy.
+Poznámka: změna `slug` mění URL a může rozbít sdílené odkazy. Změna `gridSlot` mění pořadí v mřížce i číslo na portrétu.
 
 ## 3) Aktuality
 
@@ -41,7 +41,9 @@ Při přidání nové aktuality:
 3. Přidat `perex` (krátký úvod na kartě) a `obsah` (další odstavce oddělené prázdným řádkem).
 4. Přidat `obrazek` (cesta k souboru v `public/aktuality/`) a zkopírovat obrázek do `public/aktuality/`.
 5. Volitelně `nahledOrez`: `'left' | 'right' | 'center'` — kde „najet“ při ořezu náhledu (`object-cover`). U širokých bannerů s logem nebo textem vlevo použijte `'left'`, aby zůstal vidět levý okraj obrázku; výchozí chování je `'center'`.
-6. Ověřit lokálně na `/aktuality`.
+6. Ověřit lokálně na `/aktuality` (a případně `?strana=2`, pokud přesáhnete 8 položek).
+
+**Stránkování:** každá stránka má **8 článků** (`ITEMS_PER_PAGE` v `app/aktuality/page.tsx`). Nejnovější jsou na stránce 1; starší postupují na stránku 2, 3… URL: `/aktuality?strana=N` (stránka 1 bez query).
 
 Typy obsahu: `clanek`, `pdf`, `letak`, `video`.  
 Náhledový obrázek: pole `obrazek` — pokud chybí, zobrazí se neutrální ikona typu.
@@ -60,8 +62,13 @@ Náhledový obrázek: pole `obrazek` — pokud chybí, zobrazí se neutrální i
 
 - `components/Header.tsx`
 - Za logem: text `2026–2030`.
-- Phase 1 (aktuálně): `O nás`, **`Kandidáti`**, `Aktuality` odemčeny; `Program` a `Podpořte nás` zamčeny.
-- Phase 2: plná navigace přes `NEXT_PUBLIC_SITE_LAUNCHED=true`.
+- Aktuálně odemčeno: `O nás`, **`Program`**, **`Kandidáti`**, **`Aktuality`**, **`Podpořte nás`**.
+- Phase 2 (homepage se sekcemi): `NEXT_PUBLIC_SITE_LAUNCHED=true`.
+
+## 5b) Podpořte nás — partneři
+
+- Pás partnerů: `app/podporte-nas/SupportSponsorsStrip.tsx` (mezi úvodem a „Jak můžete pomoci“).
+- Data partnerů jsou v komponentě; odkaz u Řehuly na Loxone partner profil.
 
 ## 6) Sociální odkazy
 

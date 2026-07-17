@@ -30,7 +30,7 @@ Primární cíl je rychlá prezentační kampaň s možností postupného odemyk
 ### `lib/`
 - `lib/candidates.ts`: centralizovaná data kandidátů (single source of truth).
 - `lib/social.ts`: Facebook URL a kontakt.
-- `lib/aktuality.ts`: centralizovaná data aktualit (pole `AKTUALITY`). Každá položka obsahuje `id`, `typ`, `datum`, `nadpis`, `perex`, `obsah` a volitelně `obrazek`/`soubor`/`odkaz` a **`nahledOrez`** (`center`, `left`, `right`) pro zarovnání ořezu náhledu. Řazení na webu je automatické — sestupně dle `datum`. Vykreslení karet včetně štítku data: `app/aktuality/page.tsx` (náhled `object-cover`, datum vpravo dole).
+- `lib/aktuality.ts`: centralizovaná data aktualit (pole `AKTUALITY`). Řazení sestupně dle `datum`. Vykreslení a **paginace (8 / stránku)**: `app/aktuality/page.tsx`.
 
 ## 4) Fázovaný režim (Phase 1 vs Phase 2)
 
@@ -40,7 +40,8 @@ Primární cíl je rychlá prezentační kampaň s možností postupného odemyk
   - Homepage: **pouze hero s fotkou + patička** (`app/page.tsx` — bez mezisekcí).
   - Hero CTA: Náš program, Kandidáti, Aktuality, Podpořte nás, Facebook pod logem.
   - Navigace: `O nás`, **`Program`**, **`Kandidáti`**, **`Aktuality`**, **`Podpořte nás`** odemčeny (`alwaysUnlocked: true` / `podporteUnlocked`).
-  - `/kandidati` živá — 11 kandidátů, všichni `revealed: true`.
+  - `/kandidati` živá — 11 kandidátů, všichni `revealed: true`, pořadí = listina (`gridSlot`).
+  - `/podporte-nas` — včetně pásu partnerů (`SupportSponsorsStrip`).
   - `middleware.ts` se **nepoužívá** (soubor odstraněn); přístup k profilům řídí `isCandidateRevealed()`.
 
 - `true` (Phase 2 — budoucí plný launch):

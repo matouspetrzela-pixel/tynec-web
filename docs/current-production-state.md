@@ -48,13 +48,32 @@ Detailní popis breakpointů, CSS a QA: [`hero-homepage.md`](hero-homepage.md).
 ### Sekce Kandidáti `/kandidati`
 
 - **11 kandidátů**, všichni `revealed: true`
-- Abecední pořadí podle `gridSlot` 1–11
+- **Pořadí = kandidátní listina** (`gridSlot` 1–11) — ne abeceda
+- Studio mark čísla na portrétu (světle šedé + tenká červená čárka) — `components/CandidateListNumber.tsx`
+- Úvod: tým seřazen podle pořadí na kandidátní listině
 - Nezveřejněný profil: **404**
 - **Oční linka v mřížce:** Drahomíra Obšnajdrová sladěna s osou Michaela Dvořáková / Kateřina Parčová (crop `eyeLineInCrop` + `portraitWebpTune: '-translate-y-[5%]'` v `lib/candidates.ts`; WebP přegenerován)
 
+### Pořadí na listině (`gridSlot`)
+
+1. Michaela Dvořáková · 2. Michal Sviták · 3. Kateřina Parčová · 4. Jiří Dvořák · 5. Jakub Žádník · 6. Michal Andrýsek · 7. Filip Sklenář · 8. Petra Andrýsková · 9. Alena Sojáková · 10. Drahomíra Obšnajdrová · 11. Václav Sklenář
+
 ### Všichni kandidáti (11/11 odhaleno)
 
-`michal-andrysek`, `petra-andryskova`, `jiri-dvorak`, `michaela-dvorakova`, `drahomira-obsnajdrova`, `katerina-parcova`, `filip-sklenar`, `vaclav-sklenar`, `alena-sojakova`, `michal-svitak`, `jakub-zadnik`
+`michaela-dvorakova`, `michal-svitak`, `katerina-parcova`, `jiri-dvorak`, `jakub-zadnik`, `michal-andrysek`, `filip-sklenar`, `petra-andryskova`, `alena-sojakova`, `drahomira-obsnajdrova`, `vaclav-sklenar`
+
+### Aktuality `/aktuality`
+
+- Řazení: sestupně podle `datum` (nejnovější první)
+- **Stránkování:** 8 článků na stránku (`ITEMS_PER_PAGE` v `app/aktuality/page.tsx`); starší na stránku 2+
+- Pill navigace (aktivní = `tynec-navy`), query `?strana=N`
+- Aktuálně mimo jiné: článek **17. 7. 2026** — volební program + pořadí kandidátů (banner `public/aktuality/volebni-program-poradi-kandidatu-2026-07-17.png`)
+
+### Podpořte nás `/podporte-nas`
+
+- Mezi úvodním panelem a „Jak můžete pomoci“: pás **Podporují nás**
+- Partneři: Martin Klabačka (obkladačské práce), Stanislav Řehula (elektromontáže → [Loxone profil](https://www.loxone.com/cscz/partner/78372-velky-tynec/stanislav-rehula/))
+- Komponenta: `app/podporte-nas/SupportSponsorsStrip.tsx`
 
 ---
 
@@ -62,10 +81,11 @@ Detailní popis breakpointů, CSS a QA: [`hero-homepage.md`](hero-homepage.md).
 
 | Commit | Popis |
 |---|---|
-| `9e43054` | Sjednocená typografie: menší H1–H3, perexy, kompaktní primární tlačítka, `PageSectionHeader` |
+| `46eb8e4` | Partneři na Podpořte nás (Klabačka, Řehula + Loxone odkaz) |
+| `37e63ba` | Pořadí kandidátů dle listiny, studio mark čísla, aktualita 17. 7. + paginace po 8 |
+| `b3fe145` | Dva texty priorit v programu |
+| `9e43054` | Sjednocená typografie: menší H1–H3, perexy, kompaktní primární tlačítka |
 | `9081639` | Responzivita hero: mobil bez prodlevy, tablet centrovaný, desktop box vlevo dole |
-| `b6d346c` | Hero fullscreen — patička pod foldem |
-| `70bd40c` | Kampaňová homepage, Program/Podpořte odemčeny, 11 kandidátů |
 
 ### Typografie (nasazeno `9e43054`)
 
