@@ -80,6 +80,42 @@ export interface Aktualita {
 
 export const AKTUALITY: Aktualita[] = [
   {
+    id: '2026-07-20-zasedani-zastupitelstva-bankomat',
+    typ: 'clanek',
+    datum: '2026-07-20',
+    nadpis: 'Zastupitelstvo bude řešit bankomat i dodatky k investičním akcím',
+    perex:
+      'Na dalším zasedání Zastupitelstva obce Velký Týnec, které se uskuteční ve středu 27. července 2026 od 17:30 hodin v Malém sále Společenského domu ve Velkém Týnci, se budou řešit rozpočet, revitalizace zámecké stodoly, dodatky ke stavebním akcím i instalace bankomatu.',
+    obsah: `Na dalším zasedání Zastupitelstva obce Velký Týnec, které se uskuteční:
+
+📅 středa 27. července 2026 od 17:30 hodin
+📍 Malý sál Společenského domu ve Velkém Týnci
+
+se budou řešit následující body:
+
+• rozpočtové opatření č. 4/2026,
+
+• výběr zhotovitele revitalizace zámecké stodoly,
+
+• nový řád veřejného pohřebiště,
+
+• dodatky ke smlouvám na stavební akce v Čechovicích a na víceúčelovém hřišti VT–Vsisko,
+
+• žádost o bezúplatný převod majetku související s výstavbou infrastruktury pro lokalitu Podštampilí,
+
+• majetkoprávní záležitosti obce (žádosti o prodej a pronájem obecních pozemků),
+
+• projekt instalace bankomatu a
+
+• žádosti o mimořádné dotace.
+
+Zasedání zastupitelstva je veřejné a zúčastnit se jej mohou všichni občané. Zveme proto všechny zájemce o dění v obci, aby přišli sledovat projednávání důležitých témat a zapojili se do závěrečné diskuse.`,
+    obrazek: '/aktuality/zasedani-zastupitelstva-uzemni-plan-2026-06-19.png',
+    obrazekSirka: 1024,
+    obrazekVyska: 682,
+    kartaZobrazeni: 'contain',
+  },
+  {
     id: '2026-07-17-volebni-program-poradi-kandidatu',
     typ: 'clanek',
     datum: '2026-07-17',
