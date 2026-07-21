@@ -85,10 +85,10 @@ export const AKTUALITY: Aktualita[] = [
     datum: '2026-07-20',
     nadpis: 'Zastupitelstvo bude řešit bankomat i dodatky k investičním akcím',
     perex:
-      'Na dalším zasedání Zastupitelstva obce Velký Týnec, které se uskuteční ve středu 27. července 2026 od 17:30 hodin v Malém sále Společenského domu ve Velkém Týnci, se budou řešit rozpočet, revitalizace zámecké stodoly, dodatky ke stavebním akcím i instalace bankomatu.',
+      'Na dalším zasedání Zastupitelstva obce Velký Týnec, které se uskuteční v pondělí 27. července 2026 od 17:30 hodin v Malém sále Společenského domu ve Velkém Týnci, se budou řešit rozpočet, revitalizace zámecké stodoly, dodatky ke stavebním akcím i instalace bankomatu.',
     obsah: `Na dalším zasedání Zastupitelstva obce Velký Týnec, které se uskuteční:
 
-📅 středa 27. července 2026 od 17:30 hodin
+📅 pondělí 27. července 2026 od 17:30 hodin
 📍 Malý sál Společenského domu ve Velkém Týnci
 
 se budou řešit následující body:
