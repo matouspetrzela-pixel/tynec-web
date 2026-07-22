@@ -67,7 +67,7 @@ Detailní popis breakpointů, CSS a QA: [`hero-homepage.md`](hero-homepage.md).
 - Řazení: sestupně podle `datum` (nejnovější první)
 - **Stránkování:** 8 článků na stránku (`ITEMS_PER_PAGE` v `app/aktuality/page.tsx`); starší na stránku 2+
 - Pill navigace (aktivní = `tynec-navy`), query `?strana=N`
-- Aktuálně mimo jiné: článek **17. 7. 2026** — volební program + pořadí kandidátů (banner `public/aktuality/volebni-program-poradi-kandidatu-2026-07-17.png`)
+- Nejnovější: **22. 7. 2026** — Pivní a gulášové slavnosti (banner `public/aktuality/pivni-gulasove-slavnosti-2026.jpg`); dále mimo jiné zasedání zastupitelstva **20. 7.** a volební program + pořadí kandidátů **17. 7.**
 
 ### Podpořte nás `/podporte-nas`
 
@@ -81,11 +81,11 @@ Detailní popis breakpointů, CSS a QA: [`hero-homepage.md`](hero-homepage.md).
 
 | Commit | Popis |
 |---|---|
+| `4533761` | Aktualita o Pivních a gulášových slavnostech (22. 7. 2026) |
+| `acebc4b` | Oprava dne zasedání zastupitelstva na pondělí 27. 7. 2026 |
+| `0659283` | Aktualita o zasedání zastupitelstva 27. 7. 2026 |
 | `46eb8e4` | Partneři na Podpořte nás (Klabačka, Řehula + Loxone odkaz) |
 | `37e63ba` | Pořadí kandidátů dle listiny, studio mark čísla, aktualita 17. 7. + paginace po 8 |
-| `b3fe145` | Dva texty priorit v programu |
-| `9e43054` | Sjednocená typografie: menší H1–H3, perexy, kompaktní primární tlačítka |
-| `9081639` | Responzivita hero: mobil bez prodlevy, tablet centrovaný, desktop box vlevo dole |
 
 ### Typografie (nasazeno `9e43054`)
 
