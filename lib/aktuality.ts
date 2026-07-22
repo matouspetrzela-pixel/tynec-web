@@ -80,6 +80,31 @@ export interface Aktualita {
 
 export const AKTUALITY: Aktualita[] = [
   {
+    id: '2026-07-22-pivni-gulasove-slavnosti',
+    typ: 'clanek',
+    datum: '2026-07-22',
+    nadpis:
+      'Pivní a gulášové slavnosti očima soutěžících: Pštrosí guláš vařený srdcem sklidil velký úspěch',
+    perex:
+      'Letošní Pivní a gulášové slavnosti ve Velkém Týnci nabídly nejen skvělou atmosféru, dobré jídlo a setkání sousedů, ale také tradiční soutěž ve vaření guláše, do které jsme se zapojili jako tým Pro Týnec srdcem. Do soutěže jsme vyrazili jako parta kamarádů, sousedů a občanů Velkého Týnce s jediným cílem – užít si společný den a přispět k pohodové atmosféře celé akce.',
+    obsah: `Už od ranního příjezdu nás potěšilo, jak dobře byla celá akce připravená. Soutěžní stanoviště byla přehledně označená, organizace fungovala bez problémů a nechybělo ani zázemí, které soutěžícím usnadnilo celý den. Postavili jsme si vlastní stan, který se později ukázal jako velmi dobrý pomocník, protože během odpoledne přišla silná bouřka. Ani nepříznivé počasí ale nikoho neodradilo. Po dešti se soutěž i setkávání s návštěvníky opět naplno rozběhly.
+
+Kromě samotného vaření jsme chtěli návštěvníkům nabídnout i něco navíc. Připravili jsme proto kolo štěstí, které si mohli vyzkoušet děti i dospělí. Každý účastník si odnesl malou odměnu a nechyběly ani netradiční ceny pro dospělé. Velký zájem návštěvníků nám udělal velkou radost.
+
+Největší odměnou pro celý tým ale byla zpětná vazba od návštěvníků. Náš pštrosí guláš vařený srdcem se totiž vyprodal jako úplně první ze všech soutěžních gulášů.
+
+„Do soutěže jsme nešli primárně kvůli vítězství. Chtěli jsme být součástí krásné obecní akce, potkat se s lidmi, pobavit se a ukázat, že když se spojí parta nadšených lidí, může vzniknout něco příjemného pro celou komunitu. To, že našemu guláši lidé dali takovou důvěru a rychle se vyprodal, je pro nás obrovská pochvala,“ říká členka soutěžního týmu Michaela Dvořáková.
+
+Přestože jsme tentokrát na stupně vítězů nedosáhli, odnášíme si především skvělý zážitek, spoustu milých setkání a radost z toho, že jsme mohli být součástí této povedené akce. Jediné, čeho litujeme, je, že jsme nemohli uspokojit všechny zájemce, kteří chtěli náš pštrosí guláš ještě ochutnat.
+
+Na závěr bychom chtěli poděkovat všem organizátorům za skvěle připravenou akci. Oceňujeme jejich práci, nasazení i péči, díky nimž si soutěžící i návštěvníci mohli užít krásný den plný dobrého jídla, pití a přátelských setkání.
+
+Už teď se těšíme na další ročník!`,
+    obrazek: '/aktuality/pivni-gulasove-slavnosti-2026.jpg',
+    obrazekSirka: 1024,
+    obrazekVyska: 576,
+  },
+  {
     id: '2026-07-20-zasedani-zastupitelstva-bankomat',
     typ: 'clanek',
     datum: '2026-07-20',
