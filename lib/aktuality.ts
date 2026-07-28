@@ -194,7 +194,7 @@ Už teď se těšíme na další ročník!`,
   {
     id: '2026-07-20-zasedani-zastupitelstva-bankomat',
     typ: 'clanek',
-    datum: '2026-07-27',
+    datum: '2026-07-20',
     nadpis: 'Zastupitelstvo bude řešit bankomat i dodatky k investičním akcím',
     perex:
       'Na dalším zasedání Zastupitelstva obce Velký Týnec, které se uskuteční v pondělí 27. července 2026 od 17:30 hodin v Malém sále Společenského domu ve Velkém Týnci, se budou řešit rozpočet, revitalizace zámecké stodoly, dodatky ke stavebním akcím i instalace bankomatu.',
