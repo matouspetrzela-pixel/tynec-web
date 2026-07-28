@@ -80,6 +80,93 @@ export interface Aktualita {
 
 export const AKTUALITY: Aktualita[] = [
   {
+    id: '2026-07-28-informace-ze-zastupitelstva',
+    typ: 'clanek',
+    datum: '2026-07-28',
+    nadpis:
+      'Zastupitelstvo schválilo další investice. Obec chce řešit i nebezpečná místa v dopravě',
+    perex:
+      'Obec Velký Týnec pokračuje v přípravě i realizaci významných investic. Na červencovém zasedání zastupitelstva schválili zastupitelé výběr dodavatele na revitalizaci zámecké stodoly, dodatky u rozestavěných projektů v Čechovicích a ve Vsisku i další kroky související s rozvojem nové obytné lokality. V závěru jednání zároveň vyzvali občany, aby pomohli vytipovat nepřehledná a nebezpečná místa v dopravě.',
+    obsah: `Jedním z bodů jednání zastupitelstva byl výběr zhotovitele revitalizace zámecké stodoly ve Velkém Týnci. Ve výběrovém řízení uspěla společnost Stavby KOBLIHA s.r.o. s nabídkou ve výši téměř 4,3 milionu korun bez DPH. Projekt představuje další krok v obnově jednoho z historických objektů v obci a vytvoří nové zázemí pro veřejné využití.
+
+Zastupitelé schválili také dodatky ke smlouvám u dvou probíhajících investičních akcí. V Čechovicích pokračují stavební úpravy obecního domu, kde se během realizace ukázala potřeba doplnit datové rozvody, upravit podlahy, osvětlení i instalovat rekuperační jednotku pro nový sál. Ve Vsisku se rozšiřuje víceúčelový areál o nové dětské hřiště. Součástí změn je vybudování opěrné zídky, doplnění herních prvků i přeložka veřejného osvětlení a internetových rozvodů.
+
+Dalším důležitým tématem byl rozvoj bydlení. Zastupitelstvo projednalo záměr budoucího převodu technické infrastruktury pro novou lokalitu Podštampilí, kde vznikne zázemí pro výstavbu třinácti rodinných domů. Součástí projektu budou nové komunikace, chodníky, vodovod, kanalizace i veřejné osvětlení. V diskusi zazněla také potřeba posílení kapacity obecních sítí tak, aby další výstavba neomezovala stávající obyvatele.
+
+Podporu získali také úspěšní sportovci reprezentující obec. Gymnastický klub Velký Týnec obdržel mimořádný příspěvek 200 tisíc korun na účast svých reprezentantek na mistrovství světa v japonské Ósace. Dalších 20 tisíc korun schválili zastupitelé vzpěračce Anně Homolové, která bude reprezentovat Českou republiku na mistrovství Evropy juniorek.
+
+V závěru jednání se zastupitelé věnovali také dopravní bezpečnosti. Obec chce systematicky řešit nepřehledná a riziková místa na místních komunikacích, a proto vyzývá občany, aby své podněty zasílali na e-mail sekretariat@velkytynec.cz. Právě zkušenosti místních obyvatel mají pomoci určit lokality, které si zaslouží přednostní řešení.
+
+Sdružení Pro Týnec srdcem chce občanům pravidelně přinášet přehledné a srozumitelné informace o dění v obci. Věříme, že otevřená komunikace a informovanost občanů jsou základem dobrého fungování samosprávy.
+
+Podrobnější informace k jednotlivým bodům jednání najdete níže.`,
+    podrobneNadpis:
+      'Zastupitelstvo projednalo investice, rozvoj bydlení i podporu místních sportovců',
+    podrobneObsah: `Na 27. zasedání Zastupitelstva obce Velký Týnec, které se uskutečnilo 27. července 2026, zastupitelé projednali devět bodů programu zaměřených především na investiční akce, správu obecního majetku, rozvoj infrastruktury a podporu místních organizací.
+
+Rozpočtové opatření č. 4/2026
+
+Zastupitelstvo schválilo rozpočtové opatření reagující na aktuální potřeby hospodaření obce a probíhající investiční akce. Úpravy rozpočtu reflektují zejména výdaje spojené s realizací a přípravou obecních projektů.
+
+Revitalizace zámecké stodoly ve Velkém Týnci
+
+Významným bodem jednání byl výběr dodavatele na realizaci projektu revitalizace zámecké stodoly. Do výběrového řízení byly podány tři nabídky. Hodnoticí komise doporučila uzavřít smlouvu se společností Stavby KOBLIHA s.r.o., která předložila ekonomicky nejvýhodnější nabídku ve výši 4 299 964,85 Kč bez DPH.
+
+Projekt představuje další krok v obnově historických objektů v obci a jejich budoucímu využití pro veřejnost.
+
+Nový řád veřejného pohřebiště
+
+Zastupitelé schválili nový Řád veřejného pohřebiště obce Velký Týnec, který nabude účinnosti od 1. září 2026. Nový provozní řád reaguje na požadavky současné legislativy i praktické zkušenosti z provozu hřbitova.
+
+Mezi hlavní změny patří úprava otevírací doby v období od dubna do září z původních 21:00 hodin na 20:00 hodin. Současně byla mezi dny s prodlouženou návštěvní dobou nově zařazena také štědrovečerní návštěva hřbitova.
+
+Dodatky ke smlouvám na obecní investice
+
+Zastupitelstvo projednalo dodatky ke smlouvám na dvě významné investiční akce realizované v místních částech obce.
+
+V případě projektu Přístavba a stavební úpravy obecního domu v Čechovicích byly schváleny vícepráce vyplývající z průběhu stavby. Jednalo se zejména o doplnění nových datových rozvodů, úpravy omítek, výměnu degradovaných podlah, instalaci rekuperační jednotky pro nový sál, úpravy osvětlení a změnu skladby podlah v návaznosti na použití velkoformátové dlažby. Celkový objem víceprací činí 1,68 mil. Kč, současně však byly vyčísleny méněpráce ve výši 728 tis. Kč, takže výsledná hodnota dodatku představuje navýšení ceny díla o přibližně 956 tis. Kč.
+
+Další změnový list se týkal pokračující druhé etapy projektu víceúčelového areálu ve Vsisku, konkrétně budování dětského hřiště navazujícího na již dokončené multifunkční hřiště. Oproti původnímu návrhu byla kolem celého areálu vybudována opěrná zídka, byl doplněn další herní prvek pro děti. Rovněž bylo nutné také přeložit vedení veřejného osvětlení a související internetové rozvody. Dodatečné práce představují náklady přibližně 350 tis. Kč včetně DPH.
+
+Nová infrastruktura pro 13 rodinných domů
+
+Zastupitelstvo projednalo žádost společnosti Pozemní stavby Žádník s.r.o. týkající se budoucího bezúplatného převodu infrastruktury v lokalitě Podštampilí – 5. etapa.
+
+Součástí projektu bude nová komunikace, chodníky, vodovod, splašková i dešťová kanalizace, veřejné osvětlení a další technická infrastruktura pro výstavbu 13 rodinných domů. Po dokončení stavby a vydání kolaudačních rozhodnutí budou infrastruktura i související pozemky nabídnuty k převodu do majetku obce.
+
+V rámci diskuse zazněla potřeba řešit budoucí kapacitu obecních sítí, na které se nová lokalita napojí. Obec proto hodlá s investorem jednat o možné spoluúčasti na jejich posílení tak, aby další rozvoj území neomezoval stávající obyvatele.
+
+Pronájmy, směny a věcná břemena
+
+Zastupitelstvo projednalo několik majetkoprávních záležitostí souvisejících se správou obecního majetku a rozvojem technické infrastruktury.
+
+Schválena byla věcná břemena pro uložení zařízení distribuční soustavy společnosti ČEZ Distribuce a pro budoucí vedení veřejného osvětlení v připravované lokalitě Hráče.
+
+Zastupitelé rovněž schválili převod nájmu obecního pozemku v katastru Velký Týnec, a to z důvodu úmrtí původní nájemkyně.
+
+Dále se projednávala žádost společnosti PURSTAV IZOLACE s.r.o. o směnu pozemků v lokalitě u ulic Otakara Koutného a Lipová. Směna se týká části obecního pozemku využívaného jako komunikace za pozemky ve vlastnictví společnosti. Žádosti nebylo vyhověno.
+
+Zřízení bankomatu v obci
+
+Občané byli zastupiteli informováni, že původní záměr umístění bankomatu byl ve vchodu do objektu chráněných bytů (vedle vchodu do Zdravotního střediska). Bohužel bylo zjištěno, že se jedná o únikovou cestu a není tak možné zde bankomat umístit. Zastupitelé doplnili informaci, že budou hledat další možnosti umístění bankomatu v obci. Jako podstatnou překážku zastupitelé považují nutnost veřejného internetu (není možné pro provoz využít obecní internet).
+
+Podpora reprezentantů obce
+
+Zastupitelstvo se zabývalo také dvěma žádostmi o mimořádnou finanční podporu.
+
+První žádost podal Gymnastický klub Velký Týnec, jehož reprezentantky se kvalifikovaly na Mistrovství světa v estetické skupinové gymnastice v japonské Ósace. Klub požádal obec o příspěvek na pokrytí části nákladů spojených s cestou a účastí na vrcholné světové soutěži. Zastupitelstvo schválilo příspěvek ve výši 200 000 Kč.
+
+Druhá žádost se týkala Anny Homolové, talentované vzpěračky z Velkého Týnce, která bude reprezentovat Českou republiku na Mistrovství Evropy juniorek do 20 let v olympijském vzpírání. Finanční podpora má pomoci s náklady na sportovní přípravu a účast na šampionátu. Zastupitelstvo schválilo příspěvek ve výši 20 000 Kč.
+
+Diskuse a různé
+
+V závěru jednání proběhla tradiční diskuse zastupitelů a občanů. Hovořilo se zejména o nepřehledných dopravních situacích v obci Velký Týnec a jejích místních částech. Občané byli vyzváni k písemnému podávání podnětů (e-mail: sekretariat@velkytynec.cz) k vyřešení nepřehledných dopravních situací na různých místech obce.`,
+    obrazek: '/aktuality/informace-ze-zastupitelstva-2026-07-28.png',
+    obrazekSirka: 715,
+    obrazekVyska: 481,
+    nahledOrez: 'left',
+  },
+  {
     id: '2026-07-22-pivni-gulasove-slavnosti',
     typ: 'clanek',
     datum: '2026-07-22',
@@ -107,7 +194,7 @@ Už teď se těšíme na další ročník!`,
   {
     id: '2026-07-20-zasedani-zastupitelstva-bankomat',
     typ: 'clanek',
-    datum: '2026-07-20',
+    datum: '2026-07-27',
     nadpis: 'Zastupitelstvo bude řešit bankomat i dodatky k investičním akcím',
     perex:
       'Na dalším zasedání Zastupitelstva obce Velký Týnec, které se uskuteční v pondělí 27. července 2026 od 17:30 hodin v Malém sále Společenského domu ve Velkém Týnci, se budou řešit rozpočet, revitalizace zámecké stodoly, dodatky ke stavebním akcím i instalace bankomatu.',
