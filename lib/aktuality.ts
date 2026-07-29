@@ -93,7 +93,7 @@ Zastupitelé schválili také dodatky ke smlouvám u dvou probíhajících inves
 
 Dalším důležitým tématem byl rozvoj bydlení. Zastupitelstvo projednalo záměr budoucího převodu technické infrastruktury pro novou lokalitu Podštampilí, kde vznikne zázemí pro výstavbu třinácti rodinných domů. Součástí projektu budou nové komunikace, chodníky, vodovod, kanalizace i veřejné osvětlení. V diskusi zazněla také potřeba posílení kapacity obecních sítí tak, aby další výstavba neomezovala stávající obyvatele.
 
-Podporu získali také úspěšní sportovci reprezentující obec. Gymnastický klub Velký Týnec obdržel mimořádný příspěvek 200 tisíc korun na účast svých reprezentantek na mistrovství světa v japonské Ósace. Dalších 20 tisíc korun schválili zastupitelé vzpěračce Anně Homolové, která bude reprezentovat Českou republiku na mistrovství Evropy juniorek.
+Podporu získali také úspěšní sportovci reprezentující obec. Gymnastický klub Velký Týnec obdržel mimořádný příspěvek 200 tisíc korun na účast svých reprezentantek na mistrovství světa v japonské Ósace. Dalších 20 tisíc korun schválili zastupitelé mladé vzpěračce, která bude reprezentovat Českou republiku na mistrovství Evropy juniorek.
 
 V závěru jednání se zastupitelé věnovali také dopravní bezpečnosti. Obec chce systematicky řešit nepřehledná a riziková místa na místních komunikacích, a proto vyzývá občany, aby své podněty zasílali na e-mail sekretariat@velkytynec.cz. Právě zkušenosti místních obyvatel mají pomoci určit lokality, které si zaslouží přednostní řešení.
 
@@ -156,7 +156,7 @@ Zastupitelstvo se zabývalo také dvěma žádostmi o mimořádnou finanční po
 
 První žádost podal Gymnastický klub Velký Týnec, jehož reprezentantky se kvalifikovaly na Mistrovství světa v estetické skupinové gymnastice v japonské Ósace. Klub požádal obec o příspěvek na pokrytí části nákladů spojených s cestou a účastí na vrcholné světové soutěži. Zastupitelstvo schválilo příspěvek ve výši 200 000 Kč.
 
-Druhá žádost se týkala Anny Homolové, talentované vzpěračky z Velkého Týnce, která bude reprezentovat Českou republiku na Mistrovství Evropy juniorek do 20 let v olympijském vzpírání. Finanční podpora má pomoci s náklady na sportovní přípravu a účast na šampionátu. Zastupitelstvo schválilo příspěvek ve výši 20 000 Kč.
+Druhá žádost se týkala mladé, talentované vzpěračky z Velkého Týnce, která bude reprezentovat Českou republiku na Mistrovství Evropy juniorek do 20 let v olympijském vzpírání. Finanční podpora má pomoci s náklady na sportovní přípravu a účast na šampionátu. Zastupitelstvo schválilo příspěvek ve výši 20 000 Kč.
 
 Diskuse a různé
 
