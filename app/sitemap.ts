@@ -3,7 +3,15 @@ import { AKTUALITY } from '@/lib/aktuality';
 import { getRevealedCandidates } from '@/lib/candidates';
 import { SITE_URL } from '@/lib/site';
 
-const staticRoutes = ['', '/o-nas', '/program', '/kandidati', '/podporte-nas', '/aktuality'];
+const staticRoutes = [
+  '',
+  '/o-nas',
+  '/program',
+  '/kandidati',
+  '/podporte-nas',
+  '/aktuality',
+  '/ochrana-osobnich-udaju',
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

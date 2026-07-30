@@ -28,6 +28,7 @@ export const HeroLead: React.FC = () => {
         </div>
 
         <div className="hero-lead-brand">
+          <h1 className="sr-only">Pro Týnec srdcem</h1>
           <div className="hero-lead-logo">
             <CampaignLogo
               variant="hero"

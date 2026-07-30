@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CampaignJsonLd } from "@/components/CampaignJsonLd";
+import { CookieConsent } from "@/components/CookieConsent";
 import {
   OG_SHARE_IMAGE_SQUARE,
   OG_SHARE_METADATA_IMAGES,
@@ -71,28 +71,25 @@ export default function RootLayout({
   return (
     <html lang="cs" className={inter.variable}>
       <body className={inter.className}>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-lg focus:bg-white focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-tynec-black focus:shadow-lg focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-primary"
+        >
+          Přeskočit na obsah
+        </a>
         <CampaignJsonLd />
         <Header />
-        <main className="pt-[calc(var(--header-height)+env(safe-area-inset-top,0px))]">
+        <main
+          id="main-content"
+          className="pt-[calc(var(--header-height)+env(safe-area-inset-top,0px))]"
+          tabIndex={-1}
+        >
           {children}
         </main>
         <Footer />
-        {gaMeasurementId && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
-              strategy="afterInteractive"
-            />
-            <Script id="google-analytics" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${gaMeasurementId}');
-              `}
-            </Script>
-          </>
-        )}
+        {gaMeasurementId ? (
+          <CookieConsent measurementId={gaMeasurementId} />
+        ) : null}
       </body>
     </html>
   );

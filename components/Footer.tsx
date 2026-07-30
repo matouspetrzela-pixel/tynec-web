@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { Mail } from 'lucide-react';
 import {
   TrackedEmailOutbound,
@@ -58,6 +59,13 @@ export const Footer: React.FC = () => {
 
         <p className="mt-8 border-t border-white/10 pt-6 text-xs leading-relaxed text-white/45 sm:mt-10 sm:pt-7">
           © 2026 Pro Týnec srdcem. Všechna práva vyhrazena.
+          {' · '}
+          <Link
+            href="/ochrana-osobnich-udaju"
+            className="underline underline-offset-2 transition-colors hover:text-white/70"
+          >
+            Ochrana osobních údajů
+          </Link>
         </p>
       </div>
     </footer>
