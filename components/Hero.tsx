@@ -4,11 +4,26 @@ import { HeroLead } from '@/components/hero/HeroLead';
 
 const HERO_BASE = 'hero-velky-tynec-dji-0702-v2026';
 /** Bump po přegenerování hero fotek — obchází cache prohlížeče */
-const HERO_ASSET_VER = '2';
+const HERO_ASSET_VER = '3';
+
+const heroSrcSet = (ext: 'webp' | 'jpg') =>
+  [
+    `/images/${HERO_BASE}-800.${ext}?v=${HERO_ASSET_VER} 800w`,
+    `/images/${HERO_BASE}-1280.${ext}?v=${HERO_ASSET_VER} 1280w`,
+    `/images/${HERO_BASE}-1920.${ext}?v=${HERO_ASSET_VER} 1920w`,
+    `/images/${HERO_BASE}-2560.${ext}?v=${HERO_ASSET_VER} 2560w`,
+  ].join(', ');
 
 /** Fotka — mobil ukazuje věž pod boxem; desktop posune ostení vpravo */
 const heroPhotoObject =
   'object-[50%_40%] sm:object-[52%_38%] md:object-[56%_34%] lg:object-[62%_34%]';
+
+/** Preload URL pro LCP (mobilní webp; prohlížeč si z srcset stejně vybere). */
+export const HERO_LCP_PRELOAD = {
+  href: `/images/${HERO_BASE}-1280.webp?v=${HERO_ASSET_VER}`,
+  imageSrcSet: heroSrcSet('webp'),
+  imageSizes: '100vw',
+} as const;
 
 export const Hero: React.FC = () => {
   return (
@@ -20,23 +35,23 @@ export const Hero: React.FC = () => {
         <picture className="absolute inset-0 block h-full w-full">
           <source
             type="image/webp"
-            srcSet={`/images/${HERO_BASE}-1600.webp?v=${HERO_ASSET_VER} 1600w, /images/${HERO_BASE}-2560.webp?v=${HERO_ASSET_VER} 2560w`}
+            srcSet={heroSrcSet('webp')}
             sizes="100vw"
           />
           <source
             type="image/jpeg"
-            srcSet={`/images/${HERO_BASE}-1600.jpg?v=${HERO_ASSET_VER} 1600w, /images/${HERO_BASE}-2560.jpg?v=${HERO_ASSET_VER} 2560w`}
+            srcSet={heroSrcSet('jpg')}
             sizes="100vw"
           />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={`/images/${HERO_BASE}-1600.jpg?v=${HERO_ASSET_VER}`}
+            src={`/images/${HERO_BASE}-1280.jpg?v=${HERO_ASSET_VER}`}
             alt=""
             width={2560}
             height={1440}
             loading="eager"
             fetchPriority="high"
-            decoding="async"
+            decoding="sync"
             className={`absolute inset-0 h-full w-full object-cover ${heroPhotoObject}`}
           />
         </picture>

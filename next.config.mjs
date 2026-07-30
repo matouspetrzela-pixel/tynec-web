@@ -4,6 +4,7 @@ const isDev = process.env.NODE_ENV === 'development';
 const cspHeader = [
   "default-src 'self'",
   `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com${isDev ? " 'unsafe-eval'" : ''}`,
+  "script-src-attr 'none'",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob: https:",
   "font-src 'self'",
@@ -12,6 +13,8 @@ const cspHeader = [
   "base-uri 'self'",
   "form-action 'self'",
   "frame-ancestors 'none'",
+  "frame-src 'none'",
+  "worker-src 'self'",
   ...(isDev ? [] : ['upgrade-insecure-requests']),
 ].join('; ');
 
@@ -42,6 +45,9 @@ const nextConfig = {
       {
         source: "/(.*)",
         headers: [
+          // Přepíše výchozí Vercel `*` — web nemá citlivé cross-origin API
+          { key: "Access-Control-Allow-Origin", value: "https://www.protynecsrdcem.cz" },
+          { key: "Vary", value: "Origin" },
           { key: "X-Frame-Options", value: "DENY" },
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },

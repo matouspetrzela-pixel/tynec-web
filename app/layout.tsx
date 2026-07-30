@@ -1,10 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CampaignJsonLd } from "@/components/CampaignJsonLd";
-import { CookieConsent } from "@/components/CookieConsent";
+import { CookieConsent, COOKIE_CONSENT_BOOTSTRAP } from "@/components/CookieConsent";
 import {
   OG_SHARE_IMAGE_SQUARE,
   OG_SHARE_METADATA_IMAGES,
@@ -71,6 +72,11 @@ export default function RootLayout({
   return (
     <html lang="cs" className={inter.variable}>
       <body className={inter.className}>
+        <Script
+          id="cookie-consent-boot"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: COOKIE_CONSENT_BOOTSTRAP }}
+        />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-lg focus:bg-white focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-tynec-black focus:shadow-lg focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-primary"

@@ -32,6 +32,11 @@ html {
   text-size-adjust: 100%;
 }
 
+/* Dříve uložený souhlas — skryj lištu před React hydratací (viz layout bootstrap) */
+html[data-cookie-consent] .cookie-consent-banner {
+  display: none !important;
+}
+
 body {
   @apply font-sans text-base leading-relaxed text-tynec-black antialiased;
   background-color: #f8fafc;

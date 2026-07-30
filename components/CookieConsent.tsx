@@ -5,6 +5,7 @@ import { Suspense, useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { GoogleAnalytics } from '@/components/GoogleAnalytics';
 import {
+  COOKIE_CONSENT_KEY,
   readCookieConsent,
   writeCookieConsent,
   type CookieConsentValue,
@@ -16,27 +17,31 @@ type Props = {
 
 /**
  * Lišta souhlasu s analytickými cookies + načtení GA4 až po přijetí.
+ * Banner je ve výchozím HTML (SSR), aby ho našly skenery i bez JS;
+ * dříve uložený souhlas skryje inline skript v layoutu před paintem.
  */
 export function CookieConsent({ measurementId }: Props) {
   const [consent, setConsent] = useState<CookieConsentValue | null>(null);
-  const [ready, setReady] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
     setConsent(readCookieConsent());
-    setReady(true);
+    setHydrated(true);
   }, []);
 
   const accept = useCallback(() => {
     writeCookieConsent('accepted');
     setConsent('accepted');
+    document.documentElement.dataset.cookieConsent = 'accepted';
   }, []);
 
   const reject = useCallback(() => {
     writeCookieConsent('rejected');
     setConsent('rejected');
+    document.documentElement.dataset.cookieConsent = 'rejected';
   }, []);
 
-  if (!ready) return null;
+  const showBanner = !hydrated || consent === null;
 
   return (
     <>
@@ -60,12 +65,13 @@ export function CookieConsent({ measurementId }: Props) {
         </>
       ) : null}
 
-      {consent === null ? (
+      {showBanner ? (
         <div
+          id="cookie-consent"
           role="dialog"
           aria-labelledby="cookie-consent-title"
           aria-describedby="cookie-consent-desc"
-          className="fixed inset-x-0 bottom-0 z-[100] border-t border-white/10 bg-tynec-black/95 p-4 text-white shadow-[0_-8px_32px_rgba(0,0,0,0.35)] backdrop-blur-md sm:p-5"
+          className="cookie-consent-banner fixed inset-x-0 bottom-0 z-[100] border-t border-white/10 bg-tynec-black/95 p-4 text-white shadow-[0_-8px_32px_rgba(0,0,0,0.35)] backdrop-blur-md sm:p-5"
         >
           <div className="mx-auto flex max-w-4xl flex-col gap-4 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
             <div className="min-w-0 flex-1">
@@ -112,3 +118,6 @@ export function CookieConsent({ measurementId }: Props) {
     </>
   );
 }
+
+/** Inline skript — skryje lištu před paintem, pokud už je souhlas v localStorage. */
+export const COOKIE_CONSENT_BOOTSTRAP = `(function(){try{var v=localStorage.getItem('${COOKIE_CONSENT_KEY}');if(v==='accepted'||v==='rejected'){document.documentElement.dataset.cookieConsent=v;}}catch(e){}})();`;

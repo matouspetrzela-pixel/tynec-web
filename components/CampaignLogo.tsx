@@ -47,7 +47,7 @@ export const CampaignLogo: React.FC<Props> = ({
     variant === 'footer'
       ? '(max-width: 768px) 200px, 240px'
       : variant === 'hero'
-        ? '(max-width: 640px) 100vw, (max-width: 1280px) 92vw, 1080px'
+        ? '(max-width: 640px) 90vw, (max-width: 1280px) 46vw, 608px'
         : '(max-width: 768px) 160px, 200px';
   const src = variant === 'hero' ? CAMPAIGN_LOGO_HERO_PATH : CAMPAIGN_LOGO_PATH;
 
@@ -57,7 +57,8 @@ export const CampaignLogo: React.FC<Props> = ({
       alt={alt}
       width={INTRINSIC_W}
       height={INTRINSIC_H}
-      priority={priority}
+      // Hero LCP je fotka na pozadí — logo nesmí soupeřit o preload bandwidth
+      priority={variant === 'hero' ? false : priority}
       className={className}
       sizes={sizes}
     />

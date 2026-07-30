@@ -12,7 +12,8 @@ const FALLBACK_SRC =
 
 const OUT_DIR = path.join('public', 'images');
 const BASE = 'hero-velky-tynec-dji-0702-v2026';
-const WIDTHS = [1600, 2560];
+/** Mobil → notebook → desktop → velké monitory */
+const WIDTHS = [800, 1280, 1920, 2560];
 
 const srcArg = process.argv[2];
 let src = srcArg ? path.resolve(srcArg) : path.resolve(DEFAULT_SRC);
@@ -31,17 +32,28 @@ for (const width of WIDTHS) {
       position: sharp.strategy.attention,
       kernel: sharp.kernel.lanczos3,
     })
-    .sharpen({ sigma: 0.65, m1: 0.6, m2: 0.35, x1: 2, y2: 10, y3: 20 });
+    .sharpen({ sigma: 0.55, m1: 0.55, m2: 0.3, x1: 2, y2: 10, y3: 20 });
 
   const stem = path.join(OUT_DIR, `${BASE}-${width}`);
+  // Nižší kvalita u menších šířek = rychlejší LCP na mobilu
+  const jpegQ = width <= 1280 ? 78 : width <= 1920 ? 82 : 85;
+  const webpQ = width <= 1280 ? 72 : width <= 1920 ? 76 : 80;
+
   await pipeline
     .clone()
-    .jpeg({ quality: 90, mozjpeg: true, chromaSubsampling: '4:4:4' })
+    .jpeg({ quality: jpegQ, mozjpeg: true, chromaSubsampling: '4:2:0' })
     .toFile(`${stem}.jpg`);
   await pipeline
     .clone()
-    .webp({ quality: 88, effort: 6, smartSubsample: true })
+    .webp({ quality: webpQ, effort: 6, smartSubsample: true })
     .toFile(`${stem}.webp`);
 
-  console.log('OK', `${width}x${height}`);
+  const jpgStat = fs.statSync(`${stem}.jpg`);
+  const webpStat = fs.statSync(`${stem}.webp`);
+  console.log(
+    'OK',
+    `${width}x${height}`,
+    `jpg=${Math.round(jpgStat.size / 1024)}KB`,
+    `webp=${Math.round(webpStat.size / 1024)}KB`,
+  );
 }
