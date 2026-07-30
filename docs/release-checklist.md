@@ -31,6 +31,8 @@ Použijte tento checklist před každým release na produkci.
 - [ ] `NEXT_PUBLIC_SITE_LAUNCHED` je správně nastaveno v Production
 - [ ] (Volitelně) `NEXT_PUBLIC_FACEBOOK_URL` je validní
 - [ ] (Volitelně) `NEXT_PUBLIC_GA_MEASUREMENT_ID` je nastaveno v Production (GA4)
+- [ ] Při nastaveném GA: cookie lišta se zobrazí (anonymní okno), odmítnutí = žádný gtag
+- [ ] `/ochrana-osobnich-udaju` a `/.well-known/security.txt` odpovídají
 - [ ] Poslední production deploy je `Ready` + `Current`
 
 ## D) Doména
@@ -38,6 +40,7 @@ Použijte tento checklist před každým release na produkci.
 - [ ] Doména je připojená ve Vercelu (`Valid/Connected`)
 - [ ] `protynecsrdcem.cz` ukazuje správný aktuální deploy
 - [ ] Ověřeno v anonymním okně (bez cache)
+- [ ] (Doporučeno u registrátora, ne ve Vercelu) SPF + DMARC na apex; volitelně DNSSEC — viz `docs/operations.md` § 6
 
 ## E) Post-release
 

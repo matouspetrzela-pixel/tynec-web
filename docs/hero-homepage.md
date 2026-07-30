@@ -97,8 +97,10 @@ Desktop tedy = box vlevo dole, ne „vpravo“.
 ## Fotka na pozadí
 
 - Základ: `hero-velky-tynec-dji-0702-v2026` (`public/images/`)
-- Formáty: WebP + JPEG fallback, `srcSet` 1600w / 2560w
-- Cache bust: `HERO_ASSET_VER` v `Hero.tsx` (query `?v=`)
+- Formáty: WebP + JPEG fallback, `srcSet` **800w / 1280w / 1920w / 2560w** (generuje `scripts/process-hero-photo.mjs`)
+- Cache bust: `HERO_ASSET_VER` v `Hero.tsx` (query `?v=`) — po přegenerování **vždy bumpnout**
+- LCP: preload webp na homepage (`HERO_LCP_PRELOAD`), `fetchPriority="high"`, `decoding="sync"`; hero logo bez `priority`
+- Orientační velikosti (po kompresi 7/2026): mobilní 800 webp ~60 KB, 1280 webp ~140 KB
 - `object-position` (responzivní):
   - mobil: `50% 40%` — pod boxem vidět věž
   - desktop: `62% 34%` — ostení vpravo
@@ -158,6 +160,7 @@ npm run build
 | `b6d346c` | Hero fullscreen — patička pod foldem (všechny breakpointy) |
 | `9081639` | Responzivita podle GA: mobil bez prodlevy, tablet centrovaný, desktop box vlevo dole |
 | `9e43054` | Typografie hero CTA mírně zmenšena (součást celkového sjednocení webu) |
+| *(lokálně / 6d07633)* | LCP: srcSet 800–2560, preload, nižší komprese |
 | *(lokálně)* | Notebook 1280–1919: bez `-ml`, užší panel, padding od `min-[1920px]` |
 
 ---

@@ -55,6 +55,7 @@ Deployment se spouští pushnutím do `main` nebo ručně přes Vercel UI.
 ### `NEXT_PUBLIC_GA_MEASUREMENT_ID` (volitelné)
 - Measurement ID (`G-…`) z GA4 Admin → Datové streamy.
 - Pouze měření v prohlížeči na webu; **žádný** service account v tomto projektu nepatří.
+- Na webu se GA **načte až po souhlasu** v cookie liště (`CookieConsent`). Bez této env proměnné lišta i GA chybí.
 
 ### Interní přehled (samostatný projekt)
 - Paralelní aplikace `../tynec-analytics/` s GA4 Data API a volitelně Looker Studiem — vlastní README, vlastní projekt na Vercelu (`Root Directory`: `tynec-analytics`). Na veřejný web ani do tohoto CI netahat `GOOGLE_SERVICE_ACCOUNT_JSON`.
@@ -74,9 +75,24 @@ Deployment se spouští pushnutím do `main` nebo ručně přes Vercel UI.
 - Ověřit, že poslední deploy je `Ready` + `Current`.
 - Otevřít přes Vercel `Visit` nebo dát hard refresh (`Ctrl+F5`).
 
-## 6) Provozní doporučení
+### Cookie lišta se po souhlasu pořád vrací
+- Souhlas je v `localStorage` pod klíčem `pts_cookie_consent`.
+- Privátní režim / blokace úložiště → lišta se může zobrazit znovu (očekávané).
+
+## 6) DNS / e-mail (mimo Vercel — doporučené)
+
+Kontakt webu je Seznam (`protynecsrdcem@seznam.cz`). Na doméně `protynecsrdcem.cz` u registrátora **doporučeno** doplnit:
+
+1. **SPF** TXT na apex — pokud z domény neposíláte mail: `v=spf1 -all`
+2. **DMARC** TXT na `_dmarc.protynecsrdcem.cz` — např. `v=DMARC1; p=none; rua=mailto:protynecsrdcem@seznam.cz`
+3. **DNSSEC** — zapnout v panelu registrátora `.cz` (volitelné)
+
+Detail a kontext: [`architecture.md`](architecture.md) § 6.
+
+## 7) Provozní doporučení
 
 - Nepouštět změny přímo do `main` bez lokálního buildu.
 - U větších změn používat `develop` a testovat preview URL.
 - U launch-critical změn používat checklist (`release-checklist.md`).
+- Po větších úpravách bezpečnosti/výkonu volitelně znovu [VibeScan](https://vibescan.cz).
 

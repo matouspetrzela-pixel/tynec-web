@@ -11,10 +11,10 @@ Tato složka obsahuje provozní a vývojovou dokumentaci pro web `tynec-web`.
   Hero homepage: responzivita mobil / tablet / desktop, breakpointy, CSS, QA checklist.
 
 - `architecture.md`  
-  Architektura projektu, hlavní komponenty, routing, práce s daty a bezpečnostní opatření.
+  Architektura projektu, hlavní komponenty, routing, práce s daty, **bezpečnost / cookies / DNS doporučení**.
 
 - `operations.md`  
-  Lokální vývoj, CI/CD, Vercel konfigurace, environment proměnné, monitoring a řešení incidentů.
+  Lokální vývoj, CI/CD, Vercel, environment proměnné, **DNS u registrátora**, řešení incidentů.
 
 - `content-workflow.md`  
   Jak upravovat texty, kandidáty, fotografie a sociální odkazy bez rizika regresí.

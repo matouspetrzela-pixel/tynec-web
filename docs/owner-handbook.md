@@ -43,10 +43,20 @@ Bez konzultace neměnit:
 - `Build Command`
 - `Install Command`
 - Framework (`Next.js`)
-- DNS/doménové záznamy
+- DNS/doménové záznamy (kromě níže doporučeného SPF/DMARC/DNSSEC u registrátora)
 - bezpečnostní hlavičky a CSP
 
 Tyto změny mohou web okamžitě rozbít.
+
+### Doporučené u registrátora domény (jednou)
+
+Web posílá kontakt na Seznam, ne z `@protynecsrdcem.cz`. Přesto u správce DNS domény doplňte proti phishingu:
+
+1. TXT **SPF** na `protynecsrdcem.cz` — pokud z domény neposíláte e-mail: `v=spf1 -all`
+2. TXT **DMARC** na `_dmarc.protynecsrdcem.cz` — např. `v=DMARC1; p=none; rua=mailto:protynecsrdcem@seznam.cz`
+3. Volitelně zapnout **DNSSEC**
+
+Podrobnosti: `docs/operations.md` a `docs/architecture.md`.
 
 ## 6) Co dělat při chybě
 

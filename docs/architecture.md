@@ -52,28 +52,62 @@ Primární cíl je rychlá prezentační kampaň s možností postupného odemyk
 
 - App Router stránky jsou převážně statické.
 - Kandidáti jsou předgenerováni (`generateStaticParams`) pro nízkou latenci.
-- Hero využívá optimalizované obrázky (`webp` + fallback `jpg`) a responzivní `srcSet`.
+- Hero využívá optimalizované obrázky (`webp` + fallback `jpg`) a responzivní `srcSet` **800 / 1280 / 1920 / 2560**.
+- Homepage preloaduje LCP webp (`HERO_LCP_PRELOAD` v `components/Hero.tsx`); hero logo **nemá** `priority`, aby nesoupeřilo o bandwidth s fotkou.
 - Hero výška: mobil = obsah boxu (`min-height: auto`), tablet/desktop = `100dvh` minus hlavička — viz [`hero-homepage.md`](hero-homepage.md).
 
-## 6) Bezpečnostní hardening
+## 6) Bezpečnostní hardening a právní minimum
 
-V `next.config.mjs` jsou nastavena bezpečnostní hlavičky:
+### Hlavičky (`next.config.mjs`)
 
-- `Content-Security-Policy`
+- `Content-Security-Policy` (baseline; skripty GA + `'unsafe-inline'` kvůli Next/gtag — Lighthouse může hlásit „slabší CSP“, to je očekávané)
+- `Access-Control-Allow-Origin: https://www.protynecsrdcem.cz` (přepisuje výchozí Vercel `*`)
 - `X-Frame-Options: DENY`
 - `X-Content-Type-Options: nosniff`
 - `Referrer-Policy: strict-origin-when-cross-origin`
 - `Permissions-Policy` (camera/mic/geolocation zakázány)
+- `Cross-Origin-Opener-Policy` / `Cross-Origin-Resource-Policy: same-origin`
 - `Strict-Transport-Security` (v produkci)
 
 Tyto hlavičky jsou součástí baseline bezpečnosti a neměly by se oslabovat bez důvodu.
 
+### Cookies / GA4
+
+- GA běží **jen po souhlasu** (`components/CookieConsent.tsx` + `lib/cookie-consent.ts`).
+- Lišta je v SSR HTML (skenery ji najdou); dříve uložený výběr skryje bootstrap skript před paintem.
+- Bez `NEXT_PUBLIC_GA_MEASUREMENT_ID` se lišta ani GA nenačítají.
+
+### Právní stránky a kontakt pro security
+
+| Položka | Kde |
+|---|---|
+| Ochrana osobních údajů | `/ochrana-osobnich-udaju` + odkaz ve footeru |
+| `security.txt` | `public/.well-known/security.txt` → `/.well-known/security.txt` |
+| Skip link | „Přeskočit na obsah“ v `app/layout.tsx` |
+| Homepage `<h1>` | `sr-only` v `HeroLead.tsx` („Pro Týnec srdcem“) |
+
+### Co zůstává mimo kód (doporučené u registrátora / DNS)
+
+E-mail kampaně je **`protynecsrdcem@seznam.cz`**, ne schránka na `@protynecsrdcem.cz`. I tak je vhodné na **apex** doméně (`protynecsrdcem.cz`) doplnit DNS záznamy proti spoofingu:
+
+| Záznam | Stav | Doporučení |
+|---|---|---|
+| **SPF** (TXT) | chybí | např. `v=spf1 -all`, pokud z domény **neposíláte** mail; jinak podle poskytovatele schránky |
+| **DMARC** (TXT na `_dmarc`) | chybí | začít `v=DMARC1; p=none; rua=mailto:…` a později zpřísnit |
+| **DKIM** | N/A dokud neposíláte z domény | nastaví poskytovatel e-mailu |
+| **DNSSEC** | vypnuto | zapnout u registrátora `.cz` (volitelné, doporučené) |
+
+Prohlášení o přístupnosti **není** u tohoto typu webu povinné — záměrně není.
+
+Kontrola skenerem: [vibescan.cz](https://vibescan.cz) (červenec 2026: baseline ~92; po hardenignu hlavně LCP + CORS + právní stránky).
+
 ## 7) Klíčová rozhodnutí
 
-- **Single source of truth pro kandidáty**: data nejsou duplikována v UI.
+- **Single source of truth for kandidáty**: data nejsou duplikována v UI.
 - **Feature flag pro launch**: umožní bezpečné spuštění domény bez odhalení plného obsahu.
 - **CI před deploymentem**: build se validuje už na GitHub Actions.
 - **Postupné odhalování kandidátů**: `revealed` flag + ruční deploy; profily skrytých kandidátů vrací 404.
+- **GA jen se souhlasem**: žádné analytické cookies před volbou v liště.
 
 ## 8) Typografie a tlačítka
 

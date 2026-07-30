@@ -67,7 +67,13 @@ Detailní popis breakpointů, CSS a QA: [`hero-homepage.md`](hero-homepage.md).
 - Řazení: sestupně podle `datum` (nejnovější první)
 - **Stránkování:** 8 článků na stránku (`ITEMS_PER_PAGE` v `app/aktuality/page.tsx`); starší na stránku 2+
 - Pill navigace (aktivní = `tynec-navy`), query `?strana=N`
-- Nejnovější: **22. 7. 2026** — Pivní a gulášové slavnosti (banner `public/aktuality/pivni-gulasove-slavnosti-2026.jpg`); dále mimo jiné zasedání zastupitelstva **20. 7.** a volební program + pořadí kandidátů **17. 7.**
+- Nejnovější: **28. 7. 2026** — informace ze zastupitelstva (banner `informace-ze-zastupitelstva-2026-07-28.png`, podrobnosti rozbalovací); dále gulášové slavnosti **22. 7.**, oznámení zasedání **20. 7.**, volební program + pořadí **17. 7.**
+
+### Ochrana údajů / cookies
+
+- Stránka `/ochrana-osobnich-udaju`, odkaz ve footeru
+- Cookie lišta + GA až po souhlasu
+- `/.well-known/security.txt`
 
 ### Podpořte nás `/podporte-nas`
 
@@ -81,11 +87,11 @@ Detailní popis breakpointů, CSS a QA: [`hero-homepage.md`](hero-homepage.md).
 
 | Commit | Popis |
 |---|---|
+| `6d07633` | LCP hero (800–2560), CORS bez `*`, SSR cookie lišta |
+| `2706333` | Cookie souhlas, ochrana údajů, security.txt, skip link, h1 |
+| `ee16866` | Aktualita ze zastupitelstva 28. 7. 2026 |
 | `4533761` | Aktualita o Pivních a gulášových slavnostech (22. 7. 2026) |
 | `acebc4b` | Oprava dne zasedání zastupitelstva na pondělí 27. 7. 2026 |
-| `0659283` | Aktualita o zasedání zastupitelstva 27. 7. 2026 |
-| `46eb8e4` | Partneři na Podpořte nás (Klabačka, Řehula + Loxone odkaz) |
-| `37e63ba` | Pořadí kandidátů dle listiny, studio mark čísla, aktualita 17. 7. + paginace po 8 |
 
 ### Typografie (nasazeno `9e43054`)
 
@@ -110,15 +116,16 @@ Detailní popis breakpointů, CSS a QA: [`hero-homepage.md`](hero-homepage.md).
 
 ## Necommitovat
 
-`.cursor/`, `.vscode/`, `.tmp-photo-one/`, `components/home/HomeCampaignFront.tsx`, `.env.local`, `scripts/sources/` (prázdné), zpracované PNG mimo pipeline.
+`.cursor/`, `.vscode/`, `.tmp-photo-one/`, `components/home/HomeCampaignFront.tsx`, `.env.local`, `scripts/sources/` (zdroje hero atd.), zpracované PNG mimo pipeline.
 
 ---
 
 ## Související dokumentace
 
 - [`typography.md`](typography.md) — typografie a tlačítka
-- [`hero-homepage.md`](hero-homepage.md) — layout hero, breakpointy, QA
+- [`hero-homepage.md`](hero-homepage.md) — layout hero, breakpointy, QA, LCP assety
+- [`architecture.md`](architecture.md) — bezpečnost, cookies, **DNS doporučení (SPF/DMARC/DNSSEC)**
+- [`operations.md`](operations.md) — provoz, GA env, DNS u registrátora
 - [`content-workflow.md`](content-workflow.md)
 - [`kandidati-local-status.md`](kandidati-local-status.md)
-- [`architecture.md`](architecture.md)
 - [`release-checklist.md`](release-checklist.md)
