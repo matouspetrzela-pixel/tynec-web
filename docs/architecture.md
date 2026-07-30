@@ -99,11 +99,11 @@ E-mail kampaně je **`protynecsrdcem@seznam.cz`**, ne schránka na `@protynecsrd
 
 Prohlášení o přístupnosti **není** u tohoto typu webu povinné — záměrně není.
 
-Kontrola skenerem: [vibescan.cz](https://vibescan.cz) (červenec 2026: baseline ~92; po hardenignu hlavně LCP + CORS + právní stránky).
+Kontrola skenerem: [vibescan.cz](https://vibescan.cz) (červenec 2026: baseline ~92; po hardenningu hlavně LCP + CORS + právní stránky).
 
 ## 7) Klíčová rozhodnutí
 
-- **Single source of truth for kandidáty**: data nejsou duplikována v UI.
+- **Single source of truth pro kandidáty**: data nejsou duplikována v UI.
 - **Feature flag pro launch**: umožní bezpečné spuštění domény bez odhalení plného obsahu.
 - **CI před deploymentem**: build se validuje už na GitHub Actions.
 - **Postupné odhalování kandidátů**: `revealed` flag + ruční deploy; profily skrytých kandidátů vrací 404.
