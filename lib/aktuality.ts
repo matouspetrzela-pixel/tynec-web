@@ -80,6 +80,61 @@ export interface Aktualita {
 
 export const AKTUALITY: Aktualita[] = [
   {
+    id: '2026-08-07-hlasovani-komunalni-volby',
+    typ: 'clanek',
+    datum: '2026-08-07',
+    nadpis:
+      'Jak správně hlasovat v komunálních volbách? Upozorňujeme na nepřesnost v Týneckých listech',
+    perex:
+      'V srpnovém vydání Týneckých listů byla zveřejněna infografika, která občanům přibližuje způsoby hlasování v nadcházejících komunálních volbách. Bohužel jeden z uvedených příkladů není zpracován zcela správně a může být pro některé voliče zavádějící.',
+    obsah: `Naším cílem není hledat chyby, ale pomoci občanům zorientovat se ve způsobu hlasování tak, aby každý hlas vyjádřil přesně vůli voliče. Pojďme si společně projít tři způsoby hlasování.
+
+V komunálních volbách můžete hlasovat třemi způsoby:
+
+1. Hlas pro celou volební stranu
+
+Nejjednodušší možností je označit velkým křížkem jednu volební stranu.
+
+V takovém případě dáváte této volební straně všech 11 hlasů, tedy plnou podporu. Žádné další křížky už není potřeba přidávat.
+
+2. Hlas jednotlivým kandidátům
+
+Pokud si přejete vybírat konkrétní osoby bez ohledu na jejich volební stranu, označíte malé křížky přímo u jmen kandidátů.
+
+Ve Velkém Týnci se volí jedenáctičlenné zastupitelstvo, proto můžete označit nejvýše 11 kandidátů.
+
+• Označíte-li více než 11 kandidátů, bude hlasovací lístek neplatný.
+
+• Označit můžete i méně kandidátů. Nevyužité hlasy však již nikomu nepřipadnou.
+
+Kde je nepřesnost v Týneckých listech?
+
+Druhý příklad uvedený v Týneckých listech obsahuje kromě malých křížků u jednotlivých kandidátů také velký křížek u názvu jedné volební strany. Takový způsob hlasování už ale není druhým způsobem hlasování, nýbrž třetím.
+
+Podle volebních pravidel totiž platí, že pokud volič označí velkým křížkem volební stranu, malé křížky u kandidátů této stejné volební strany se samostatně nezapočítávají. Zbývající hlasy se automaticky přidělují kandidátům této volební strany podle pořadí na kandidátní listině.
+
+To znamená, že v uvedeném příkladu by hlas nezískal kandidát označený číslem 8, ale hlasy by připadly kandidátům na prvních pěti místech kandidátní listiny.
+
+3. Kombinace obou způsobů
+
+Třetí možnost umožňuje oba předchozí způsoby kombinovat.
+
+Volič označí velkým křížkem jednu volební stranu a zároveň může malými křížky podpořit jednotlivé kandidáty z ostatních volebních stran.
+
+Například pokud označí čtyři kandidáty z jiných volebních stran, zbývajících sedm hlasů automaticky připadne prvním sedmi kandidátům volební strany označené velkým křížkem.
+
+Správným hlasováním podpoříte svoji volbu. Hlasujte tak, abyste se jednou za svou volbu nemuseli stydět
+
+Komunální volby dávají voličům možnost rozhodnout nejen o podpoře celé kandidátní listiny, ale také o konkrétních osobnostech. Právě proto je důležité znát pravidla hlasování a vědět, jak se jednotlivé způsoby liší.
+
+Věříme, že toto vysvětlení pomůže předejít případným nedorozuměním a umožní každému voliči odevzdat hlas přesně podle své vůle.
+
+Změna začíná vaším hlasem. Přijďte k volbám 9. a 10. října 2026.`,
+    obrazek: '/aktuality/hlasovani-komunalni-volby-2026-08-07.jpg',
+    obrazekSirka: 1024,
+    obrazekVyska: 681,
+  },
+  {
     id: '2026-07-28-informace-ze-zastupitelstva',
     typ: 'clanek',
     datum: '2026-07-28',
